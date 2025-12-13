@@ -54,10 +54,10 @@ class MCPClient:
         self._lock = asyncio.Lock()
 
     async def start(self):
-    """
-    Connect to MCP server
-    Args: server_script_path: Path to the server script
-    """
+        """
+        Connect to MCP server
+        Args: server_script_path: Path to the server script
+        """
         command = "python"
         server_params = StdioServerParameters(
             command=command,
@@ -71,46 +71,15 @@ class MCPClient:
 
         await self.session.initialize()
 
-    async def process_query(self, query: str):
-        """
-        process current query using available tools
-        """
-
-        messages = [
-            {
-            "role": "system",
-            "content": "You are a helpful assistant that can use external tools when necessary."
-            },
-            {
+    async def send_message_to_llm(self,formatted_tools: list[dict], prompt:str, messages: list[dict]):
+        messages.append({
             "role":"user",
-            "content":query
-            }
-
-        ]
-               
-        # recive tools
-        response = await self.session.list_tools()
-        available_tools = [{
-            "name": tool.name,
-            "description": tool.description,
-            "input_schema": tool.inputSchema
-        } for tool in response.tools]
+            "content": prompt
+        })
+        logger.debug(prompt)
+        logger.debug("-------------------------------------------Sending request to LLM with messages: {prompt}")
         
-        # Conversion of tools into the correct JSON format for the e-infra API
-        formatted_tools = [
-        {
-            "type": "function",
-            "function": {
-                "name": tool["name"],
-                "description": tool["description"],
-                "parameters": tool.get("input_schema", {"type": "object", "properties": {}})
-            }
-        }
-        for tool in available_tools
-        
-        ]
-
-       
+        logger.debug(messages)
 
         response = client_ai.chat.completions.create(
             model=LLM_MODEL,
@@ -118,14 +87,23 @@ class MCPClient:
             messages=messages,
             tools=formatted_tools
         )
+        return response
 
-        if (response.choices[0].message.content is not None and sanitize_prompt(response.choices[0].message.content) == None):
-            return None
+    async def process_query(self, query: str):
+        """
+        process current query using available tools
+        """
+
+        response = await defended_client.get_response(query)
+        logger.debug("-------------------------------------------------")
+        logger.debug(response)
+        #if (response.choices[0].message.content is None) or (sanitize_prompt(response.choices[0].message.content) is None):
+        #    return None
 
         result=response.choices[0].message.content
 
         while True:
-
+            logger.debug("loop running")
             message = response.choices[0].message
 
             if not message.tool_calls:
@@ -137,25 +115,19 @@ class MCPClient:
             tool_args = json.loads(tool_call.function.arguments)
             
             # call tool
-            result = await self.session.call_tool(tool_name, tool_args)
+            result_tmp = await self.session.call_tool(tool_name, tool_args)
+            logger.debug("*******************************tool call {result.content} ***********************************")
+            
+            # result.content může být list objektů, převedeme na string
+            if isinstance(result_tmp.content, list):
+                content_str = "\n".join(str(x) for x in result_tmp.content)
+            else:
+                content_str = str(result_tmp.content)
+            response = await defended_client.get_response(content_str)
 
-            
-            messages.append(message)
-            messages.append({
-                "role":"user",
-                "content": result.content
-            })
-             
-            response = client_ai.chat.completions.create(
-                model=LLM_MODEL,
-                max_tokens=1000,
-                messages=messages,
-                tools=formatted_tools
-            )
-            
-            
             result = response.choices[0].message.content if response.choices else "No response"
-
+        
+        logger.debug("RETRURNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN")
         return result
 
 
@@ -178,18 +150,47 @@ class MCPAdapter(TargetLM):
 
     async def get_response(self, prompts_list, **kwargs):
         
-        single_prompt = False
-        if isinstance(prompts_list, str):
-            prompts_list = [prompts_list]
-            single_prompt = True
+        
+        # recive tools
+        response = await self.mcp_client.session.list_tools()
+        available_tools = [{
+            "name": tool.name,
+            "description": tool.description,
+            "input_schema": tool.inputSchema
+        } for tool in response.tools]
 
-        results = []
+        # Conversion of tools into the correct JSON format for the e-infra API
+        formatted_tools = [
+        {
+            "type": "function",
+            "function": {
+                "name": tool["name"],
+                "description": tool["description"],
+                "parameters": tool.get("input_schema", {"type": "object", "properties": {}})
+            }
+        }
+        for tool in available_tools
 
-        for prompt in prompts_list:
-            response = await self.mcp_client.process_query(prompt)
-            results.append(response)
+        ]
+        
+        messages = [{
+            "role": "system",
+            "content": "You are a helpful assistant that can use external tools when necessary."
+        }]
+
+        #single_prompt = False
+        #if isinstance(prompts_list, str):
+        #    prompts_list = [prompts_list]
+        #    single_prompt = True
+
+        #results = []
+
+        #for prompt in prompts_list:
+        response = await self.mcp_client.send_message_to_llm(formatted_tools, prompts_list, messages)
+        #results.append(response)
         # If there was only one prompt originally, return only the answer
-        return results[0] if single_prompt else results
+        #return results[0] if single_prompt else results
+        return response
 
     def evaluate_log_likelihood(self, prompt, response):
         return 0
@@ -214,7 +215,7 @@ async def query_endpoint(request: QueryRequest):
         if sanitize_prompt(request.query) is None:
             answer = "I cannot answer this question, because it may try to bypass security guards"
         else:
-            answer = await defended_client.get_response(request.query)
+            answer = await client.process_query(request.query)
             if answer is None or sanitize_prompt(answer) is None:
                 answer = "I cannot answer this question, because it may try to bypass security guards"
 
