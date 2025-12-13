@@ -1,7 +1,7 @@
 # llm_security
 This repository accompanies a bachelor’s thesis investigating the security of large language models (LLMs), with a focus on prompt injection attacks and their defense mechanisms.
 
-##Set up
+##Set up\n
 You need to download specific branch with specific protection. Main branch is only with basic word filter.
 
 ###You need to create venv:
