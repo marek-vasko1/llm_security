@@ -14,7 +14,9 @@ You need to download specific branch with specific protection. Main branch is on
 'sudo apt install podman'
 'pip3 install podman-compose'
 
-### Edit api-wrapper/environment/API_KEY and api-wrapper/environment/BASE_URL
+### create .env file
+
+set API_KEY and BASE_URL
 
 ## Run it using
 
