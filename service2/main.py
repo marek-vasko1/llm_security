@@ -17,6 +17,9 @@ from dotenv import load_dotenv
 import logging
 from openai import OpenAI
 
+from llm_jailbreaking_defense import DefendedTargetLM, SelfReminderConfig, BacktranslationConfig, load_defense, TargetLM
+
+
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)
 
@@ -51,9 +54,10 @@ class MCPClient:
         self._lock = asyncio.Lock()
 
     async def start(self):
-    #Connect to MCP server
-    #Args: server_script_path: Path to the server script
-    
+    """
+    Connect to MCP server
+    Args: server_script_path: Path to the server script
+    """
         command = "python"
         server_params = StdioServerParameters(
             command=command,
@@ -84,7 +88,7 @@ class MCPClient:
 
         ]
                
-        #recive tools
+        # recive tools
         response = await self.session.list_tools()
         available_tools = [{
             "name": tool.name,
@@ -131,9 +135,10 @@ class MCPClient:
             tool_name = tool_call.function.name
             tool_args = tool_call.function.arguments
             tool_args = json.loads(tool_call.function.arguments)
-
-            #call tool
+            
+            # call tool
             result = await self.session.call_tool(tool_name, tool_args)
+
             
             messages.append(message)
             messages.append({
@@ -156,31 +161,67 @@ class MCPClient:
 
 # INITIALIZE MCP CLIENT ON STARTUP
 
+
+# MCP Adapter pro DefendedTargetLM
+
+class MCPAdapter(TargetLM):
+    def __init__(self, mcp_client):
+        self.mcp_client = mcp_client
+        self.loop = asyncio.get_event_loop()
+        class SimpleTemplate:
+            def __init__(self):
+                self.system_message = "You are a helpful assistant."
+                self.user_message = "{prompt}"
+        
+        self.template = SimpleTemplate()
+
+
+    async def get_response(self, prompts_list, **kwargs):
+        
+        single_prompt = False
+        if isinstance(prompts_list, str):
+            prompts_list = [prompts_list]
+            single_prompt = True
+
+        results = []
+
+        for prompt in prompts_list:
+            response = await self.mcp_client.process_query(prompt)
+            results.append(response)
+        # If there was only one prompt originally, return only the answer
+        return results[0] if single_prompt else results
+
+    def evaluate_log_likelihood(self, prompt, response):
+        return 0
+
 @app.on_event("startup")
 async def startup_event():
-    global client
+    global client, defended_client
     client = MCPClient(MCP_SERVER_SCRIPT)
     await client.start()
+    
+    # Adapter for defence
+    mcp_adapter = MCPAdapter(client)
+
+    config = SelfReminderConfig()
+    defense = load_defense(config)
+
+    defended_client = DefendedTargetLM(mcp_adapter, defense)
 
 @app.post("/query")
 async def query_endpoint(request: QueryRequest):
     try:
-        if (sanitize_prompt(request.query) is None):
-              answer = "I cannot answer this question, because it may try to bypass security guards"
+        if sanitize_prompt(request.query) is None:
+            answer = "I cannot answer this question, because it may try to bypass security guards"
         else:
-            answer = await client.process_query(request.query)
-
-
-            if (answer is None or sanitize_prompt(answer) is None):
+            answer = await defended_client.get_response(request.query)
+            if answer is None or sanitize_prompt(answer) is None:
                 answer = "I cannot answer this question, because it may try to bypass security guards"
-            
 
         return {"query": request.query, "answer": answer}
     except Exception as e:
-        logging.info(f"tady exc {e}")
+        logger.exception("Error processing query")
         raise HTTPException(status_code=500, detail=str(e))
-
-
 
 
 
