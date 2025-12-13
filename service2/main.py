@@ -200,7 +200,7 @@ async def startup_event():
     client = MCPClient(MCP_SERVER_SCRIPT)
     await client.start()
     
-    # Adapter for defence
+    # Adapter for defence 
     mcp_adapter = MCPAdapter(client)
 
     config = SelfReminderConfig()
