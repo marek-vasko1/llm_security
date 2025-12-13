@@ -15,8 +15,8 @@ services:
     networks:
       - demo-net
     environment:
-      API_KEY: ""
-      BASE_URL: ""
+      API_KEY: ${API_KEY}
+      BASE_URL: ${BASE_URL}
 
 networks:
   demo-net:
