@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  service1:
+    build: ./service1
+    container_name: kali
+    stdin_open: true
+    tty: true
+    networks:
+      - demo-net
+
+  api-wrapper:
+    build: ./service2
+    container_name: api-wrapper
+    networks:
+      - demo-net
+    environment:
+      API_KEY: ""
+      BASE_URL: ""
+
+networks:
+  demo-net:
+    external: true
