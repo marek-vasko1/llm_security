@@ -95,13 +95,14 @@ class MCPClient:
         """
 
         response = await defended_client.get_response(query)
+        if response == "I'm sorry, but I cannot assist with that request.":
+            return response
+
         logger.debug("-------------------------------------------------")
         logger.debug(response)
-        #if (response.choices[0].message.content is None) or (sanitize_prompt(response.choices[0].message.content) is None):
-        #    return None
 
         result=response.choices[0].message.content
-
+        
         while True:
             logger.debug("loop running")
             message = response.choices[0].message
@@ -118,12 +119,14 @@ class MCPClient:
             result_tmp = await self.session.call_tool(tool_name, tool_args)
             logger.debug("*******************************tool call {result.content} ***********************************")
             
-            # result.content může být list objektů, převedeme na string
+            # result.content to string
             if isinstance(result_tmp.content, list):
                 content_str = "\n".join(str(x) for x in result_tmp.content)
             else:
                 content_str = str(result_tmp.content)
             response = await defended_client.get_response(content_str)
+            if response == "I'm sorry, but I cannot assist with that request.":
+                return response
 
             result = response.choices[0].message.content if response.choices else "No response"
         
@@ -178,18 +181,8 @@ class MCPAdapter(TargetLM):
             "content": "You are a helpful assistant that can use external tools when necessary."
         }]
 
-        #single_prompt = False
-        #if isinstance(prompts_list, str):
-        #    prompts_list = [prompts_list]
-        #    single_prompt = True
-
-        #results = []
-
-        #for prompt in prompts_list:
         response = await self.mcp_client.send_message_to_llm(formatted_tools, prompts_list, messages)
-        #results.append(response)
-        # If there was only one prompt originally, return only the answer
-        #return results[0] if single_prompt else results
+
         return response
 
     def evaluate_log_likelihood(self, prompt, response):
@@ -204,7 +197,7 @@ async def startup_event():
     # Adapter for defence 
     mcp_adapter = MCPAdapter(client)
 
-    config = SelfReminderConfig()
+    config = BacktranslationConfig()
     defense = load_defense(config)
 
     defended_client = DefendedTargetLM(mcp_adapter, defense)
