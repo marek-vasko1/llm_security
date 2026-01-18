@@ -15,9 +15,9 @@ import os
 from dotenv import load_dotenv
 
 import logging
-from openai import OpenAI
+from openai import OpenAI, AsyncOpenAI
 
-from llm_jailbreaking_defense import DefendedTargetLM, SelfReminderConfig, BacktranslationConfig, load_defense, TargetLM
+from llm_jailbreaking_defense import DefendedTargetLM, SelfReminderConfig, BacktranslationConfig, load_defense, TargetLM, ParaphraseDefenseConfig
 
 
 logger = logging.getLogger(__name__)
@@ -195,17 +195,58 @@ class MCPAdapter(TargetLM):
     def evaluate_log_likelihood(self, prompt, response):
         return 0
 
+#PARAPHRASE LLM
+class ParaLLM(TargetLM):
+    def __init__(self, model_name: str, api_key: str, base_url: str):
+        self.model_name = model_name
+        
+        self.client = AsyncOpenAI(
+            api_key=api_key,
+            base_url=base_url
+        )
+
+    async def get_response(self, prompts_list, **kwargs):
+        
+        if isinstance(prompts_list, list):
+            prompt = prompts_list[0]
+        else:
+            prompt = prompts_list
+
+        messages = [
+                {"role": "system", "content": prompt}
+            ]
+
+        try:
+            response = await self.client.chat.completions.create(
+                model=self.model_name,
+                messages=messages,
+                temperature=0.7, 
+                max_tokens=1024
+            )
+
+            content = response.choices[0].message.content
+            
+            
+            return [content]
+
+        except Exception as e:
+            return [prompt] 
+
+    def evaluate_log_likelihood(self, prompt, response):
+        return 0
+
 @app.on_event("startup")
 async def startup_event():
     global client, defended_client
     client = MCPClient(MCP_SERVER_SCRIPT)
     await client.start()
     
+    para_llm = ParaLLM(model_name="gpt-oss-120b",api_key=api_key_check,base_url=url_check)
     # Adapter for defence 
     mcp_adapter = MCPAdapter(client)
 
-    config = SelfReminderConfig()
-    defense = load_defense(config)
+    config = ParaphraseDefenseConfig(paraphrase_model="custom-direct-model")
+    defense = load_defense(config, preloaded_model=para_llm)
 
     defended_client = DefendedTargetLM(mcp_adapter, defense)
 
