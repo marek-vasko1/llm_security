@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 import logging
 from openai import OpenAI
 
-from llm_jailbreaking_defense import DefendedTargetLM, SelfReminderConfig, BacktranslationConfig, load_defense, TargetLM
+from llm_jailbreaking_defense import DefendedTargetLM, ICLDefenseConfig, BacktranslationConfig, load_defense, TargetLM
 
 
 logger = logging.getLogger(__name__)
@@ -72,10 +72,13 @@ class MCPClient:
         await self.session.initialize()
 
     async def send_message_to_llm(self,formatted_tools: list[dict], prompt:str, messages: list[dict]):
-        messages.append({
-            "role":"user",
-            "content": prompt
-        })
+        if isinstance(prompt,list) and all(isinstance(p,str) for p in prompt):
+            for i, p in enumerate(prompt):
+                role = "user" if i%2==0 else "assistant"
+                messages.append({"role": role, "content": p})
+        else:
+            messages.append({"role":"user","content": prompt})
+
         logger.debug(prompt)
         logger.debug("-------------------------------------------Sending request to LLM with messages: {prompt}")
         
@@ -87,6 +90,8 @@ class MCPClient:
             messages=messages,
             tools=formatted_tools
         )
+        logger.debug("RESPONSE:")
+        logger.debug(response)
         return response
 
     async def process_query(self, query: str):
@@ -126,7 +131,7 @@ class MCPClient:
             response = await defended_client.get_response(content_str)
 
             result = response.choices[0].message.content if response.choices else "No response"
-        
+       
         logger.debug("RETRURNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN")
         return result
 
@@ -204,7 +209,7 @@ async def startup_event():
     # Adapter for defence 
     mcp_adapter = MCPAdapter(client)
 
-    config = SelfReminderConfig()
+    config = ICLDefenseConfig()
     defense = load_defense(config)
 
     defended_client = DefendedTargetLM(mcp_adapter, defense)
