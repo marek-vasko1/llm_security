@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Aktualizace, instalace net-tools a git, a Python balíčků
 RUN apt update && apt install -y net-tools git && \
-    pip install --no-cache-dir \
+    pip install --no-cache-dir --default-timeout=1000 \
         fastapi \
         uvicorn[standard] \
         requests \
@@ -14,7 +14,11 @@ RUN apt update && apt install -y net-tools git && \
         python-dotenv \
         typing-extensions \
         aiohttp \
-        dotenv
+        dotenv \
+	torch \
+	transformers \
+	accelerate \
+	vllm
 
 # Přidání tvých souborů
 COPY main.py /app/main.py
