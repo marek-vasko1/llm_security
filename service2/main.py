@@ -17,6 +17,7 @@ from dotenv import load_dotenv
 import logging
 from openai import OpenAI
 
+
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)
 
@@ -165,13 +166,15 @@ async def startup_event():
 @app.post("/query")
 async def query_endpoint(request: QueryRequest):
     try:
-        if (sanitize_prompt(request.query) is None):
-              answer = "I cannot answer this question, because it may try to bypass security guards"
+        status = sanitize_prompt(request.query)
+        logger.debug(status)
+        logger.debug("INFO-------------------------------------")
+        if (status > 0.6):
+              return {"query": request.query, "answer": "I cannot answer this question, because it may try to bypass security guards"}
         else:
             answer = await client.process_query(request.query)
 
-
-            if (answer is None or sanitize_prompt(answer) is None):
+            if (answer is None):
                 answer = "I cannot answer this question, because it may try to bypass security guards"
             
 
