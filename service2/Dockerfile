@@ -14,11 +14,24 @@ RUN apt update && apt install -y net-tools git && \
         python-dotenv \
         typing-extensions \
         aiohttp \
-        dotenv
-
-# Přidání tvých souborů
-COPY main.py /app/main.py
-COPY mcp_server.py /app/mcp_server.py
-COPY security.py /app/security.py
+        dotenv \
+	matplotlib \
+	nltk \
+    	numpy \
+    	openai \
+    	Pillow \
+    	spacy \
+    	spacy-legacy \
+    	spacy-loggers \
+    	textaugment \
+    	textblob \
+    	torch \
+    	torchaudio \
+    	torchdata \
+    	torchtext \
+    	torchvision \
+	&& python -m spacy download en_core_web_md
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+

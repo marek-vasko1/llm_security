@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   service1:
-    build: ./service1
+    image: pair-implemented
     container_name: kali
     stdin_open: true
     tty: true
@@ -17,7 +17,8 @@ services:
     environment:
       API_KEY: ${API_KEY}
       BASE_URL: ${BASE_URL}
-
+    volumes:
+      - ./service2:/app:Z 
 networks:
   demo-net:
     external: true

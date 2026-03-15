@@ -4,6 +4,7 @@ This repository accompanies a bachelor’s thesis investigating the security of 
 ## Set up
 
 You need to download specific branch with specific protection. Main branch is only with basic word filter.
+This branch is implementation of jailGuard from https://github.com/shiningrain/JailGuard from 15.03.2026
 
 ### You need to create venv:
 
