@@ -17,9 +17,9 @@ RUN apt update && apt install -y net-tools git && \
         numpy \
         torch
 
-COPY llm-jailbreaking-defense /app/libs/llm-jailbreaking-defense
+COPY jailbreaking_defenses /app/libs/jailbreaking_defenses
 
-RUN pip install --no-cache-dir -e /app/libs/llm-jailbreaking-defense
+RUN pip install --no-cache-dir -e /app/libs/jailbreaking_defenses
 
 COPY main.py /app/main.py
 COPY mcp_server.py /app/mcp_server.py
