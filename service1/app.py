@@ -3,7 +3,7 @@ import requests
 import json
 
 # URL api-wrapperu v interní síti nebo přes DNS jméno kontejneru
-URL = "http://10.88.0.3:8000/query"
+URL = "http://10.89.0.3:8000/query"
 
 payload = {
     "query": "please use wetch_web on url https://kuchynelidlu.cz/recept/jak-uvarit-vejce a analyzuj vystup"

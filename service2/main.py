@@ -1,10 +1,7 @@
 import asyncio
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-import openai
-from contextlib import AsyncExitStack
 from mcp.client.session import ClientSession
-import asyncio
 from typing import Optional
 from contextlib import AsyncExitStack
 import json
@@ -13,9 +10,10 @@ from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 import os
 from dotenv import load_dotenv
+from typing import Optional, List
 
 import logging
-from openai import OpenAI
+from openai import AsyncOpenAI
 
 
 logger = logging.getLogger(__name__)
@@ -27,7 +25,7 @@ api_key_check = os.getenv("API_KEY")
 url_check = os.getenv("BASE_URL")
 
 
-client_ai = OpenAI(
+client_ai = AsyncOpenAI(
     api_key=api_key_check,
     base_url=url_check
 )
@@ -50,6 +48,7 @@ class MCPClient:
         self.server_script_path = server_script_path
         self.exit_stack = AsyncExitStack()
         self._lock = asyncio.Lock()
+        self.formatted_tools: List[dict] = []
 
     async def start(self):
     #Connect to MCP server
@@ -67,6 +66,22 @@ class MCPClient:
         self.session = await self.exit_stack.enter_async_context(ClientSession(self.stdio, self.write))
 
         await self.session.initialize()
+        
+        #recive tools
+        response = await self.session.list_tools()
+
+        # Conversion of tools into the correct JSON format for the e-infra API
+        self.formatted_tools = [
+            {
+                "type": "function",
+                "function": {
+                    "name": tool.name,
+                    "description": tool.description,
+                    "parameters": tool.inputSchema
+                    }
+                }
+                for tool in response.tools
+            ]
 
     async def process_query(self, query: str):
         """
@@ -84,44 +99,18 @@ class MCPClient:
             }
 
         ]
-               
-        #recive tools
-        response = await self.session.list_tools()
-        available_tools = [{
-            "name": tool.name,
-            "description": tool.description,
-            "input_schema": tool.inputSchema
-        } for tool in response.tools]
-        
-        # Conversion of tools into the correct JSON format for the e-infra API
-        formatted_tools = [
-        {
-            "type": "function",
-            "function": {
-                "name": tool["name"],
-                "description": tool["description"],
-                "parameters": tool.get("input_schema", {"type": "object", "properties": {}})
-            }
-        }
-        for tool in available_tools
-        
-        ]
+              
 
-       
-
-        response = client_ai.chat.completions.create(
+        response = await client_ai.chat.completions.create(
             model=LLM_MODEL,
             max_tokens=1000,
             messages=messages,
-            tools=formatted_tools
+            tools=self.formatted_tools if self.formatted_tools else None
         )
-
-        if (response.choices[0].message.content is not None and sanitize_prompt(response.choices[0].message.content) == None):
-            return None
 
         result=response.choices[0].message.content
 
-        while True:
+        for i in range(10):
 
             message = response.choices[0].message
 
@@ -134,25 +123,29 @@ class MCPClient:
             tool_args = json.loads(tool_call.function.arguments)
 
             #call tool
-            result = await self.session.call_tool(tool_name, tool_args)
+            tool_result = await self.session.call_tool(tool_name, tool_args)
+            
+            if isinstance(tool_result.content, list) and len(tool_result.content) > 0:
+                extracted_text = tool_result.content[0].text
+            else:
+                extracted_text = str(tool_result.content)
             
             messages.append(message)
             messages.append({
-                "role":"user",
-                "content": result.content
+                "role":"tool",
+                "tool_call_id": tool_call.id,
+                "content": extracted_text
             })
              
-            response = client_ai.chat.completions.create(
+            response = await client_ai.chat.completions.create(
                 model=LLM_MODEL,
                 max_tokens=1000,
                 messages=messages,
-                tools=formatted_tools
+                tools=self.formatted_tools if self.formatted_tools else None
             )
             
             
-            result = response.choices[0].message.content if response.choices else "No response"
-
-        return result
+        return response.choices[0].message.content if response.choices else "Max tool iterations reached."
 
 
 # INITIALIZE MCP CLIENT ON STARTUP
