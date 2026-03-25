@@ -4,18 +4,17 @@ from pydantic import BaseModel
 import openai
 from contextlib import AsyncExitStack
 from mcp.client.session import ClientSession
-import asyncio
 from typing import Optional
-from contextlib import AsyncExitStack
 import json
-from security import sanitize_prompt
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 import os
 from dotenv import load_dotenv
+from typing import Optional, List 
+from asgiref.sync import async_to_sync, sync_to_async
 
 import logging
-from openai import OpenAI
+from openai import AsyncOpenAI
 
 from llm_jailbreaking_defense import DefendedTargetLM, SelfReminderConfig, BacktranslationConfig, load_defense, TargetLM
 
@@ -29,7 +28,7 @@ api_key_check = os.getenv("API_KEY")
 url_check = os.getenv("BASE_URL")
 
 
-client_ai = OpenAI(
+client_ai = AsyncOpenAI(
     api_key=api_key_check,
     base_url=url_check
 )
@@ -52,6 +51,7 @@ class MCPClient:
         self.server_script_path = server_script_path
         self.exit_stack = AsyncExitStack()
         self._lock = asyncio.Lock()
+        self.formatted_tools: List[dict] = []
 
     async def start(self):
         """
@@ -71,22 +71,38 @@ class MCPClient:
 
         await self.session.initialize()
 
-    async def send_message_to_llm(self,formatted_tools: list[dict], prompt:str, messages: list[dict]):
-        messages.append({
-            "role":"user",
-            "content": prompt
-        })
-        logger.debug(prompt)
-        logger.debug("-------------------------------------------Sending request to LLM with messages: {prompt}")
+        #recive tools
+        response = await self.session.list_tools()
+
+        # Conversion of tools into the correct JSON format for the e-infra API
+        self.formatted_tools = [
+            {
+                "type": "function",
+                "function": {
+                    "name": tool.name,
+                    "description": tool.description,
+                    "parameters": tool.inputSchema
+                    }
+                }
+                for tool in response.tools
+            ]
+
+
+    async def send_message_to_llm(self, messages: list[dict]):
+        """
+        helper function for sending data to llm
+        """
+        logger.debug(f"-------------------------------------------Sending request to LLM with messages: {messages}")
         
         logger.debug(messages)
 
-        response = client_ai.chat.completions.create(
+        response = await client_ai.chat.completions.create(
             model=LLM_MODEL,
             max_tokens=1000,
             messages=messages,
-            tools=formatted_tools
+            tools=self.formatted_tools if self.formatted_tools else None
         )
+
         return response
 
     async def process_query(self, query: str):
@@ -94,100 +110,83 @@ class MCPClient:
         process current query using available tools
         """
 
-        response = await defended_client.get_response(query)
-        if response == "I'm sorry, but I cannot assist with that request.":
-            return response
+        messages = [
+            {
+                "role": "system",
+                "content": "You are a helpful assistant that can use external tools when necessary."
+            }
 
-        logger.debug("-------------------------------------------------")
-        logger.debug(response)
+        ]
 
-        result=response.choices[0].message.content
+        messages.append({"role":"user", "content": query})        
         
-        while True:
-            logger.debug("loop running")
-            message = response.choices[0].message
+        response = await client.send_message_to_llm(messages)
+        logger.debug(f"-------------------------------------------------\n{response}")
 
+        for i in range(10):
+            logger.debug(f"loop running {i}")
+            message = response.choices[0].message
+            
+            messages.append(message) 
             if not message.tool_calls:
                 break
 
             tool_call = message.tool_calls[0]
             tool_name = tool_call.function.name
-            tool_args = tool_call.function.arguments
             tool_args = json.loads(tool_call.function.arguments)
             
             # call tool
-            result_tmp = await self.session.call_tool(tool_name, tool_args)
-            logger.debug("*******************************tool call {result.content} ***********************************")
+            tool_result = await self.session.call_tool(tool_name, tool_args)
+            logger.debug(f"*******************************tool call {tool_result.content} ***********************************")
             
-            # result.content to string
-            if isinstance(result_tmp.content, list):
-                content_str = "\n".join(str(x) for x in result_tmp.content)
+            # result.content může být list objektů, převedeme na string
+            if isinstance(tool_result.content, list) and len(tool_result.content) > 0:
+                extracted_text = tool_result.content[0].text
             else:
-                content_str = str(result_tmp.content)
-            response = await defended_client.get_response(content_str)
-            if response == "I'm sorry, but I cannot assist with that request.":
-                return response
-
-            result = response.choices[0].message.content if response.choices else "No response"
-        
-        logger.debug("RETRURNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN")
-        return result
-
-
-# INITIALIZE MCP CLIENT ON STARTUP
+                extracted_text = str(tool_result.content)
+            
+            messages.append(
+                {
+                    "role":"tool",
+                    "tool_call_id": tool_call.id,
+                    "content": extracted_text
+                }
+            )
 
 
-# MCP Adapter pro DefendedTargetLM
 
+            response = await client.send_message_to_llm(messages)
+
+        return response.choices[0].message.content if response.choices else "Max tool iterations reached."            
+
+#help class for defense library, but it is not used in code
+class SimpleTemplate:
+    system_message: str = "You are a helpful assistant."
+    user_message: str = "{prompt}"
+
+# MCP Adapter for DefendeTargetLM
 class MCPAdapter(TargetLM):
     def __init__(self, mcp_client):
         self.mcp_client = mcp_client
-        self.loop = asyncio.get_event_loop()
-        class SimpleTemplate:
-            def __init__(self):
-                self.system_message = "You are a helpful assistant."
-                self.user_message = "{prompt}"
         
         self.template = SimpleTemplate()
 
-
-    async def get_response(self, prompts_list, **kwargs):
+    def get_response(self, prompts_list, **kwargs):
+    
+        prompt = prompts_list[0] if isinstance(prompts_list, list) else prompts_list
         
+    
+        safe_sync_call = async_to_sync(self.mcp_client.process_query)
         
-        # recive tools
-        response = await self.mcp_client.session.list_tools()
-        available_tools = [{
-            "name": tool.name,
-            "description": tool.description,
-            "input_schema": tool.inputSchema
-        } for tool in response.tools]
-
-        # Conversion of tools into the correct JSON format for the e-infra API
-        formatted_tools = [
-        {
-            "type": "function",
-            "function": {
-                "name": tool["name"],
-                "description": tool["description"],
-                "parameters": tool.get("input_schema", {"type": "object", "properties": {}})
-            }
-        }
-        for tool in available_tools
-
-        ]
+        response_text = safe_sync_call(prompt)
         
-        messages = [{
-            "role": "system",
-            "content": "You are a helpful assistant that can use external tools when necessary."
-        }]
-
-        response = await self.mcp_client.send_message_to_llm(formatted_tools, prompts_list, messages)
-
-        return response
+    
+        return [response_text]
 
     def evaluate_log_likelihood(self, prompt, response):
         return 0
 
+# INITIALIZE MCP CLIENT ON STARTUP
 @app.on_event("startup")
 async def startup_event():
     global client, defended_client
@@ -205,14 +204,9 @@ async def startup_event():
 @app.post("/query")
 async def query_endpoint(request: QueryRequest):
     try:
-        if sanitize_prompt(request.query) is None:
-            answer = "I cannot answer this question, because it may try to bypass security guards"
-        else:
-            answer = await client.process_query(request.query)
-            if answer is None or sanitize_prompt(answer) is None:
-                answer = "I cannot answer this question, because it may try to bypass security guards"
-
-        return {"query": request.query, "answer": answer}
+         async_client = sync_to_async(defended_client.get-response)
+         answer = await async_client([request.query])
+         return {"query": request.query, "answer": answer[0]}
     except Exception as e:
         logger.exception("Error processing query")
         raise HTTPException(status_code=500, detail=str(e))

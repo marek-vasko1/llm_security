@@ -8,6 +8,8 @@ services:
     tty: true
     networks:
       - demo-net
+    volumes:
+      - /home/zero0ne/Documents/school/bachlor/backtranlsation/llm_security/service1/app:Z
 
   api-wrapper:
     build: ./service2
@@ -17,7 +19,10 @@ services:
     environment:
       API_KEY: ${API_KEY}
       BASE_URL: ${BASE_URL}
-
+    volumes:
+      - ./service2/main.py:/app/main.py:Z
+      - ./service2/security.py:/app/security.py:Z
+      - ./service2/mcp_server.py:/app/mcp_server.py:Z
 networks:
   demo-net:
-    external: true
+    driver: bridge
