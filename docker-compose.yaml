@@ -8,7 +8,9 @@ services:
     tty: true
     networks:
       - demo-net
-
+    volumes:
+      - ./service1:/app:Z
+      
   api-wrapper:
     build: ./service2
     container_name: api-wrapper
@@ -17,7 +19,15 @@ services:
     environment:
       API_KEY: ${API_KEY}
       BASE_URL: ${BASE_URL}
+      HF_HOME: /tmp/huggingface/
+    volumes:
+      - ./service2/main.py:/app/main.py:Z
+      - ./service2/security.py:/app/security.py:Z
+      - ./service2/mcp_server.py:/app/mcp_server.py:Z
+      - hf_cache_volume:/tmp/huggingface/
+volumes:
+  hf_cache_volume:
 
 networks:
   demo-net:
-    external: true
+    driver: bridge

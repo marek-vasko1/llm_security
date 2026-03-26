@@ -4,41 +4,35 @@ from pydantic import BaseModel
 import openai
 from contextlib import AsyncExitStack
 from mcp.client.session import ClientSession
-import asyncio
 from typing import Optional
-from contextlib import AsyncExitStack
 import json
-from security import sanitize_prompt
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 import os
 from dotenv import load_dotenv
+from typing import Optional, List
+import copy
 
 import logging
-from openai import OpenAI
+from openai import AsyncOpenAI
 
 #granite
 import math
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-#v2
-#from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModel
-#import torch
-#from torch.nn.functional import softmax
-#import jinja2, json
-#from vllm import LLM, SamplingParams
-#import math
+
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)
-"""code of llm defense is inspirated by https://huggingface.co/ibm-granite/granite-guardian-3.1-2b"""
 
-# ====== Nastavení ======
+"""code of llm defense is inspirated by https://huggingface.co/ibm-granite/granite-guardian-3.1-2b 24.03.2026"""
+
+# ====== Settings  ======
 model_path = "ibm-granite/granite-guardian-3.1-2b"
 safe_token = "No"
 unsafe_token = "Yes"
 nlogprobs = 20
-threshold = 0.5  
+threshold = 0.5
 
 
 # ====== Load model ======
@@ -48,73 +42,8 @@ model = AutoModelForCausalLM.from_pretrained(
     torch_dtype=torch.bfloat16
 )
 tokenizer = AutoTokenizer.from_pretrained(model_path)
-"""
-tokenizer = AutoTokenizer.from_pretrained(model_path)
-sampling_params = SamplingParams(temperature=0.0, logprobs=nlogprobs)
-model = LLM(model=model_path, tensor_parallel_size=1)
 
-def parse_output(output):
-    label, prob_of_risk = None, None
-
-    if nlogprobs > 0:
-        logprobs = next(iter(output.outputs)).logprobs
-        if logprobs is not None:
-            prob = get_probabilities(logprobs)
-            prob_of_risk = prob[1]
-
-    res = next(iter(output.outputs)).text.strip()
-    if unsafe_token.lower() == res.lower():
-        label = unsafe_token
-    elif safe_token.lower() == res.lower():
-        label = safe_token
-    else:
-        label = "Failed"
-
-    return label, prob_of_risk.item()
-
-def get_probabilities(logprobs):
-    safe_token_prob = 1e-50
-    risky_token_prob = 1e-50
-    for gen_token_i in logprobs:
-        for token_prob in gen_token_i.values():
-            decoded_token = token_prob.decoded_token
-            if decoded_token.strip().lower() == safe_token.lower():
-                safe_token_prob += math.exp(token_prob.logprob)
-            if decoded_token.strip().lower() == unsafe_token.lower():
-                risky_token_prob += math.exp(token_prob.logprob)
-
-    probabilities = torch.softmax(
-        torch.tensor([math.log(safe_token_prob), math.log(risky_token_prob)]), dim=0
-    )
-
-    return probabilities
-
-
-def check_input(user_text, risk_name="harm"):
-    messages = [{"role": "user", "content": user_text}]
-    guardian_config = {"risk_name": risk_name}
-    chat = tokenizer.apply_chat_template(messages, guardian_config = guardian_config, tokenize=False, add_generation_prompt=True)
-
-    output = model.generate(chat, sampling_params, use_tqdm=False)
-    predicted_label = output[0].outputs[0].text.strip()
-
-    label, prob_of_risk = parse_output(output[0])
-
-    return label, prob_of_risk
-
-def check_output(messages, risk_name="harm"):
-    guardian_config = {"risk_name": risk_name}
-    chat = tokenizer.apply_chat_template(messages, guardian_config = guardian_config, tokenize=False, add_generation_prompt=True)
-
-    output = model.generate(chat, sampling_params, use_tqdm=False)
-    predicted_label = output[0].outputs[0].text.strip()
-
-    label, prob_of_risk = parse_output(output[0])
-    
-    return label, prob_of_risk
-*/"""
-
-"""code from https://huggingface.co/ibm-granite/granite-guardian-3.1-2b"""
+"""code from https://huggingface.co/ibm-granite/granite-guardian-3.1-2b 24.03.2026"""
 def parse_output(output, input_len):
     label, prob_of_risk = None, None
 
@@ -136,7 +65,7 @@ def parse_output(output, input_len):
 
     return label, prob_of_risk.item()
 
-"""code from https://huggingface.co/ibm-granite/granite-guardian-3.1-2b"""
+"""code from https://huggingface.co/ibm-granite/granite-guardian-3.1-2b 24.03.2026"""
 def get_probabilities(logprobs):
     safe_token_prob = 1e-50
     unsafe_token_prob = 1e-50
@@ -157,10 +86,25 @@ def get_probabilities(logprobs):
 
 
 def check_input(user_text, risk_name="harm"):
+    """
+    Validate user input using Granite Guardian model.
+
+    Args:
+        user_text (str): Input text from user.
+        risk_name (str): Type of risk to evaluate.
+
+    Returns:
+        tuple:
+            label (str): Safety classification
+            prob_of_risk (float): Probability of unsafe content
+
+    Inspirated by https://huggingface.co/ibm-granite/granite-guardian-3.1-2b from 24.03.2026
+    """
+    
     guardian_config = {"risk_name": risk_name}
     messages = [{"role": "user", "content": user_text}]
-    logging.debug(messages)
-    logging.debug("INPUT----------------------------------------------")
+    #logging.debug(messages)
+    #logging.debug("INPUT----------------------------------------------")
 
     input_ids = tokenizer.apply_chat_template(
         messages,
@@ -183,14 +127,30 @@ def check_input(user_text, risk_name="harm"):
         )
 
     label, prob_of_risk = parse_output(output, input_len)
-
+    logging.debug("INPUT CHECK DONE")
     return label, prob_of_risk
 
 def check_output(messages, risk_name="harm"):
+    """
+    Validate conversation output using Granite Guardian model.
+
+    Args:
+        messages (list): Conversation history.
+        risk_name (str): Type of risk to evaluate.
+
+    Returns:
+        tuple:
+            label (str): Safety classification
+            prob_of_risk (float): Probability of unsafe content
+
+    Inspirated by https://huggingface.co/ibm-granite/granite-guardian-3.1-2b from 24.03.2026
+    """
+
+    #logging.debug(f"----------{messages}------------\n")
     guardian_config = {"risk_name": risk_name}
     
-    logging.debug(messages)
-    logging.debug("ALL----------------------------------------------")
+  
+    #logging.debug("ALL----------------------------------------------")
 
     input_ids = tokenizer.apply_chat_template(
         messages,
@@ -226,7 +186,7 @@ api_key_check = os.getenv("API_KEY")
 url_check = os.getenv("BASE_URL")
 
 
-client_ai = OpenAI(
+client_ai = AsyncOpenAI(
     api_key=api_key_check,
     base_url=url_check
 )
@@ -242,18 +202,41 @@ LLM_MODEL = "gpt-oss-120b"
 app = FastAPI(title="MCP_Gateway_API")
 
 class QueryRequest(BaseModel):
+    """
+    API request model.
+
+    Attributes:
+        query (str): User query.
+    """
     query: str
 
 class MCPClient:
     def __init__(self, server_script_path):
+        """
+        Initialize MCP client.
+
+        Args:
+            server_script_path (str): Path to MCP server script.
+        """
+
         self.server_script_path = server_script_path
         self.exit_stack = AsyncExitStack()
         self._lock = asyncio.Lock()
+        self.formatted_tools: List[dict] = []
 
     async def start(self):
-    #Connect to MCP server
-    #Args: server_script_path: Path to the server script
-    
+        """
+        Start MCP client and connect to MCP server.
+
+        - Launches MCP server via stdio
+        - Initializes session
+        - Retrieves available tools
+        - Formats tools for LLM usage
+
+        Returns:
+            None
+        """
+
         command = "python"
         server_params = StdioServerParameters(
             command=command,
@@ -266,108 +249,130 @@ class MCPClient:
         self.session = await self.exit_stack.enter_async_context(ClientSession(self.stdio, self.write))
 
         await self.session.initialize()
+        
+        #recive tools
+        response = await self.session.list_tools()
 
+        # Conversion of tools into the correct JSON format for the e-infra API
+        self.formatted_tools = [
+            {
+                "type": "function",
+                "function": {
+                    "name": tool.name,
+                    "description": tool.description,
+                    "parameters": tool.inputSchema
+                    }
+                }
+                for tool in response.tools
+            ]
+        #logging.debug(f"\nthere are recived tools:\n self.formatted_tools\n")
+
+    async def send_message_to_llm(self, messages: list[dict]):
+        """
+        Send messages to LLM and receive response.
+
+        Args:
+            messages (list): Conversation messages.
+
+        Returns:
+            Response object from LLM API.
+        """
+        #logger.debug(f"\nSending request to LLM with messages:\n {messages} \n")
+
+        response = await client_ai.chat.completions.create(
+            model=LLM_MODEL,
+            max_tokens=1000,
+            messages=messages,
+            tools=self.formatted_tools if self.formatted_tools else None
+        )
+        #logger.debug(f"\n recieved response:\n {response}\n")
+        return response
+    
     async def process_query(self, query: str):
         """
-        process current query using available tools
+        Main processing function for handling user queries.
+
+        Workflow:
+            1. Send query to LLM
+            2. If LLM requests tool usage:
+                - Call MCP tool
+                - Append tool result to messages
+            3. Validate output after each step
+            4. Repeat up to 10 iterations
+
+        Args:
+            query (str): User query.
+
+        Returns:
+            tuple:
+                response (str): Final answer or block message
+                messages (list): Conversation history
         """
 
         messages = [
             {
-            "role": "system",
-            "content": "You are a helpful assistant that can use external tools when necessary."
-            },
-            {
-            "role":"user",
-            "content":query
+                "role": "system",
+                "content": "You are a helpful assistant that can use external tools when necessary."
             }
 
         ]
-        messages_for_guardian = [
-            {
-            "role": "system",
-            "content": "You are a helpful assistant that can use external tools when necessary."
-            },
-            {
-            "role":"user",
-            "content":query
-            }
-
-        ]
-               
-        #recive tools
-        response = await self.session.list_tools()
-        available_tools = [{
-            "name": tool.name,
-            "description": tool.description,
-            "input_schema": tool.inputSchema
-        } for tool in response.tools]
+        messages.append({"role":"user", "content": query})        
         
-        # Conversion of tools into the correct JSON format for the e-infra API
-        formatted_tools = [
-        {
-            "type": "function",
-            "function": {
-                "name": tool["name"],
-                "description": tool["description"],
-                "parameters": tool.get("input_schema", {"type": "object", "properties": {}})
-            }
-        }
-        for tool in available_tools
-        
-        ]
+        #logger.debug("\nSENDING QUERY\n")
+        response = await self.send_message_to_llm(messages)
+    
+        messages_for_guardian = copy.deepcopy(messages)
 
-       
-
-        response = client_ai.chat.completions.create(
-            model=LLM_MODEL,
-            max_tokens=1000,
-            messages=messages,
-            tools=formatted_tools
-        )
-
-        if (response.choices[0].message.content is not None and sanitize_prompt(response.choices[0].message.content) == None):
-            return "Sanitize check failed", messages_for_guardian
-
-        result=response.choices[0].message.content
-
-        while True:
-
+        for i in range(10):
+            #logger.debug(f"loop running{i}")
             message = response.choices[0].message
-
+            #logger.debug(f"\nRESPONSE PRO KONTROLU V PRIPADE DRUHEHO KOLA\n {response}")
+             
             if not message.tool_calls:
+                #logger.debug("\nNO TOOL CALL\n")
                 break
 
+            messages.append(message.model_dump(exclude_none=True))
+            
             tool_call = message.tool_calls[0]
             tool_name = tool_call.function.name
-            tool_args = tool_call.function.arguments
             tool_args = json.loads(tool_call.function.arguments)
 
-            #call tool
-            result = await self.session.call_tool(tool_name, tool_args)
-            
-
-            messages.append(message)
-            messages.append({
-                "role":"user",
-                "content": result.content
+            messages_for_guardian.append({
+                 "role": "assistant", 
+                 "content": f"[Calling tool {tool_name} with arguments: {tool_args}]"
             })
-            messages_for_guardian.append({"role": "assistant", "content" : str(message.reasoning_content or "")})
-            messages_for_guardian.append({"role": "user", "content": result.content[0].text})
-            response = client_ai.chat.completions.create(
-                model=LLM_MODEL,
-                max_tokens=1000,
-                messages=messages,
-                tools=formatted_tools
+
+            # call tool
+            tool_result = await self.session.call_tool(tool_name, tool_args)
+            #logger.debug(f"*******************************tool call result {tool_result.content} ***********************************")
+            
+            if isinstance(tool_result.content, list) and len(tool_result.content) > 0:
+                extracted_text = tool_result.content[0].text
+            else:
+                extracted_text = str(tool_result.content)
+            
+            messages.append(
+                {
+                    "role":"tool",
+                    "tool_call_id": tool_call.id,
+                    "content": extracted_text
+                }
             )
-            
-            
-            result = response.choices[0].message.content if response.choices else "No response"
-            #logging.debug("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa")
-            #logging.debug(result)
-        return result, messages_for_guardian
+            messages_for_guardian.append({"role":"user", "content": extracted_text})
+            #logger.debug(f"\nMESSAGES:\n {messages}")
+            #logger.debug(f"\nMESSAGES FOR GUARDIAN:\n{messages_for_guardian}")
 
+            label, probability = await asyncio.to_thread(check_output,messages_for_guardian)
+            if label == safe_token:
+                if probability > threshold:
+                    return "Blocked by Granite Guardian", messages      
+            elif label == unsafe_token or label == "Failed":
+                return "Blocked by Granite Guardian", messages
 
+            response = await self.send_message_to_llm(messages)
+
+        return response.choices[0].message.content if response.choices else "Max tool iterations reached."      
 # INITIALIZE MCP CLIENT ON STARTUP
 
 @app.on_event("startup")
@@ -378,36 +383,57 @@ async def startup_event():
 
 @app.post("/query")
 async def query_endpoint(request: QueryRequest):
+    """
+    Main API endpoint for processing queries.
+
+    Workflow:
+        1. Validate input (check_input)
+        2. Block if unsafe
+        3. Process query via MCP + LLM
+        4. Validate output (check_output)
+        5. Return final response
+
+    Args:
+        request (QueryRequest): Incoming request.
+
+    Returns:
+        dict:
+            query (str): Original query
+            answer (str): Response or blocked message
+    """
 
     try:
+        #check input
         label, probability = await asyncio.to_thread(check_input, request.query) #maby move to process querry function
         if label == safe_token:
             if probability > threshold:
                 return {"query": request.query, "answer": "Blocked by Granite Guardian"}
+        if label == unsafe_token or label == "Failed":
+                return {"query": request.query, "answer": "Blocked by Granite Guardian"}
+        
+        #logger.debug(f"\nCHECK INPUT DONE-------------------{label}{probability}")
+        answer = await client.process_query(request.query)
+           
+        if answer == "Blocked by Granite Guardian":
+            return {"query": request.query, "answer": answer}
+
+        try:
+            #check output
+            #logger.debug("\nSTARTING OUTPUT CHECK\n")
+            messages = [{"role": "user", "content": request.query}, {"role" : "assistant", "content" : answer}]
+            #logger.debug(f"\nMESSAGES:\n {messages}")
+            label, probability = await asyncio.to_thread(check_output,messages)
+            if label == safe_token:
+                if probability > threshold:
+                     return {"query": request.query, "answer": "Blocked by Granite Guardian"}
             elif label == unsafe_token or label == "Failed":
                 return {"query": request.query, "answer": "Blocked by Granite Guardian"}
                 
-        if (sanitize_prompt(request.query) is None):
-              answer = "I cannot answer this question, because it may try to bypass security guards"
-        else:
-            logger.debug("DONE CHECK INPUT-------------------")
-            answer, messages = await client.process_query(request.query)
-            try:
+            if (answer is None):
+                answer = "Something happend..."
 
-                message = {"role": "assistant", "content": answer}
-                messages.append(message)
-                label, probability = await asyncio.to_thread(check_output,messages)
-                if label == safe_token:
-                    if probability > threshold:
-                        return {"query": request.query, "answer": "Blocked by Granite Guardian"}
-                elif label == unsafe_token or label == "Failed":
-                    return {"query": request.query, "answer": "Blocked by Granite Guardian"}
-                
-                if (answer is None or sanitize_prompt(answer) is None):
-                    answer = "I cannot answer this question, because it may try to bypass security guards"
-
-            except AttributeError as e:
-                logging.info(f"tady uvod exc {e}")
+        except AttributeError as e:
+            logging.exception("CRASH IN ENDPOINT:")
 
         return {"query": request.query, "answer": answer}
     except Exception as e:
