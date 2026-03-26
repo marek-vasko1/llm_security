@@ -16,3 +16,6 @@ WORKDIR /app
 
 COPY app.py /app/
 
+RUN pip install requests --break-system-packages
+
+CMD ["tail", "-f", "/dev/null"]

@@ -171,17 +171,22 @@ class MCPAdapter(TargetLM):
         
         self.template = SimpleTemplate()
 
-    def get_response(self, prompts_list, **kwargs):
-    
-        prompt = prompts_list[0] if isinstance(prompts_list, list) else prompts_list
-        
-    
-        safe_sync_call = async_to_sync(self.mcp_client.process_query)
-        
-        response_text = safe_sync_call(prompt)
-        
-    
-        return [response_text]
+    def get_response(self, prompts, **kwargs):
+        if isinstance(prompts, str):
+            safe_sync_call = async_to_sync(self.mcp_client.process_query)
+            return safe_sync_call(prompts) # Vrať čistý string
+            
+        # 2. Je na vstupu seznam (list)?
+        elif isinstance(prompts, list):
+            responses = []
+            safe_sync_call = async_to_sync(self.mcp_client.process_query)
+            for prompt in prompts:
+                text_prompt = prompt[0] if isinstance(prompt, list) else prompt
+                response_text = safe_sync_call(str(text_prompt))
+                responses.append(response_text)
+            return responses # Vrať seznam stringů
+            
+        return "Error"
 
     def evaluate_log_likelihood(self, prompt, response):
         return 0
@@ -204,8 +209,8 @@ async def startup_event():
 @app.post("/query")
 async def query_endpoint(request: QueryRequest):
     try:
-         async_client = sync_to_async(defended_client.get-response)
-         answer = await async_client([request.query])
+         async_client = sync_to_async(defended_client.get_response)
+         answer = await async_client([request.query], verbose=True)
          return {"query": request.query, "answer": answer[0]}
     except Exception as e:
         logger.exception("Error processing query")

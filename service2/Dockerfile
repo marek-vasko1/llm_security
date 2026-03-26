@@ -18,13 +18,10 @@ RUN apt update && apt install -y net-tools git && \
         asgiref \
         torch
 
-RUN git clone https://github.com/YihanWang617/llm-jailbreaking-defense.git /app/
+RUN git clone https://github.com/YihanWang617/llm-jailbreaking-defense.git /opt/llm-defense
 
-RUN pip install --no-cache-dir -e /app/
+RUN pip install --no-cache-dir -e /opt/llm-defense
 
-COPY main.py /app/main.py
-COPY mcp_server.py /app/mcp_server.py
-COPY security.py /app/security.py
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
