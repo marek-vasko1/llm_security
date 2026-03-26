@@ -22,6 +22,9 @@ from llm_jailbreaking_defense import DefendedTargetLM, SelfReminderConfig, Backt
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)
 
+#for debuging backtranslation
+#logging.getLogger().setLevel(logging.DEBUG)
+
 load_dotenv()
 
 api_key_check = os.getenv("API_KEY")
@@ -297,6 +300,9 @@ async def startup_event():
     
     # Adapter for defence 
     mcp_adapter = MCPAdapter(client)
+    
+    #for debuging backtranslation
+    #config = BacktranslationConfig(verbose=True)
 
     config = BacktranslationConfig()
     defense = load_defense(config)
@@ -305,7 +311,7 @@ async def startup_event():
 
 @app.post("/query")
 async def query_endpoint(request: QueryRequest):
-        """
+    """
     Main API endpoint for processing queries.
 
     Workflow:
@@ -321,10 +327,11 @@ async def query_endpoint(request: QueryRequest):
             query (str): Original query
             answer (str): Response or blocked message
     """
+
     try:
-         async_client = sync_to_async(defended_client.get_response)
-         answer = await async_client([request.query], verbose=True)
-         return {"query": request.query, "answer": answer[0]}
+        async_client = sync_to_async(defended_client.get_response)
+        answer = await async_client([request.query])
+        return {"query": request.query, "answer": answer[0]}
     except Exception as e:
         logger.exception("Error processing query")
         raise HTTPException(status_code=500, detail=str(e))
