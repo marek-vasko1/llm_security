@@ -11,8 +11,9 @@ RUN apt update && apt install -y \
     vim \
     python3-venv \
     && rm -rf /var/lib/apt/lists/*
+RUN pip install requests --break-system-packages
 
 WORKDIR /app
 
-COPY app.py /app/
+RUN pip install requests --break-system-packages
 

@@ -16,9 +16,4 @@ RUN apt update && apt install -y net-tools git && \
         aiohttp \
         dotenv
 
-# Přidání tvých souborů
-COPY main.py /app/main.py
-COPY mcp_server.py /app/mcp_server.py
-COPY security.py /app/security.py
-
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
