@@ -8,15 +8,43 @@ nltk.download("punkt_tab")
 nltk.download('stopwords')
 
 class QueryRequest(BaseModel): 
+    """
+    API request model.
+
+    Attributes:
+        query (str): User query.
+    """
+
     query: str 
+
 app = FastAPI() 
-client = MCPClient("/app/mcp_server.py") 
+
 
 @app.on_event("startup") 
-async def startup_event(): 
-    await client.start() 
+async def startup_event():
+    global client
+    client = MCPClient("/app/mcp_server.py")
+    await client.start()
+
 @app.post("/query") 
 async def query_endpoint(request: QueryRequest): 
+    """
+    Main API endpoint for processing queries.
+
+    Workflow:
+        1. Process query via MCP + LLM
+        2. Validate input (via JailGuard)
+        3. Process input and return response
+
+    Args:
+        request (QueryRequest): Incoming request.
+
+    Returns:
+        dict:
+            query (str): Original query
+            answer (str): Response or blocked message
+    """
+
     try: #check JailGuard 
         if not await jailGuard(request.query, client):
             answer = await client.process_query(request.query) 

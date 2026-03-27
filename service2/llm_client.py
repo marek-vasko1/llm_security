@@ -10,7 +10,7 @@ from mcp.client.stdio import stdio_client
 import os 
 from dotenv import load_dotenv 
 import logging 
-from openai import OpenAI 
+from openai import AsyncOpenAI 
 from help_method import change_prompt
 
 logger = logging.getLogger(__name__) 
@@ -21,7 +21,7 @@ load_dotenv()
 api_key_check = os.getenv("API_KEY") 
 url_check = os.getenv("BASE_URL") 
 
-client_ai = OpenAI( api_key=api_key_check, base_url=url_check ) 
+client_ai = AsyncOpenAI( api_key=api_key_check, base_url=url_check ) 
 logging.basicConfig(level=logging.DEBUG) 
 
 MCP_SERVER_SCRIPT = "/app/mcp_server.py" 
@@ -30,99 +30,154 @@ LLM_MODEL = "gpt-oss-120b"
 #DEFINE API 
 app = FastAPI(title="MCP_Gateway_API") 
 class MCPClient: 
-    def __init__(self, server_script_path): 
+    def __init__(self, server_script_path):
+        """
+        Initialize MCP client.
+
+        Args:
+            server_script_path (str): Path to MCP server script.
+        """
+
         self.server_script_path = server_script_path 
         self.exit_stack = AsyncExitStack() 
-        self._lock = asyncio.Lock() 
+        self._lock = asyncio.Lock()
+        self.formatted_tools: List[dict] = []
+
     async def start(self): 
-        #Connect to MCP server 
-        #Args: server_script_path: Path to the server script 
+        """
+        Start MCP client and connect to MCP server.
+
+        - Launches MCP server via stdio
+        - Initializes session
+        - Retrieves available tools
+        - Formats tools for LLM usage
+
+        Returns:
+            None
+        """
+
         command = "python" 
-        server_params = StdioServerParameters( command=command, args=[self.server_script_path], env=None ) 
+        server_params = StdioServerParameters( 
+            command=command, 
+            args=[self.server_script_path],
+            env=None
+        )
+
         stdio_transport = await self.exit_stack.enter_async_context(stdio_client(server_params)) 
         self.stdio, self.write = stdio_transport 
         self.session = await self.exit_stack.enter_async_context(ClientSession(self.stdio, self.write)) 
         await self.session.initialize() 
 
-    async def process_query(self, query: str): 
-        """
-        process current query using available tools 
-        """ 
-        messages = [ 
-            { 
-                "role": "system", 
-                "content": "You are a helpful assistant that can use external tools when necessary." 
-                
-            }, 
-            { 
-                "role":"user", 
-                "content":query 
-            } 
-        ] 
-        #recive tools 
-        response = await self.session.list_tools() 
-        available_tools = [
-            { 
-                "name": tool.name, 
-                "description": tool.description, 
-                "input_schema": tool.inputSchema 
-            } for tool in response.tools] 
-        
+        #recive tools
+        response = await self.session.list_tools()
+
         # Conversion of tools into the correct JSON format for the e-infra API
-        formatted_tools = [ 
-            { 
-                "type": "function", 
-                "function": { 
-                    "name": tool["name"], 
-                    "description": tool["description"], 
-                    "parameters": tool.get("input_schema", {"type": "object", "properties": {}}) 
-                    } 
-                } 
-                for tool in available_tools 
-            ] 
-        response = client_ai.chat.completions.create( model=LLM_MODEL, max_tokens=1000, messages=messages, tools=formatted_tools ) 
-        # if (response.choices[0].message.content is not None and sanitize_prompt(response.choices[0].message.content) == None): 
-        # return None 
+        self.formatted_tools = [
+            {
+                "type": "function",
+                "function": {
+                    "name": tool.name,
+                    "description": tool.description,
+                    "parameters": tool.inputSchema
+                    }
+                }
+                for tool in response.tools
+            ]
+        logging.debug(f"\nthere are recived tools:\n self.formatted_tools\n")
+
+    async def send_message_to_llm(self, messages: list[dict]):
+        """
+        Send messages to LLM and receive response.
+
+        Args:
+            messages (list): Conversation messages.
+
+        Returns:
+            Response object from LLM API.
+        """
+
+        logger.debug(f"\nSending request to LLM with messages:\n {messages} \n")
+
+        response = await client_ai.chat.completions.create(
+            model=LLM_MODEL,
+            max_tokens=1000,
+            messages=messages,
+            tools=self.formatted_tools if self.formatted_tools else None
+        )
         
-        result=response.choices[0].message.content 
-        for i in range(10): 
-            message = response.choices[0].message 
-            if not message.tool_calls: 
-                break 
-            
-            tool_call = message.tool_calls[0] 
-            tool_name = tool_call.function.name 
-            tool_args = tool_call.function.arguments 
-            tool_args = json.loads(tool_call.function.arguments) 
+        logger.debug(f"\n recieved response:\n {response}\n")
 
-            #call tool 
-            result = await self.session.call_tool(tool_name, tool_args) 
-            
-            if isinstance(result.content, list) and len(result.content) > 0:
-                extracted_text = result.content[0].text
-            else:
-                extracted_text = str(result.content)
-            
-            output_result = change_prompt(extracted_text)
-            #edit response from tool 
-            #logging.debug(result.content)
-            if isinstance(output_result, list):
-                final_string = "\n".join(output_result)
-            else:
-                final_string = str(output_result)
+        return response
 
-            logging.debug(final_string)
-            messages.append(message) 
+
+    async def process_query(self, query: str):
+        """
+        Process a user query using LLM and MCP tools.
+
+        Workflow:
+            1. Send user query to LLM
+            2. If LLM requests tool usage:
+                - Execute MCP tool
+                - Append tool result to conversation
+            3. Repeat until no tool calls or max iterations reached
+
+        Args:
+            query (str): User input query.
+
+        Returns:
+            str: Final response generated by LLM.
+        """
+
+        messages = [
+            {
+                "role": "system",
+                "content": "You are a helpful assistant that can use external tools when necessary."
+            }
+
+        ]
+
+        messages.append({"role":"user", "content": query})        
+        
+        logger.debug("\nSENDING QUERY\n")
+
+        response = await self.send_message_to_llm(messages)
+
+        for i in range(10):
+            logger.debug(f"loop running {i}")
+            message = response.choices[0].message
+            
+            logger.debug(f"\nRESPONSE PRO KONTROLU V PRIPADE DRUHEHO KOLA\n {response}")
+
+            if not message.tool_calls:
+                logger.debug("\nNO TOOL CALL\n")
+                break
+            
+            messages.append(message)
+
+            tool_call = message.tool_calls[0]
+            tool_name = tool_call.function.name
+            tool_args = json.loads(tool_call.function.arguments)
+            
+            # call tool
+            tool_result = await self.session.call_tool(tool_name, tool_args)
+            logger.debug(f"*******************************tool call {tool_result.content} ***********************************")
+            
+            # result.content can be list so --> string
+            if isinstance(tool_result.content, list) and len(tool_result.content) > 0:
+                extracted_text = tool_result.content[0].text
+            else:
+                extracted_text = str(tool_result.content)
             
             messages.append(
-                { 
-                    "role":"tool", 
-                    "tool_call_id": response.id,
-                    "content": final_string
+                {
+                    "role":"tool",
+                    "tool_call_id": tool_call.id,
+                    "content": extracted_text
+                }
+            )
 
-                }) 
-            response = client_ai.chat.completions.create( model=LLM_MODEL, max_tokens=1000, messages=messages, tools=formatted_tools ) 
             
-            result = response.choices[0].message.content if response.choices else "No response" 
-            
-        return result
+
+            response = await self.send_message_to_llm(messages)
+
+        return response.choices[0].message.content if response.choices else "Max tool iterations reached."  

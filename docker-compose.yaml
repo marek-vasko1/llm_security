@@ -2,12 +2,14 @@ version: "3.9"
 
 services:
   service1:
-    image: pair-implemented
+    build: ./service1
     container_name: kali
     stdin_open: true
     tty: true
     networks:
       - demo-net
+    volumes:
+      - ./service1:/app:Z
 
   api-wrapper:
     build: ./service2
@@ -21,4 +23,4 @@ services:
       - ./service2:/app:Z 
 networks:
   demo-net:
-    external: true
+    driver: bridge

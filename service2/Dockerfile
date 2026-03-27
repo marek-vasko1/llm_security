@@ -15,8 +15,8 @@ RUN apt update && apt install -y net-tools git && \
         typing-extensions \
         aiohttp \
         dotenv \
-	matplotlib \
-	nltk \
+	    matplotlib \
+	    nltk \
     	numpy \
     	openai \
     	Pillow \
