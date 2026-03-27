@@ -15,7 +15,8 @@ RUN apt update && apt install -y net-tools git && \
         aiohttp \
         dotenv \
         numpy \
-        torch
+        torch \
+        asgiref
 
 RUN git clone https://github.com/YihanWang617/llm-jailbreaking-defense.git /app/
 
