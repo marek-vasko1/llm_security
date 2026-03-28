@@ -218,9 +218,9 @@ async def query_endpoint(request: QueryRequest):
     Main API endpoint for processing queries.
 
     Workflow:
-        1. Process query via MCP + LLM
-        2. Validate output (via Backtranlsation)
-        5. Return final response
+        1. Check via perplexity filter
+        2. Proces query
+        3. Return final response
 
     Args:
         request (QueryRequest): Incoming request.
