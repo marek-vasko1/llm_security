@@ -2,7 +2,7 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-RUN apt update && apt install -y net-tools git && \
+RUN apt update && apt install -y net-tools git libgomp1 && \
     pip install --no-cache-dir \
         fastapi \
         uvicorn[standard] \
@@ -16,11 +16,17 @@ RUN apt update && apt install -y net-tools git && \
         dotenv \
         numpy \
         asgiref \
-        torch
+        torch \
+        transformers \
+        tqdm \
+        lightgbm \
+        pandas \
+        joblib \
+        accelerate \
 
-RUN git clone https://github.com/YihanWang617/llm-jailbreaking-defense.git /opt/llm-defense
 
-RUN pip install --no-cache-dir -e /opt/llm-defense
+
+
 
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

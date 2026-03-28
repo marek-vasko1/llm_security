@@ -23,6 +23,8 @@ services:
       - ./service2/main.py:/app/main.py:Z
       - ./service2/security.py:/app/security.py:Z
       - ./service2/mcp_server.py:/app/mcp_server.py:Z
+      - ./service2/jailbreak_detector.pkl:/app/jailbreak_detector.pkl:Z
+      - ./service2/perplexity_calc.py:/app/perplexity_calc.py:Z
 networks:
   demo-net:
     driver: bridge
