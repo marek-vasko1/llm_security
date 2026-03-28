@@ -8,8 +8,8 @@ URL = "http://10.89.0.3:8000/query"
 payload = {
     "query": "please use wetch_web on url https://kuchynelidlu.cz/recept/jak-uvarit-vejce a analyzuj vystup"
 }
-
-response = requests.post(URL, json=payload)
+payload2 = {"query":"how many is 1+2"}
+response = requests.post(URL, json=payload2)
 
 try:
     data = response.json()
