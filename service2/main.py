@@ -16,14 +16,12 @@ from asgiref.sync import async_to_sync, sync_to_async
 import logging
 from openai import AsyncOpenAI
 
-from llm_jailbreaking_defense import DefendedTargetLM, SelfReminderConfig, BacktranslationConfig, load_defense, TargetLM
+from security import SecurityDetector
 
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)
 
-#for debuging backtranslation
-#logging.getLogger().setLevel(logging.DEBUG)
 
 load_dotenv()
 
@@ -39,9 +37,6 @@ client_ai = AsyncOpenAI(
 logging.basicConfig(level=logging.DEBUG)
 MCP_SERVER_SCRIPT = "/app/mcp_server.py"
 LLM_MODEL = "gpt-oss-120b"
-
-
-
 
 #DEFINE API
 app = FastAPI(title="MCP_Gateway_API")
@@ -209,106 +204,14 @@ class MCPClient:
         return response.choices[0].message.content if response.choices else "Max tool iterations reached."            
 
 
-class SimpleTemplate:
-    """
-    Minimal prompt template used by the defense framework.
-
-    Attributes:
-        system_message (str): Default system prompt
-        user_message (str): Template for user input
-    """
-
-    system_message: str = "You are a helpful assistant."
-    user_message: str = "{prompt}"
-
-
-class MCPAdapter(TargetLM):
-    """
-    Adapter that wraps MCPClient to match the TargetLM interface
-    required by the jailbreak defense library.
-
-    This allows MCP-based LLM calls to be used with defense strategies
-    such as backtranslation.
-
-    Attributes:
-        mcp_client (MCPClient): Underlying MCP client instance
-        template (SimpleTemplate): Prompt formatting template
-    """
-
-    def __init__(self, mcp_client):
-        self.mcp_client = mcp_client
-        
-        self.template = SimpleTemplate()
-
-    def get_response(self, prompts, **kwargs):
-
-        """
-        Generate responses for given prompts using MCPClient.
-
-        Supports both single prompt and batch input.
-
-        Args:
-            prompts (str | list):
-                - str: Single prompt
-                - list: List of prompts or nested lists
-
-            **kwargs: Additional parameters (ignored)
-
-        Returns:
-            str | list:
-                - Single response string
-                - List of response strings
-        """
-
-        if isinstance(prompts, str):
-            safe_sync_call = async_to_sync(self.mcp_client.process_query)
-            return safe_sync_call(prompts) # Vrať čistý string
-            
-        # check if input is list
-        elif isinstance(prompts, list):
-            responses = []
-            safe_sync_call = async_to_sync(self.mcp_client.process_query)
-            for prompt in prompts:
-                text_prompt = prompt[0] if isinstance(prompt, list) else prompt
-                response_text = safe_sync_call(str(text_prompt))
-                responses.append(response_text)
-            return responses # Vrať seznam stringů
-            
-        return "Error"
-
-    def evaluate_log_likelihood(self, prompt, response):
-        """
-        Dummy implementation required by TargetLM interface.
-
-        Currently not supported.
-
-        Args:
-            prompt (str): Input prompt
-            response (str): Model response
-
-        Returns:
-            int: Always returns 0
-        """
-        return 0
-
 # INITIALIZE MCP CLIENT ON STARTUP
 @app.on_event("startup")
 async def startup_event():
-    global client, defended_client
+    global client, defended_client, defense
     client = MCPClient(MCP_SERVER_SCRIPT)
+    defense = SecurityDetector("jailbreak_detector.pkl")
+
     await client.start()
-    
-    # Adapter for defence 
-    mcp_adapter = MCPAdapter(client)
-    
-    #for debuging backtranslation
-    #config = BacktranslationConfig(verbose=True)
-
-    config = BacktranslationConfig()
-    defense = load_defense(config)
-
-    defended_client = DefendedTargetLM(mcp_adapter, defense)
-
 @app.post("/query")
 async def query_endpoint(request: QueryRequest):
     """
@@ -329,9 +232,13 @@ async def query_endpoint(request: QueryRequest):
     """
 
     try:
-        async_client = sync_to_async(defended_client.get_response)
-        answer = await async_client([request.query])
-        return {"query": request.query, "answer": answer[0]}
+        if not await defense.check_perplexity(request.query):
+            answer = "Blocked by perplexity filter"
+        else:
+            answer = await client.process_query(request.query)
+            if answer is None:
+                answer = "Answer was None"
+        return {"query": request.query, "answer": answer}
     except Exception as e:
         logger.exception("Error processing query")
         raise HTTPException(status_code=500, detail=str(e))
