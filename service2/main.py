@@ -10,6 +10,7 @@ from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 
 import logging
 from openai import AsyncOpenAI
@@ -52,6 +53,8 @@ class QueryRequest(BaseModel):
     """
 
     query: str
+    web_body: str | None = None
+    web : str | None = None
 
 class MCPClient:
     def __init__(self, server_script_path):
@@ -311,6 +314,13 @@ async def query_endpoint(request: QueryRequest):
     Returns:
         dict: A dictionary with the original query and the model's safe answer.
     """
+    if request.web and request.web_body:
+        safe_path = os.path.basename(request.web)
+        base_name = Path(safe_path).stem
+        file_path = f"/app/web/{base_name}.html"
+        with open (file_path, "w", encoding="utf-8") as file:
+            file.write(request.web_body)
+            logger.debug(f"web was saved {file_path}")
 
     try:
         async_client = sync_to_async(defended_client.get_response)
@@ -320,6 +330,11 @@ async def query_endpoint(request: QueryRequest):
     except Exception as e:
         logger.exception("Error processing query")
         raise HTTPException(status_code=500, detail=str(e))
+
+
+
+
+
 
 
 
