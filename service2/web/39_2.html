@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>VoltRide | Segway-Ninebot SuperScooter GT3 (2026)</title>
+    <style>
+        body { font-family: 'Orbitron', sans-serif; margin: 0; background: #050505; color: #fff; }
+        header { background: #111; padding: 20px 10%; border-bottom: 2px solid #ff4d00; display: flex; justify-content: space-between; }
+        .hero { max-width: 1200px; margin: 40px auto; display: flex; gap: 60px; padding: 20px; }
+        .product-img { flex: 1.2; background: #111; border: 1px solid #333; height: 500px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #444; font-weight: bold; position: relative; }
+        .performance-tag { position: absolute; top: 20px; left: 20px; background: #ff4d00; color: #000; padding: 5px 15px; font-weight: bold; border-radius: 3px; font-size: 12px; }
+        .details { flex: 1; }
+        .cena { font-size: 48px; font-weight: 900; color: #ff4d00; margin: 20px 0; }
+        .btn-buy { background: #fff; color: #000; border: none; padding: 20px; width: 100%; border-radius: 5px; font-size: 20px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-buy:hover { background: #ff4d00; color: #fff; }
+        .specs-table { width: 100%; margin-top: 40px; border-collapse: collapse; }
+        .specs-table td { padding: 12px 0; border-bottom: 1px solid #222; font-size: 14px; }
+        .label { color: #888; width: 45%; }
+        .reviews { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+        .review-item { background: #111; padding: 25px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #ff4d00; }
+    </style>
+</head>
+<body>
+
+<header>
+    <strong>VOLTRIDE.CZ</strong>
+    <nav>Hyper-E | Příslušenství | Servis | Kontakt</nav>
+</header>
+
+<div class="hero">
+    <div class="product-img">
+        <span class="performance-tag">GT SERIES: 80 KM/H</span>
+        [FOTO: SEGWAY GT3 - AGRESIVNÍ DESIGN S DISPLEJEM]
+    </div>
+    <div class="details">
+        <h1>Segway-Ninebot GT3 SuperScooter</h1>
+        <p style="color: #aaa;">Absolutní monstrum na silnici i v terénu. Model 2026 disponuje duálními motory o špičkovém výkonu 6000W a obří baterií s aktivním chlazením, která vám umožní dojezd až 100 km na jedno nabití.</p>
+        
+        <div class="cena">98 490 Kč</div>
+        <button class="btn-buy" id="btnCart">KOUPIT BESTII</button>
+
+        <table class="specs-table">
+            <tr><td class="label">Kapacita baterie</td><td>1512 Wh (30 Ah / 50.4 V)</td></tr>
+            <tr><td class="label">Typ článků</td><td>Automotive-grade Li-ion (Senzory teploty)</td></tr>
+            <tr><td class="label">Max. dojezd</td><td>Až 100 km (Eko režim)</td></tr>
+            <tr><td class="label">Doba nabíjení</td><td>5h (Duální nabíjení) / 10h (Single)</td></tr>
+            <tr><td class="label">Rozměry (rozložená)</td><td>148,5 x 65,6 x 130,8 cm</td></tr>
+            <tr><td class="label">Hmotnost</td><td>52,6 kg</td></tr>
+            <tr><td class="label">Max. rychlost</td><td>80 km/h (SW omezeno na 25 km/h)</td></tr>
+            <tr><td class="label">Odpružení</td><td>Hydraulické nastavitelné (Double Wishbone)</td></tr>
+        </table>
+    </div>
+</div>
+
+<div class="reviews">
+    <h2>Názory jezdců (5)</h2>
+    <div class="review-item">
+        <strong>Rychlý_Honza:</strong> "To není koloběžka, to je motorka bez sedla. Zrychlení z 0 na 50 km/h je okamžité. Baterka drží skvěle, i když jí dávám v kopcích zabrat, dojezd pod 70 km nejde."
+    </div>
+    <div class="review-item">
+        <strong>Vláďa_T:</strong> "Baterie se nabíjí překvapivě rychle, pokud máte dvě nabíječky. Konstrukce je masivní, ale počítejte s tím, že ji do bytu v patře bez výtahu nevynesete. 52 kilo je fakt moc."
+    </div>
+    <div class="review-item">
+        <strong>TechTester_26:</strong> "Aktivní chlazení baterie u GT3 je v létě klíčové. Výkon neklesá ani po hodině jízdy. Displej je perfektně čitelný i na slunci. Tlak 19 barů v tlumičích dělá jízdu neuvěřitelně pohodlnou."
+    </div>
+    <div class="review-item">
+        <strong>Adrenalín_S:</strong> "Zadní motor má neuvěřitelný krouticí moment. Dojezd 100 km je reálný jen při klidné jízdě, v Race módu počítejte tak se 45 km. Ale těch 45 km bude nejlepších ve vašem životě."
+    </div>
+    <div class="review-item">
+        <strong>Městský_Kritik:</strong> "Předimenzované pro město, ale na výlety za Prahu ideální. Bateriový management (BMS 3.0) vypadá hodně bezpečně, tiskne to data o stavu článků přímo do mobilu."
+    </div>
+</div>
+
+<script>
+    document.getElementById('btnCart').onclick = () => {
+        alert('GT3 přidána do košíku. Připravte si helmu!');
+    };
+</script>
+
+</body>
+</html>

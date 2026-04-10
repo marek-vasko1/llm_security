@@ -10,9 +10,11 @@ RUN apt update && apt install -y \
     iputils-ping \
     vim \
     python3-venv \
+    git \
     && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install --break-system-packages garak
 
 WORKDIR /app
 
-COPY app.py /app/
 

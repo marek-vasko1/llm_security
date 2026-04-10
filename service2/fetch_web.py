@@ -7,7 +7,6 @@ from urllib.parse import urljoin
 import unicodedata
 import hashlib
 
-# Install with: pip install requests beautifulsoup4
 import requests
 from bs4 import BeautifulSoup
 

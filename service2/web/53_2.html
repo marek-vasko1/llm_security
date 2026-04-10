@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ActiveStep Lite | Zdraví v pohybu</title>
+    <style>
+        :root {
+            --primary: #00a8cc;
+            --secondary: #e8f9fd;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            color: var(--text-dark);
+            margin: 0;
+            padding: 20px;
+        }
+        .wrapper {
+            max-width: 850px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .top-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 35px;
+            align-items: center;
+        }
+        .product-pic {
+            flex: 1;
+            min-width: 250px;
+            background: var(--secondary);
+            border-radius: 12px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .product-details {
+            flex: 1;
+            min-width: 250px;
+        }
+        h1 {
+            color: var(--text-dark);
+            margin-top: 0;
+            font-size: 2rem;
+        }
+        .description {
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        .price-tag {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+        .buy-action {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 168, 204, 0.3);
+        }
+        .buy-action:hover { background-color: #008eb0; }
+        
+        .heading-sub {
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            color: var(--text-dark);
+        }
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .spec-table tr:nth-child(even) { background-color: var(--secondary); }
+        .spec-table th, .spec-table td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        .spec-table th { color: var(--text-light); width: 35%; }
+
+        .reviews-container { margin-top: 40px; }
+        .comment-box {
+            background: #fff;
+            border: 1px solid #eaeaea;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .stars-wrap { color: #f1c40f; font-size: 1.1rem; margin-bottom: 8px; }
+        .user-name { font-weight: bold; display: inline-block; margin-right: 10px;}
+        .comment-text { color: #555; margin-top: 5px; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="top-section">
+        <div class="product-pic">
+            [ Obrázek: ActiveStep Lite - Modrý ]
+        </div>
+        <div class="product-details">
+            <h1>ActiveStep Lite</h1>
+            <p class="description">Základní fitness náramek pro každodenní použití. Lehký jako pírko, snadno se ovládá a spolehlivě spočítá každý váš krok a spálenou kalorii. Ideální pro začátečníky.</p>
+            <div class="price-tag">450 Kč</div>
+            <button class="buy-action" id="btn2">Vložit do košíku</button>
+        </div>
+    </div>
+
+    <h2 class="heading-sub">Vlastnosti produktu</h2>
+    <table class="spec-table">
+        <tr><th>Typ displeje</th><td>0.96" TFT LCD</td></tr>
+        <tr><th>Základní funkce</th><td>Krokoměr, měření vzdálenosti, spálené kalorie, hodiny</td></tr>
+        <tr><th>Měření tepu</th><td>Ne</td></tr>
+        <tr><th>Voděodolnost</th><td>IP67 (odolá dešti a mytí rukou, nevhodné na plavání)</td></tr>
+        <tr><th>Výdrž na nabití</th><td>Až 7 dní</td></tr>
+        <tr><th>Nabíjení</th><td>Přímo přes USB (řemínek se sundá z těla)</td></tr>
+    </table>
+
+    <div class="reviews-container">
+        <h2 class="heading-sub">Co říkají zákazníci?</h2>
+        
+        <div class="comment-box">
+            <div class="stars-wrap">★★★★☆</div>
+            <div class="user-name">Jana Nováková</div>
+            <div class="comment-text">Nejlepsi kup za posl. dobu!! Vubec sem nechtela davat tisice za chytry hodinky nebo naramek co meri sto veci. tohle umi presne to co chci - kroky a cas. Parovani s mym starym samsungem probehlo hned. Doporucuju vsem co nechteji zbytecnosti. Hvezdicku strhavam za nabijeni, sundavat ten pasek jde docela ztuha.</div>
+        </div>
+
+        <div class="comment-box">
+            <div class="stars-wrap">★★★☆☆</div>
+            <div class="user-name">Karel P.</div>
+            <div class="comment-text">Za tu cenu sem necekal zazraky, na pocitani kroku to staci. Displej je na slunicku hur videt, musite si stinit rukou. Na praci na zahradě fajn, aspon mě to nemrzí když to někde odřu.</div>
+        </div>
+
+        <div class="comment-box">
+            <div class="stars-wrap">★★★★★</div>
+            <div class="user-name">pavel_82</div>
+            <div class="comment-text">Dobrý. Funguje. Rychle doruceni.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('btn2').addEventListener('click', function() {
+        if(this.dataset.added === "true") return;
+        
+        const originalText = this.innerText;
+        this.innerText = "Moment...";
+        
+        setTimeout(() => {
+            this.innerText = "Úspěšně přidáno!";
+            this.style.backgroundColor = "#27ae60";
+            this.dataset.added = "true";
+            
+            setTimeout(() => {
+                this.innerText = originalText;
+                this.style.backgroundColor = "var(--primary)";
+                this.dataset.added = "false";
+            }, 2000);
+        }, 500);
+    });
+</script>
+
+</body>
+</html>

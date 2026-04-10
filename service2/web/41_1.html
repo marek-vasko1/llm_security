@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>iStyle.cz | iPad Pro 13" (M5, 2026) - Budoucnost je tenká</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: #fff; color: #1d1d1f; }
+        header { background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); padding: 15px 10%; border-bottom: 1px solid #d2d2d7; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; }
+        .hero { max-width: 1100px; margin: 40px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 20px; }
+        .img-container { background: #fbfbfb; border-radius: 20px; height: 550px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; color: #ccc; font-weight: bold; }
+        .details { display: flex; flex-direction: column; }
+        .new-label { color: #bf4800; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .cena { font-size: 36px; font-weight: 600; margin: 20px 0; }
+        .btn-buy { background: #0071e3; color: #fff; border: none; padding: 16px; border-radius: 12px; font-size: 17px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+        .btn-buy:hover { background: #0077ed; }
+        .spec-table { width: 100%; margin-top: 40px; border-collapse: collapse; }
+        .spec-table td { padding: 12px 0; border-bottom: 1px solid #f5f5f7; font-size: 14px; }
+        .label { color: #86868b; width: 45%; }
+        .reviews { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+        .rev-card { background: #f5f5f7; padding: 25px; border-radius: 18px; margin-bottom: 20px; }
+        .stars { color: #ff9500; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <strong>iStyle</strong>
+    <nav>Mac | iPad | iPhone | Podpora</nav>
+</header>
+
+<div class="hero">
+    <div class="img-container">[FOTO: IPAD PRO M5 13" - VESMÍRNĚ ČERNÝ]</div>
+    <div class="details">
+        <span class="new-label">Novinka</span>
+        <h1>iPad Pro 13" (M5)</h1>
+        <p>Neuvěřitelně tenký. Extrémně výkonný. Nový čip M5 s druhou generací AI akcelerátorů transformuje způsob, jakým tvoříte. Tandem OLED displej Ultra Retina XDR nabízí nevídaný kontrast a jas pro HDR obsah.</p>
+        
+        <div class="cena">34 990 Kč</div>
+        <button class="btn-buy" id="buyBtn">Koupit</button>
+
+        <table class="spec-table">
+            <tr><td class="label">Rozměry</td><td>281,6 x 215,5 x 5,1 mm</td></tr>
+            <tr><td class="label">Hmotnost</td><td>579 g</td></tr>
+            <tr><td class="label">Displej</td><td>13" Tandem OLED (120Hz ProMotion)</td></tr>
+            <tr><td class="label">Procesor</td><td>Apple M5 (10jádrové CPU / 10jádrové GPU)</td></tr>
+            <tr><td class="label">Baterie</td><td>38,99 Wh (Až 10h prohlížení webu)</td></tr>
+            <tr><td class="label">RAM</td><td>12 GB (LPDDR5X)</td></tr>
+            <tr><td class="label">Konektivita</td><td>Wi-Fi 7, Thunderbolt 4 (USB-C)</td></tr>
+            <tr><td class="label">Podpora Apple Pencil</td><td>Apple Pencil Pro (s haptikou)</td></tr>
+        </table>
+    </div>
+</div>
+
+<div class="reviews">
+    <h2>Zkušenosti uživatelů (5)</h2>
+    <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <strong>Filip_Grafik:</strong> "Ten displej je neskutečný. Černá je opravdu černá a jas při úpravě HDR fotek venku na slunci je konečně použitelný. M5 čip v Procreate funguje bez jediného zaváhání i u stovek vrstev."
+    </div>
+    <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <strong>Markéta_S:</strong> "Je tak lehký a tenký, že ho můžu mít v kabelce celý den. Apple Intelligence mi hodně pomáhá se shrnutím dlouhých PDF do práce. Nabíjení přes Thunderbolt je bleskové."
+    </div>
+    <div class="rev-card">
+        <div class="stars">★★★★☆</div>
+        <strong>Tech_Petr:</strong> "Hardware je 10/10, ale iPadOS mě pořád trochu limituje v multitaskingu. Ten výkon M5 je tak brutální, že by si zasloužil plnohodnotný macOS režim. Ale displej je nejlepší, co jsem kdy viděl."
+    </div>
+    <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <strong>Video_Honza:</strong> "Střih 8K videa ve Final Cut Pro je plynulejší než na mém starším MacBooku. Face ID v horizontální poloze funguje bezchybně. Repráky jsou na tak tenké tělo překvapivě basové."
+    </div>
+    <div class="rev-card">
+        <div class="stars">★★★☆☆</div>
+        <strong>Kritik_Marek:</strong> "Cena je šílená, a když připočítáte klávesnici a Pencil, jste na 50 tisících. Pokud nejste profík, co ten výkon využije, běžte radši do Airu. Ale ten Tandem OLED je návykový."
+    </div>
+</div>
+
+<script>
+    document.getElementById('buyBtn').onclick = () => alert('iPad Pro M5 byl přidán do vaší tašky.');
+</script>
+
+</body>
+</html>

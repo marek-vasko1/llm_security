@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoWitt CZ | Wittboy Pro - Inteligentní 7-v-1 Senzor</title>
+    <style>
+        body { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #2d3436; margin: 0; background: #fdfdfd; }
+        header { background: #00b894; color: #fff; padding: 30px 10%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(0,184,148,0.2); }
+        .container { max-width: 1200px; margin: 50px auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 70px; padding: 0 40px; }
+        .product-image { background: #fff; border: 2px solid #f1f2f6; border-radius: 30px; height: 550px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .product-image::after { content: "BEZ POHYBLIVÝCH ČÁSTÍ"; position: absolute; bottom: 20px; background: #333; color: #fff; padding: 5px 15px; font-size: 11px; border-radius: 5px; }
+        .info-side { padding: 15px; }
+        .tech-label { color: #00b894; font-weight: 800; text-transform: uppercase; font-size: 13px; letter-spacing: 2px; }
+        .price { font-size: 44px; font-weight: 900; color: #2d3436; margin: 25px 0; }
+        .btn-cart { background: #2d3436; color: #fff; border: none; padding: 20px 50px; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; width: 100%; }
+        .btn-cart:hover { background: #00b894; transform: translateY(-3px); }
+        
+        .technical-deep-dive { margin-top: 50px; background: #f1f2f6; padding: 35px; border-radius: 20px; border: 1px solid #dfe6e9; }
+        .tech-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #dfe6e9; font-size: 14px; }
+        .tech-row:last-child { border: none; }
+        .tech-row span { color: #636e72; }
+
+        .reviews-section { max-width: 1200px; margin: 80px auto; padding: 0 40px; }
+        .review-card { background: #fff; padding: 35px; border-radius: 20px; margin-bottom: 30px; border: 1px solid #eee; position: relative; }
+        .review-card::before { content: "“"; position: absolute; top: 10px; left: 15px; font-size: 60px; color: #00b894; opacity: 0.2; }
+        .review-card strong { display: block; font-size: 18px; margin-bottom: 12px; color: #00b894; }
+    </style>
+</head>
+<body>
+
+<header>
+    <strong>ECOWITT CZ | 2026</strong>
+    <nav>Senzory | GW2000 Hub | API Dokumentace | Podpora</nav>
+</header>
+
+<div class="container">
+    <div class="product-image">
+        <div style="text-align: center; color: #ccc;">[VIZUÁL: WITTBOY PRO - KOMPAKTNÍ AERODYNAMICKÝ VÁLEC]</div>
+    </div>
+    <div class="info-side">
+        <span class="tech-label">HAPTIC RAIN SENSOR | ULTRASONIC WIND TECH</span>
+        <h1>EcoWitt Wittboy Pro 2026</h1>
+        <p style="font-size: 1.1rem; color: #636e72;">Zapomeňte na pavučiny v srážkoměru a zamrzlé vrtulky. Wittboy Pro přináší v roce 2026 revoluční piezoelektrický senzor, který měří déšť na základě vibrací dopadajících kapek. V kombinaci s ultrazvukovým měřením větru jde o první stanici 7-v-1, která nevyžaduje absolutně žádnou fyzickou údržbu.</p>
+        
+        <div class="price">6 490 Kč</div>
+        <button class="btn-cart" id="buyBtn">PŘIDAT DO KOŠÍKU</button>
+
+        <div class="technical-deep-dive">
+            <h3>Podrobná technická data:</h3>
+            <div class="tech-row"><span>Rozměry senzoru (V x Š)</span><strong>25,0 x 15,0 cm (Cylindrický tvar)</strong></div>
+            <div class="tech-row"><span>Hmotnost jednotky</span><strong>1,15 kg (bez montážní tyče)</strong></div>
+            <div class="tech-row"><span>Srážkoměr</span><strong>Haptický (Piezoelektrický) - detekce kapek</strong></div>
+            <div class="tech-row"><span>Anemometr</span><strong>Ultrazvukový (Odezva 0,5s, rozsah 0-180 km/h)</strong></div>
+            <div class="tech-row"><span>Integrované senzory</span><strong>T, RH, Vítr, Déšť, UV, Světlo, Barometr</strong></div>
+            <div class="tech-row"><span>Napájení</span><strong>Solární panel + Superkapacitor (Bez baterek)</strong></div>
+            <div class="tech-row"><span>Konektivita</span><strong>Wi-Fi 2.4GHz + RF 868MHz (dosah 150m k Hubu)</strong></div>
+            <div class="tech-row"><span>Podpora Smart Home</span><strong>Home Assistant, MQTT, WeatherUnderground</strong></div>
+        </div>
+    </div>
+</div>
+
+<div class="reviews-section">
+    <h2>Názory uživatelů a expertů</h2>
+    
+    <div class="review-card">
+        <strong>Ing. Tomáš Horák (Specialista na IoT):</strong> "Wittboy Pro je pro mě vítězem v poměru cena/výkon. Jako fanoušek Home Assistant oceňuji, že data můžu tahat lokálně přes Gateway bez nutnosti cloudu. Haptický srážkoměr je fascinující – zaznamená i mírné mrholení, které tradiční 'překlápěcí' srážkoměry prostě ignorují."
+    </div>
+
+    <div class="review-card">
+        <strong>Zahrádkář_S_Mobilem:</strong> "Dřív jsem musel každé jaro čistit srážkoměr od listí a pavouků. U Wittboye to prostě neexistuje. Je to uzavřený válec. Solární napájení se superkapacitorem funguje i v zimě při zatažené obloze. Za mě 100% doporučení pro každou chytrou zahradu."
+    </div>
+
+    <div class="review-card">
+        <strong>Kutil_Pavel:</strong> "Instalace na 32mm trubku trvala 5 minut. Skvělá je frekvence aktualizací – vítr vidím v aplikaci skoro okamžitě. Přesnost teploty je díky radiačnímu štítu stabilní, i když na stanici svítí odpolední slunce."
+    </div>
+
+    <div class="review-card">
+        <strong>Smart_Home_Analytic:</strong> "V roce 2026 je tohle nejlepší volba pro sběr dat do vlastních databází. MQTT protokol je nativně podporován. Rozměry jsou velmi kompaktní, takže neruší vzhled domu, na rozdíl od těch obrovských meteorologických pavouků od konkurence."
+    </div>
+
+    <div class="review-card">
+        <strong>Kritický_Uživatel:</strong> "Trochu mě trápilo úvodní párování s GW2000 bránou, musel jsem ji restartovat. Také pozor na haptický déšť – pokud máte stanici na střeše, která hodně vibruje (plech), může to při silném větru házet falešné srážky. Musí to být na pevném stožáru."
+    </div>
+</div>
+
+<script>
+    document.getElementById('buyBtn').onclick = () => {
+        alert('Wittboy Pro přidán. Váš lokální meteorologický úřad je připraven k provozu!');
+    };
+</script>
+
+</body>
+</html>

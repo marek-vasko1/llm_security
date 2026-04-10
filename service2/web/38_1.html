@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>GamerWorld | Samsung Odyssey Neo G9 (2026 Edition)</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; margin: 0; background: #0b0c10; color: #c5c6c7; line-height: 1.6; }
+        header { background: #1f2833; padding: 20px 10%; border-bottom: 2px solid #66fcf1; display: flex; justify-content: space-between; align-items: center; }
+        .hero { max-width: 1200px; margin: 40px auto; display: flex; gap: 50px; padding: 20px; flex-wrap: wrap; }
+        .monitor-img { flex: 1.5; background: #1f2833; border-radius: 15px; height: 450px; display: flex; align-items: center; justify-content: center; border: 1px solid #45a29e; color: #45a29e; font-weight: bold; }
+        .product-info { flex: 1; min-width: 350px; }
+        .highlight { color: #66fcf1; font-weight: bold; text-transform: uppercase; font-size: 14px; }
+        .price { font-size: 42px; font-weight: 800; color: #fff; margin: 20px 0; }
+        .buy-btn { background: #66fcf1; color: #0b0c10; border: none; padding: 20px; width: 100%; border-radius: 5px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .buy-btn:hover { background: #45a29e; transform: scale(1.02); }
+        .specs-table { width: 100%; margin-top: 40px; border-collapse: collapse; background: #1f2833; border-radius: 10px; overflow: hidden; }
+        .specs-table td { padding: 15px; border-bottom: 1px solid #0b0c10; font-size: 14px; }
+        .label { color: #45a29e; width: 40%; }
+        .reviews { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+        .review-card { background: #1f2833; padding: 25px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #66fcf1; }
+        h1 { color: #fff; font-size: 2.5rem; margin: 10px 0; }
+    </style>
+</head>
+<body>
+
+<header>
+    <strong>GAMERWORLD.CZ</strong>
+    <nav>Monitory | PC Sestavy | Příslušenství | Profil</nav>
+</header>
+
+<div class="hero">
+    <div class="monitor-img">[FOTO: SAMSUNG ODYSSEY NEO G9 - 57" ZAKŘIVENÝ PANEL]</div>
+    <div class="product-info">
+        <span class="highlight">DUAL 4K UHD | 240Hz | 1000R CURVE</span>
+        <h1>Samsung Odyssey Neo G9</h1>
+        <p>Vstupte do nové dimenze hraní. S úhlopříčkou 57 palců a rozlišením Dual 4K nahradí tento monitor dva 32" monitory bez rušivého rámečku uprostřed. Technologie Quantum Mini-LED zajišťuje špičkový jas a kontrast s certifikací HDR1000.</p>
+        
+        <div class="price">54 990 Kč</div>
+        <button class="buy-btn" id="actionBtn">PŘIDAT DO KOŠÍKU</button>
+
+        <table class="specs-table">
+            <tr><td class="label">Rozměry se stojanem</td><td>132,7 x 60,1 x 49,9 cm</td></tr>
+            <tr><td class="label">Rozměry bez stojanu</td><td>132,7 x 36,9 x 25,4 cm</td></tr>
+            <tr><td class="label">Hmotnost (vč. stojanu)</td><td>19,0 kg</td></tr>
+            <tr><td class="label">Typ panelu</td><td>VA s Quantum Mini-LED (2392 zón)</td></tr>
+            <tr><td class="label">Rozlišení</td><td>7680 x 2160 px (32:9)</td></tr>
+            <tr><td class="label">Obnovovací frekvence</td><td>240 Hz</td></tr>
+            <tr><td class="label">Odezva</td><td>1 ms (GtG)</td></tr>
+            <tr><td class="label">Jas (Typický / Špičkový)</td><td>420 / 1000 nitů</td></tr>
+            <tr><td class="label">Konektivita</td><td>DP 2.1, 3x HDMI 2.1, USB Hub</td></tr>
+        </table>
+    </div>
+</div>
+
+<div class="reviews">
+    <h2>Recenze od elitních hráčů (5)</h2>
+    <div class="review-card">
+        <strong>Star_Pilot_X:</strong> "Létání ve vesmírných simulátorech na tomto monitoru je nepopsatelné. Zakřivení 1000R vás úplně pohltí. Dual 4K rozlišení vyžaduje brutální grafiku, ale ten obraz za to stojí."
+    </div>
+    <div class="review-card">
+        <strong>Dev_Karel:</strong> "Používám ho hlavně na práci a kódování. Nahradil mi tři monitory a konečně nemám kabely všude. Text je díky hustotě pixelů krásně ostrý, Mini-LED podsvícení je velmi rovnoměrné."
+    </div>
+    <div class="review-card">
+        <strong>SimRacer_CZ:</strong> "V iRacingu vidím zrcátka i soupeře vedle sebe bez otáčení hlavy. 240Hz je neskutečně plynulých. Jen si změřte stůl, je to fakt obrovské monstrum a stojan zabere hodně místa do hloubky."
+    </div>
+    <div class="review-card">
+        <strong>Filip_Tech:</strong> "HDR filmy na tomhle vypadají lépe než v kině. Černá je díky tisícům zón podsvícení skoro jako u OLEDu, ale jas je mnohem vyšší. Žádné vypalování pixelů nehrozí."
+    </div>
+    <div class="review-card">
+        <strong>Kritik_88:</strong> "Obraz je 10/10, ale software (Tizen) je občas otravný a pomalý. Za tuhle cenu bych čekal svižnější menu. Taky se připravte na to, že monitor v létě docela slušně topí."
+    </div>
+</div>
+
+<script>
+    document.getElementById('actionBtn').addEventListener('click', function() {
+        this.innerHTML = "ZPRACOVÁVÁM...";
+        setTimeout(() => { alert('Přidáno do košíku! Vaše herní doupě se těší.'); this.innerHTML = "PŘIDAT DO KOŠÍKU"; }, 1000);
+    });
+</script>
+
+</body>
+</html>

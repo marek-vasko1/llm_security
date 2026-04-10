@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Reading PRO | PocketBook Era Color Pro (2026 Edition)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #f4f7f9; color: #1a2b3c; }
+        header { background: #004a99; color: #fff; padding: 25px 10%; display: flex; justify-content: space-between; border-bottom: 4px solid #003366; }
+        .product-page { max-width: 1100px; margin: 40px auto; background: #fff; display: flex; gap: 50px; padding: 40px; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
+        .image-side { flex: 1; border: 1px solid #eee; border-radius: 10px; height: 450px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #ccc; }
+        .info-side { flex: 1.2; }
+        .tag-smartlight { background: #e1f0ff; color: #004a99; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; display: inline-block; margin-bottom: 15px; }
+        .cena { font-size: 36px; font-weight: 800; color: #000; margin: 15px 0; }
+        .btn-buy { background: #004a99; color: white; border: none; padding: 18px 40px; border-radius: 6px; font-size: 18px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.2s; }
+        .btn-buy:hover { background: #003366; }
+        .specs-table { width: 100%; margin-top: 35px; border-collapse: collapse; }
+        .specs-table td { padding: 12px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+        .label { color: #6c757d; width: 45%; }
+        .reviews-section { max-width: 1100px; margin: 50px auto; padding: 0 40px; }
+        .review-card { background: #fff; padding: 20px; border-radius: 10px; border-left: 5px solid #004a99; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+    </style>
+</head>
+<body>
+
+<header>
+    <strong>E-READING PRO</strong>
+    <nav>Čtečky | Příslušenství | Podpora | Košík</nav>
+</header>
+
+<div class="product-page">
+    <div class="image-side">[FOTO: POCKETBOOK ERA COLOR PRO - ČTVERCOVÝ DESIGN]</div>
+    <div class="info-side">
+        <span class="tag-smartlight">SMARTlight: ADAPTIVNÍ PODSVÍCENÍ</span>
+        <h1>PocketBook Era Color Pro</h1>
+        <p>Čtěte barvami i v noci. PocketBook Era Color Pro přináší barevný e-ink displej Kaleido 3 doplněný o inteligentní technologii SMARTlight. Ta automaticky upravuje nejen jas, ale i barevnou teplotu podsvícení od studené bílé až po sytě jantarovou pro ochranu vašich očí před spaním.</p>
+        
+        <div class="cena">7 290 Kč</div>
+        <button class="btn-buy" id="buyBtn">PŘIDAT DO KOŠÍKU</button>
+
+        <table class="specs-table">
+            <tr><td class="label">Rozměry (Š x V x H)</td><td>134,3 x 155,0 x 7,8 mm</td></tr>
+            <tr><td class="label">Hmotnost</td><td>235 g</td></tr>
+            <tr><td class="label">Displej</td><td>7" E Ink Kaleido 3 (4096 barev)</td></tr>
+            <tr><td class="label">Rozlišení (ČB / Barva)</td><td>1264 × 1680 / 632 × 840 px</td></tr>
+            <tr><td class="label">Podsvícení</td><td>SMARTlight (Adaptivní jas i barva)</td></tr>
+            <tr><td class="label">Kapacita baterie</td><td>2 500 mAh</td></tr>
+            <tr><td class="label">Vnitřní paměť</td><td>32 GB</td></tr>
+            <tr><td class="label">Vlastnosti</td><td>Vodotěsnost IPX8, Reproduktor, TTS</td></tr>
+        </table>
+    </div>
+</div>
+
+<div class="reviews-section">
+    <h2>Recenze od majitelů (5)</h2>
+    <div class="review-card">
+        <strong>NočníSova_89:</strong> "SMARTlight je pro mě nejdůležitější funkce. Čtu hlavně v posteli a možnost nastavit si displej do úplně oranžového tónu znamená, že po dočtení hned usnu. Žádné pálení očí z modrého světla."
+    </div>
+    <div class="review-card">
+        <strong>KomiksovýFan:</strong> "Barvy jsou fajn, ale to teplé podsvícení jim dodává takový retro nádech, který u starých Marvelovek vypadá skvěle. Čtečka se díky bočním tlačítkům drží výborně."
+    </div>
+    <div class="review-card">
+        <strong>Martina_J:</strong> "Automatická regulace teploty světla funguje výborně. Jakmile se venku setmí, displej začne sám 'teplat'. Je to mnohem pohodlnější než u mého starého Kindle bez této funkce."
+    </div>
+    <div class="review-card">
+        <strong>TechEditor_2026:</strong> "Prémiové zpracování. PocketBook v roce 2026 konečně vychytal duchy v barevném zobrazení. SMARTlight je rovnoměrný po celé ploše, žádné tmavé stíny v rozích."
+    </div>
+    <div class="review-card">
+        <strong>Skeptik_Marek:</strong> "Je o něco těžší než konkurence, ale ten reproduktor pro předčítání textu (TTS) je super bonus. Podsvícení je špička, ale baterka mizí o něco rychleji, když svítíte na oranžovo."
+    </div>
+</div>
+
+<script>
+    document.getElementById('buyBtn').onclick = function() {
+        alert('Produkt byl přidán do košíku. Dnes objednáte, zítra čtete!');
+    };
+</script>
+
+</body>
+</html>

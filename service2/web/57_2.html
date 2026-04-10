@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorGlow BT Basic 10m | Barevný svět</title>
+    <style>
+        :root {
+            --gradient: linear-gradient(135deg, #ff00cc, #3333ff);
+            --bg-light: #f8f9fa;
+            --card-light: #ffffff;
+            --text-main: #333;
+            --text-muted: #777;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+        .wrapper {
+            max-width: 850px;
+            margin: auto;
+            background: var(--card-light);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+        }
+        .header-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 35px;
+            margin-bottom: 30px;
+        }
+        .img-placeholder {
+            flex: 1;
+            min-width: 280px;
+            background: #f0f0f5;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: 600;
+            aspect-ratio: 4/3;
+            border: 2px dashed #d1d1e0;
+            position: relative;
+        }
+        .product-details {
+            flex: 1;
+            min-width: 280px;
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 2.2rem;
+            color: #111;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .desc { color: var(--text-muted); line-height: 1.6; }
+        .price-tag { font-size: 2.5rem; font-weight: 800; color: #222; margin: 15px 0; }
+        .buy-btn {
+            background: var(--gradient);
+            color: #fff;
+            border: none;
+            padding: 16px 20px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        .buy-btn:hover { opacity: 0.9; transform: scale(1.02); }
+        .buy-btn:active { transform: scale(0.98); }
+        
+        .sub-title { border-bottom: 2px solid #f0f0f5; padding-bottom: 10px; margin-top: 40px; color: #222; }
+        .spec-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .spec-table th, .spec-table td { padding: 12px 5px; border-bottom: 1px solid #f0f0f5; text-align: left; }
+        .spec-table th { color: var(--text-muted); width: 40%; font-weight: normal; }
+        .spec-table td { font-weight: bold; }
+        
+        .reviews-section { margin-top: 45px; }
+        .comment-box {
+            background: #fafafc;
+            border: 1px solid #eaeaf0;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .star-rating { color: #ff00cc; font-size: 1.2rem; margin-bottom: 5px; }
+        .user-name { font-weight: bold; color: #222; }
+        .comment-body { color: #555; margin-top: 8px; font-size: 0.95rem; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="header-content">
+        <div class="img-placeholder">
+            [ Obrázek: 2x 5m RGB pásky na cívce ]
+        </div>
+        <div class="product-details">
+            <h1>ColorGlow BT Basic</h1>
+            <p class="desc">Oživte svůj pokoj nekonečnými barvami! Extra dlouhý 10metrový RGB pásek ideální za televizi, pod postel nebo kolem stolu. Ovládejte ho jednoduše přes Bluetooth aplikaci z mobilu nebo přiloženým ovladačem.</p>
+            <div class="price-tag">499 Kč</div>
+            <button class="buy-btn" id="btnColor">Koupit nyní</button>
+        </div>
+    </div>
+
+    <h2 class="sub-title">Parametry produktu</h2>
+    <table class="spec-table">
+        <tr><th>Celková délka</th><td>10 metrů (balení obsahuje 2x 5m role)</td></tr>
+        <tr><th>Připojení k mobilu</th><td>Bluetooth 4.0</td></tr>
+        <tr><th>Typ diod</th><td>RGB SMD 5050 (celý pásek svítí vždy 1 barvou)</td></tr>
+        <tr><th>Aplikace</th><td>DuoCo Strip (pro Android i iOS)</td></tr>
+        <tr><th>Dálkový ovladač</th><td>Ano, infračervený s 24 tlačítky</td></tr>
+        <tr><th>Napájení</th><td>Adaptér a rozbočovač (je v balení)</td></tr>
+        <tr><th>Voděodolnost</th><td>IP20 (pouze do interiéru)</td></tr>
+    </table>
+
+    <div class="reviews-section">
+        <h2 class="sub-title">Hodnocení od zákazníků</h2>
+        
+        <div class="comment-box">
+            <div class="star-rating">★★★★☆</div>
+            <div class="user-name">Lukáš P.</div>
+            <div class="comment-body">Za tu cenu dobry, svítí to pěkně jasně. Ale ta apka v mobilu je občas trochu zmatená a musí se to párovat nadvakrát, než to Bluetooth chytne. Pak už to ale drží. Na podsvícení stolu k PC je to úplně v klidu.</div>
+        </div>
+
+        <div class="comment-box">
+            <div class="star-rating">★★★★★</div>
+            <div class="user-name">Adéla</div>
+            <div class="comment-body">Koupila jsem si to do pokojíčku a vypadá to prostě nádherně!!! 🥺 Lepící páska drží na zdi už měsíc bez problému a neodlepuje se. Barvy jsou krásně syté a je super, že tam je i režim na problikávání do rytmu hudby. Za mě super kauf.</div>
+        </div>
+
+        <div class="comment-box">
+            <div class="star-rating">★★★★☆</div>
+            <div class="user-name">Karel</div>
+            <div class="comment-body">Funguje. Ty 2 pětikilový pásky se musí napojit oba do toho bílýho ovladače, nejdou spojit za sebe, jinak konec svítí slaběji, s tim poctite pri montazi. Jinak pohoda.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('btnColor').addEventListener('click', function() {
+        if(this.dataset.status === "added") return;
+        
+        const origText = this.innerText;
+        this.innerText = "Přiřazuji do košíku...";
+        
+        setTimeout(() => {
+            this.innerText = "Hotovo! Je v košíku 🛒";
+            this.style.background = "#20bf6b"; // Zelená barva pro úspěch
+            this.dataset.status = "added";
+            
+            setTimeout(() => {
+                this.innerText = origText;
+                this.style.background = "var(--gradient)";
+                this.dataset.status = "";
+            }, 3000);
+        }, 600);
+    });
+</script>
+
+</body>
+</html>

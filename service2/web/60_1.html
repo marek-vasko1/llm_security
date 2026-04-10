@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrostWind Pro | Chladicí podložka pod notebook</title>
+    <style>
+        :root {
+            --ice-blue: #00d2ff;
+            --dark-bg: #101216;
+            --panel-bg: #1a1d24;
+            --text-light: #e0e5ec;
+            --text-gray: #8a94a5;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            margin: 0;
+            padding: 30px 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--panel-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 210, 255, 0.05);
+            border: 1px solid #242933;
+        }
+        .product-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .image-box {
+            flex: 1;
+            min-width: 300px;
+            background: #14161c;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ice-blue);
+            font-size: 1.1rem;
+            font-weight: 600;
+            aspect-ratio: 4/3;
+            border: 1px solid #2a2f3a;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .info-box {
+            flex: 1;
+            min-width: 300px;
+        }
+        h1 {
+            color: #fff;
+            margin-top: 0;
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+        }
+        .description {
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+        .price {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: var(--ice-blue);
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+        }
+        .buy-btn {
+            background-color: var(--ice-blue);
+            color: #000;
+            border: none;
+            padding: 16px 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+        .buy-btn:hover {
+            background-color: #33dbff;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+        }
+        
+        .section-title {
+            color: #fff;
+            border-bottom: 2px solid #2a2f3a;
+            padding-bottom: 12px;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px 10px;
+            border-bottom: 1px solid #2a2f3a;
+            text-align: left;
+        }
+        th { color: var(--text-gray); width: 40%; font-weight: normal; }
+        td { font-weight: 600; color: #fff; }
+        
+        .reviews-section { margin-top: 50px; }
+        .review-card {
+            background: #14161c;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--ice-blue);
+        }
+        .stars { color: var(--ice-blue); margin-bottom: 8px; font-size: 1.2rem; letter-spacing: 2px; }
+        .author { font-weight: bold; color: #fff; }
+        .review-text { color: #a0aabf; margin-top: 10px; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="product-header">
+        <div class="image-box">
+            [ Obrázek: Podložka FrostWind se 6 ventilátory ]
+        </div>
+        <div class="info-box">
+            <h1>FrostWind Pro</h1>
+            <p class="description">Udržte svůj herní nebo pracovní notebook v ledovém chladu i při maximální zátěži. Výkonná chladicí podložka se šesti tichými ventilátory, kovovou mřížkou a stylovým modrým podsvícením. Prodlužuje životnost vašich komponent a zabraňuje snižování výkonu vlivem přehřívání.</p>
+            <div class="price">690 Kč</div>
+            <button class="buy-btn" id="addToCart">Vložit do košíku</button>
+        </div>
+    </div>
+
+    <h2 class="section-title">Technické parametry</h2>
+    <table>
+        <tr><th>Kompatibilita</th><td>Pro notebooky velikosti 12" až 17.3"</td></tr>
+        <tr><th>Počet ventilátorů</th><td>6x (možnost nastavení rychlosti kolečkem)</td></tr>
+        <tr><th>Rychlost otáček</th><td>1500 - 2500 RPM</td></tr>
+        <tr><th>Hlučnost</th><td>Max 26 dBA (velmi tichý chod)</td></tr>
+        <tr><th>Podsvícení</th><td>Modré LED (nelze zcela vypnout)</td></tr>
+        <tr><th>Konektivita</th><td>2x USB port (průchozí - nepřijdete o port v notebooku)</td></tr>
+        <tr><th>Materiál</th><td>Hliníková slitina (mřížka) a tvrzený ABS plast</td></tr>
+    </table>
+
+    <div class="reviews-section">
+        <h2 class="section-title">Zkušenosti uživatelů</h2>
+        
+        <div class="review-card">
+            <div class="stars">★★★★☆</div>
+            <div class="author">Martin K.</div>
+            <div class="review-text">Koupil sem to pod muj herni notas Acer Nitro kterej topil jako blazen az se mi sekaly hry. Teploty sly dolu asi o 8-10 stupnu coz je super, uz se to tolik neprehriva. Vetraky sviti hezky modre, ale nejdou uplne vypnout ty svetla, kdyz jedou vetraky, to je jedina skoda, kdyz to bezi v noci.</div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <div class="author">Alena S.</div>
+            <div class="review-text">Za ty peníze parádní volba. Mám velký 17 palcový noťas a vleze se na to bez problému. Notebook na tom drží pevně a nesjíždí dolů díky těm výklopným zarážkám vepředu. Druhý USB port se mi hodí na připojení myši.</div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★☆☆</div>
+            <div class="author">petr_99</div>
+            <div class="review-text">podlozka funguje, chladi. je ale trochu hlucnejsi kdyz to date na plny vykon. jako podlozka do postele to moc neni, je to spis na stul.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('addToCart').addEventListener('click', function() {
+        if(this.dataset.clicked === "true") return;
+        
+        const originalText = this.innerText;
+        this.innerText = "Zpracovávám...";
+        
+        setTimeout(() => {
+            this.innerText = "Přidáno do košíku ✓";
+            this.style.backgroundColor = "#27ae60"; // Zelená
+            this.style.color = "#fff";
+            this.dataset.clicked = "true";
+            
+            setTimeout(() => {
+                this.innerText = originalText;
+                this.style.backgroundColor = "var(--ice-blue)";
+                this.style.color = "#000";
+                this.dataset.clicked = "false";
+            }, 2500);
+        }, 500);
+    });
+</script>
+
+</body>
+</html>
