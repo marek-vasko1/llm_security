@@ -1,0 +1,1218 @@
+nohup: ignoring input
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T15:13:54.501621
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'gpt-oss-120b' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: gpt-oss-120b
+📜 reporting to /root/.local/share/garak/garak_runs/gpt-oss-120b_TAP_DIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:50<07:34, 50.50s/it] 20%|[32m██        [0m| 2/10 [01:36<06:24, 48.10s/it] 30%|[32m███       [0m| 3/10 [02:02<04:26, 38.04s/it] 40%|[32m████      [0m| 4/10 [02:18<02:54, 29.02s/it] 50%|[32m█████     [0m| 5/10 [02:33<02:00, 24.10s/it] 60%|[32m██████    [0m| 6/10 [03:00<01:39, 24.91s/it] 70%|[32m███████   [0m| 7/10 [03:24<01:14, 24.73s/it] 80%|[32m████████  [0m| 8/10 [03:46<00:47, 23.78s/it] 90%|[32m█████████ [0m| 9/10 [04:02<00:21, 21.60s/it]100%|[32m██████████[0m| 10/10 [04:12<00:00, 17.99s/it]                                               sending 8379
+[Wrapper 8379] <<< KONEC: Server odpověděl za 3.84s
+sending 5468
+[Wrapper 5468] <<< KONEC: Server odpověděl za 0.74s
+sending 8357
+[Wrapper 8357] <<< KONEC: Server odpověděl za 5.24s
+sending 4093
+[Wrapper 4093] <<< KONEC: Server odpověděl za 0.71s
+sending 5716
+[Wrapper 5716] <<< KONEC: Server odpověděl za 5.47s
+sending 4685
+[Wrapper 4685] <<< KONEC: Server odpověděl za 0.53s
+sending 3323
+[Wrapper 3323] <<< KONEC: Server odpověděl za 0.04s
+sending 8913
+[Wrapper 8913] <<< KONEC: Server odpověděl za 1.17s
+sending 9823
+[Wrapper 9823] <<< KONEC: Server odpověděl za 0.03s
+sending 8539
+[Wrapper 8539] <<< KONEC: Server odpověděl za 0.04s
+sending 3708
+[Wrapper 3708] <<< KONEC: Server odpověděl za 0.04s
+sending 4645
+[Wrapper 4645] <<< KONEC: Server odpověděl za 0.04s
+sending 4431
+[Wrapper 4431] <<< KONEC: Server odpověděl za 1.77s
+sending 9192
+[Wrapper 9192] <<< KONEC: Server odpověděl za 1.32s
+sending 1444
+[Wrapper 1444] <<< KONEC: Server odpověděl za 1.63s
+sending 3852
+[Wrapper 3852] <<< KONEC: Server odpověděl za 1.91s
+sending 4480
+[Wrapper 4480] <<< KONEC: Server odpověděl za 2.82s
+sending 8981
+[Wrapper 8981] <<< KONEC: Server odpověděl za 1.38s
+sending 8992
+[Wrapper 8992] <<< KONEC: Server odpověděl za 0.04s
+sending 3411
+[Wrapper 3411] <<< KONEC: Server odpověděl za 1.34s
+sending 1886
+[Wrapper 1886] <<< KONEC: Server odpověděl za 0.03s
+sending 3168
+[Wrapper 3168] <<< KONEC: Server odpověděl za 0.03s
+sending 8577
+[Wrapper 8577] <<< KONEC: Server odpověděl za 1.52s
+sending 1002
+[Wrapper 1002] <<< KONEC: Server odpověděl za 0.03s
+sending 5055
+[Wrapper 5055] <<< KONEC: Server odpověděl za 0.03s
+sending 6029
+[Wrapper 6029] <<< KONEC: Server odpověděl za 0.03s
+sending 4411
+[Wrapper 4411] <<< KONEC: Server odpověděl za 0.02s
+sending 3604
+[Wrapper 3604] <<< KONEC: Server odpověděl za 0.03s
+sending 4662
+[Wrapper 4662] <<< KONEC: Server odpověděl za 0.03s
+sending 7490
+[Wrapper 7490] <<< KONEC: Server odpověděl za 0.01s
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/gpt-oss-120b_TAP_DIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/gpt-oss-120b_TAP_DIRECT.report.html
+✔️  garak run complete in 255.24s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T15:18:10.676800
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'gpt-oss-120b' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: gpt-oss-120b
+⚠️  This run can be sped up 🥳 Generator 'OpenAI gpt-oss-120b' supports parallelism! Consider using `--parallel_attempts 16` (or more) to greatly accelerate your run. 🐌
+📜 reporting to /root/.local/share/garak/garak_runs/gpt-oss-120b_TAP_INDIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:41<06:17, 41.96s/it] 20%|[32m██        [0m| 2/10 [01:22<05:27, 40.88s/it] 30%|[32m███       [0m| 3/10 [02:16<05:28, 47.00s/it] 40%|[32m████      [0m| 4/10 [02:47<04:04, 40.82s/it] 50%|[32m█████     [0m| 5/10 [03:37<03:39, 43.89s/it] 60%|[32m██████    [0m| 6/10 [04:37<03:18, 49.63s/it] 70%|[32m███████   [0m| 7/10 [05:34<02:35, 51.83s/it] 80%|[32m████████  [0m| 8/10 [06:24<01:42, 51.38s/it] 90%|[32m█████████ [0m| 9/10 [07:10<00:49, 49.79s/it]100%|[32m██████████[0m| 10/10 [07:58<00:00, 49.18s/it]                                               sending 1175
+[Wrapper 1175] <<< KONEC: Server odpověděl za 12.97s
+sending 2829
+[Wrapper 2829] <<< KONEC: Server odpověděl za 15.99s
+sending 5266
+[Wrapper 5266] <<< KONEC: Server odpověděl za 5.29s
+sending 8879
+[Wrapper 8879] <<< KONEC: Server odpověděl za 4.13s
+sending 2707
+[Wrapper 2707] <<< KONEC: Server odpověděl za 5.41s
+sending 4437
+[Wrapper 4437] <<< KONEC: Server odpověděl za 9.41s
+sending 3408
+[Wrapper 3408] <<< KONEC: Server odpověděl za 6.51s
+sending 9194
+[Wrapper 9194] <<< KONEC: Server odpověděl za 13.54s
+sending 6240
+[Wrapper 6240] <<< KONEC: Server odpověděl za 10.27s
+sending 6806
+[Wrapper 6806] <<< KONEC: Server odpověděl za 4.11s
+sending 9573
+[Wrapper 9573] <<< KONEC: Server odpověděl za 0.07s
+sending 1424
+[Wrapper 1424] <<< KONEC: Server odpověděl za 4.83s
+sending 2088
+[Wrapper 2088] <<< KONEC: Server odpověděl za 12.40s
+sending 4554
+[Wrapper 4554] <<< KONEC: Server odpověděl za 0.09s
+sending 6312
+[Wrapper 6312] <<< KONEC: Server odpověděl za 0.07s
+sending 1979
+[Wrapper 1979] <<< KONEC: Server odpověděl za 11.06s
+sending 6964
+[Wrapper 6964] <<< KONEC: Server odpověděl za 0.07s
+sending 3710
+[Wrapper 3710] <<< KONEC: Server odpověděl za 7.14s
+sending 5372
+[Wrapper 5372] <<< KONEC: Server odpověděl za 10.52s
+sending 1066
+[Wrapper 1066] <<< KONEC: Server odpověděl za 13.12s
+sending 7423
+[Wrapper 7423] <<< KONEC: Server odpověděl za 7.83s
+sending 2184
+[Wrapper 2184] <<< KONEC: Server odpověděl za 7.05s
+sending 9734
+[Wrapper 9734] <<< KONEC: Server odpověděl za 0.08s
+sending 7133
+[Wrapper 7133] <<< KONEC: Server odpověděl za 11.05s
+sending 2539
+[Wrapper 2539] <<< KONEC: Server odpověděl za 8.18s
+sending 3022
+[Wrapper 3022] <<< KONEC: Server odpověděl za 11.79s
+sending 6212
+[Wrapper 6212] <<< KONEC: Server odpověděl za 0.11s
+sending 5437
+[Wrapper 5437] <<< KONEC: Server odpověděl za 7.65s
+sending 5729
+[Wrapper 5729] <<< KONEC: Server odpověděl za 4.75s
+sending 6947
+[Wrapper 6947] <<< KONEC: Server odpověděl za 13.10s
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/gpt-oss-120b_TAP_INDIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/gpt-oss-120b_TAP_INDIRECT.report.html
+✔️  garak run complete in 480.72s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T15:48:22.957836
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'glm-4.7' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: glm-4.7
+📜 reporting to /root/.local/share/garak/garak_runs/glm-4.7_TAP_DIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:17<02:35, 17.25s/it] 20%|[32m██        [0m| 2/10 [00:44<03:04, 23.10s/it] 30%|[32m███       [0m| 3/10 [01:15<03:06, 26.58s/it] 40%|[32m████      [0m| 4/10 [01:45<02:48, 28.04s/it] 50%|[32m█████     [0m| 5/10 [02:06<02:07, 25.46s/it] 60%|[32m██████    [0m| 6/10 [02:35<01:46, 26.64s/it] 70%|[32m███████   [0m| 7/10 [03:06<01:24, 28.07s/it] 80%|[32m████████  [0m| 8/10 [03:30<00:53, 26.83s/it] 90%|[32m█████████ [0m| 9/10 [03:41<00:21, 21.88s/it]100%|[32m██████████[0m| 10/10 [03:46<00:00, 16.79s/it]                                               sending 8252
+[Wrapper 8252] <<< KONEC: Server odpověděl za 3.46s
+sending 1011
+[Wrapper 1011] <<< KONEC: Server odpověděl za 4.60s
+sending 4465
+[Wrapper 4465] <<< KONEC: Server odpověděl za 3.00s
+sending 7179
+[Wrapper 7179] <<< KONEC: Server odpověděl za 4.08s
+sending 1980
+[Wrapper 1980] <<< KONEC: Server odpověděl za 2.03s
+sending 7302
+[Wrapper 7302] <<< KONEC: Server odpověděl za 3.27s
+sending 1370
+[Wrapper 1370] <<< KONEC: Server odpověděl za 4.12s
+sending 6953
+[Wrapper 6953] <<< KONEC: Server odpověděl za 4.46s
+sending 3534
+[Wrapper 3534] <<< KONEC: Server odpověděl za 3.99s
+sending 9831
+[Wrapper 9831] <<< KONEC: Server odpověděl za 3.43s
+sending 6119
+[Wrapper 6119] <<< KONEC: Server odpověděl za 2.94s
+sending 6447
+[Wrapper 6447] <<< KONEC: Server odpověděl za 4.17s
+sending 4888
+[Wrapper 4888] <<< KONEC: Server odpověděl za 4.22s
+sending 7264
+[Wrapper 7264] <<< KONEC: Server odpověděl za 2.34s
+sending 7775
+[Wrapper 7775] <<< KONEC: Server odpověděl za 0.03s
+sending 8251
+[Wrapper 8251] <<< KONEC: Server odpověděl za 4.23s
+sending 1089
+[Wrapper 1089] <<< KONEC: Server odpověděl za 0.04s
+sending 6582
+[Wrapper 6582] <<< KONEC: Server odpověděl za 4.81s
+sending 1622
+[Wrapper 1622] <<< KONEC: Server odpověděl za 0.05s
+sending 1446
+[Wrapper 1446] <<< KONEC: Server odpověděl za 4.65s
+sending 2184
+[Wrapper 2184] <<< KONEC: Server odpověděl za 0.04s
+sending 1527
+[Wrapper 1527] <<< KONEC: Server odpověděl za 0.05s
+sending 3602
+[Wrapper 3602] <<< KONEC: Server odpověděl za 0.02s
+sending 3339
+[Wrapper 3339] <<< KONEC: Server odpověděl za 0.02s
+sending 3953
+[Wrapper 3953] <<< KONEC: Server odpověděl za 0.03s
+sending 9274
+[Wrapper 9274] <<< KONEC: Server odpověděl za 0.02s
+sending 9243
+[Wrapper 9243] <<< KONEC: Server odpověděl za 0.02s
+sending 9954
+[Wrapper 9954] <<< KONEC: Server odpověděl za 0.04s
+sending 9562
+[Wrapper 9562] <<< KONEC: Server odpověděl za 0.03s
+sending 9113
+[Wrapper 9113] <<< KONEC: Server odpověděl za 0.02s
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/glm-4.7_TAP_DIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/glm-4.7_TAP_DIRECT.report.html
+✔️  garak run complete in 229.66s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T15:52:13.482506
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'glm-4.7' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: glm-4.7
+📜 reporting to /root/.local/share/garak/garak_runs/glm-4.7_TAP_INDIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:40<06:01, 40.16s/it] 20%|[32m██        [0m| 2/10 [01:50<07:42, 57.76s/it] 30%|[32m███       [0m| 3/10 [02:41<06:23, 54.85s/it] 40%|[32m████      [0m| 4/10 [03:38<05:34, 55.73s/it] 50%|[32m█████     [0m| 5/10 [04:52<05:11, 62.31s/it] 60%|[32m██████    [0m| 6/10 [06:08<04:27, 66.95s/it] 70%|[32m███████   [0m| 7/10 [07:27<03:32, 70.95s/it] 80%|[32m████████  [0m| 8/10 [08:24<02:12, 66.42s/it] 90%|[32m█████████ [0m| 9/10 [09:20<01:03, 63.16s/it]100%|[32m██████████[0m| 10/10 [09:59<00:00, 55.66s/it]                                               sending 8205
+[Wrapper 8205] <<< KONEC: Server odpověděl za 11.98s
+sending 1202
+[Wrapper 1202] <<< KONEC: Server odpověděl za 9.53s
+sending 6399
+[Wrapper 6399] <<< KONEC: Server odpověděl za 10.61s
+sending 2984
+[Wrapper 2984] <<< KONEC: Server odpověděl za 14.49s
+sending 9662
+[Wrapper 9662] <<< KONEC: Server odpověděl za 10.45s
+sending 1310
+[Wrapper 1310] <<< KONEC: Server odpověděl za 13.05s
+sending 6246
+[Wrapper 6246] <<< KONEC: Server odpověděl za 8.96s
+sending 7024
+[Wrapper 7024] <<< KONEC: Server odpověděl za 0.10s
+sending 2279
+[Wrapper 2279] <<< KONEC: Server odpověděl za 12.37s
+sending 5826
+[Wrapper 5826] <<< KONEC: Server odpověděl za 8.38s
+sending 9406
+[Wrapper 9406] <<< KONEC: Server odpověděl za 0.08s
+sending 7234
+[Wrapper 7234] <<< KONEC: Server odpověděl za 8.21s
+sending 3594
+[Wrapper 3594] <<< KONEC: Server odpověděl za 14.90s
+sending 2797
+[Wrapper 2797] <<< KONEC: Server odpověděl za 12.35s
+sending 4153
+[Wrapper 4153] <<< KONEC: Server odpověděl za 13.21s
+sending 1033
+[Wrapper 1033] <<< KONEC: Server odpověděl za 15.38s
+sending 1584
+[Wrapper 1584] <<< KONEC: Server odpověděl za 10.54s
+sending 5735
+[Wrapper 5735] <<< KONEC: Server odpověděl za 12.48s
+sending 9651
+[Wrapper 9651] <<< KONEC: Server odpověděl za 13.95s
+sending 4080
+[Wrapper 4080] <<< KONEC: Server odpověděl za 13.58s
+sending 1402
+[Wrapper 1402] <<< KONEC: Server odpověděl za 10.96s
+sending 9205
+[Wrapper 9205] <<< KONEC: Server odpověděl za 16.93s
+sending 4502
+[Wrapper 4502] <<< KONEC: Server odpověděl za 10.32s
+sending 4341
+[Wrapper 4341] <<< KONEC: Server odpověděl za 9.40s
+sending 3451
+[Wrapper 3451] <<< KONEC: Server odpověděl za 10.02s
+sending 4890
+[Wrapper 4890] <<< KONEC: Server odpověděl za 12.25s
+sending 4661
+[Wrapper 4661] <<< KONEC: Server odpověděl za 12.64s
+sending 1302
+[Wrapper 1302] <<< KONEC: Server odpověděl za 0.07s
+sending 3995
+[Wrapper 3995] <<< KONEC: Server odpověděl za 7.40s
+sending 7944
+[Wrapper 7944] <<< KONEC: Server odpověděl za 12.67s
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/glm-4.7_TAP_INDIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/glm-4.7_TAP_INDIRECT.report.html
+✔️  garak run complete in 602.11s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T16:33:35.542362
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'qwen3-coder-30b' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: qwen3-coder-30b
+📜 reporting to /root/.local/share/garak/garak_runs/qwen3-coder-30b_TAP_DIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:21<03:17, 21.99s/it] 20%|[32m██        [0m| 2/10 [00:39<02:35, 19.43s/it] 30%|[32m███       [0m| 3/10 [00:52<01:54, 16.33s/it] 40%|[32m████      [0m| 4/10 [01:07<01:35, 16.00s/it] 50%|[32m█████     [0m| 5/10 [01:20<01:13, 14.77s/it] 60%|[32m██████    [0m| 6/10 [01:39<01:04, 16.12s/it]                                              sending 2723
+[Wrapper 2723] <<< KONEC: Server odpověděl za 1.04s
+sending 5640
+[Wrapper 5640] <<< KONEC: Server odpověděl za 0.02s
+sending 3903
+[Wrapper 3903] <<< KONEC: Server odpověděl za 0.03s
+sending 1508
+[Wrapper 1508] <<< KONEC: Server odpověděl za 0.50s
+sending 9343
+[Wrapper 9343] <<< KONEC: Server odpověděl za 0.49s
+sending 9763
+[Wrapper 9763] <<< KONEC: Server odpověděl za 0.41s
+sending 5391
+[Wrapper 5391] <<< KONEC: Server odpověděl za 0.79s
+sending 9769
+[Wrapper 9769] <<< KONEC: Server odpověděl za 0.05s
+sending 8767
+[Wrapper 8767] <<< KONEC: Server odpověděl za 0.80s
+sending 4887
+[Wrapper 4887] <<< KONEC: Server odpověděl za 0.58s
+sending 5890
+[Wrapper 5890] <<< KONEC: Server odpověděl za 0.03s
+sending 2669
+[Wrapper 2669] <<< KONEC: Server odpověděl za 1.23s
+sending 2241
+[Wrapper 2241] <<< KONEC: Server odpověděl za 0.03s
+sending 6450
+[Wrapper 6450] <<< KONEC: Server odpověděl za 0.03s
+sending 2377
+[Wrapper 2377] <<< KONEC: Server odpověděl za 0.03s
+sending 1077
+[Wrapper 1077] <<< KONEC: Server odpověděl za 0.04s
+sending 3242
+[Wrapper 3242] <<< KONEC: Server odpověděl za 0.03s
+sending 5649
+[Wrapper 5649] <<< KONEC: Server odpověděl za 0.03s
+sending 6579
+[Wrapper 6579] <<< KONEC: Server odpověděl za 0.04s
+sending 6217
+[Wrapper 6217] <<< KONEC: Server odpověděl za 0.02s
+sending 5913
+[Wrapper 5913] <<< KONEC: Server odpověděl za 0.03s
+TAP generation encountered an error:
+'NoneType' object has no attribute 'text'
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/qwen3-coder-30b_TAP_DIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/qwen3-coder-30b_TAP_DIRECT.report.html
+✔️  garak run complete in 111.73s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T16:35:27.994190
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'qwen3-coder-30b' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: qwen3-coder-30b
+⚠️  This run can be sped up 🥳 Generator 'OpenAI qwen3-coder-30b' supports parallelism! Consider using `--parallel_attempts 16` (or more) to greatly accelerate your run. 🐌
+📜 reporting to /root/.local/share/garak/garak_runs/qwen3-coder-30b_TAP_INDIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:42<06:19, 42.13s/it] 20%|[32m██        [0m| 2/10 [01:05<04:09, 31.22s/it] 30%|[32m███       [0m| 3/10 [01:48<04:15, 36.46s/it] 40%|[32m████      [0m| 4/10 [02:37<04:07, 41.33s/it] 50%|[32m█████     [0m| 5/10 [03:12<03:15, 39.15s/it] 60%|[32m██████    [0m| 6/10 [03:53<02:38, 39.71s/it] 70%|[32m███████   [0m| 7/10 [04:14<01:41, 33.73s/it] 80%|[32m████████  [0m| 8/10 [04:34<00:58, 29.32s/it] 90%|[32m█████████ [0m| 9/10 [04:43<00:23, 23.09s/it]100%|[32m██████████[0m| 10/10 [04:50<00:00, 18.06s/it]                                               sending 2054
+[Wrapper 2054] <<< KONEC: Server odpověděl za 3.05s
+sending 1228
+[Wrapper 1228] <<< KONEC: Server odpověděl za 2.30s
+sending 5041
+[Wrapper 5041] <<< KONEC: Server odpověděl za 8.14s
+sending 6534
+[Wrapper 6534] <<< KONEC: Server odpověděl za 1.99s
+sending 9571
+[Wrapper 9571] <<< KONEC: Server odpověděl za 2.13s
+sending 3347
+[Wrapper 3347] <<< KONEC: Server odpověděl za 2.51s
+sending 2869
+[Wrapper 2869] <<< KONEC: Server odpověděl za 1.82s
+sending 2825
+[Wrapper 2825] <<< KONEC: Server odpověděl za 2.25s
+sending 7059
+[Wrapper 7059] <<< KONEC: Server odpověděl za 20.05s
+sending 9541
+[Wrapper 9541] <<< KONEC: Server odpověděl za 15.83s
+sending 1113
+[Wrapper 1113] <<< KONEC: Server odpověděl za 0.09s
+sending 6492
+[Wrapper 6492] <<< KONEC: Server odpověděl za 19.21s
+sending 8371
+[Wrapper 8371] <<< KONEC: Server odpověděl za 20.47s
+sending 3166
+[Wrapper 3166] <<< KONEC: Server odpověděl za 0.08s
+sending 2003
+[Wrapper 2003] <<< KONEC: Server odpověděl za 2.14s
+sending 3759
+[Wrapper 3759] <<< KONEC: Server odpověděl za 3.51s
+sending 7934
+[Wrapper 7934] <<< KONEC: Server odpověděl za 23.87s
+sending 8961
+[Wrapper 8961] <<< KONEC: Server odpověděl za 0.08s
+sending 4325
+[Wrapper 4325] <<< KONEC: Server odpověděl za 0.09s
+sending 3562
+[Wrapper 3562] <<< KONEC: Server odpověděl za 0.08s
+sending 5769
+[Wrapper 5769] <<< KONEC: Server odpověděl za 8.74s
+sending 1236
+[Wrapper 1236] <<< KONEC: Server odpověděl za 0.09s
+sending 7915
+[Wrapper 7915] <<< KONEC: Server odpověděl za 8.93s
+sending 8682
+[Wrapper 8682] <<< KONEC: Server odpověděl za 1.50s
+sending 2091
+[Wrapper 2091] <<< KONEC: Server odpověděl za 0.09s
+sending 2871
+[Wrapper 2871] <<< KONEC: Server odpověděl za 0.08s
+sending 1188
+[Wrapper 1188] <<< KONEC: Server odpověděl za 0.08s
+sending 8162
+[Wrapper 8162] <<< KONEC: Server odpověděl za 0.08s
+sending 1285
+[Wrapper 1285] <<< KONEC: Server odpověděl za 0.06s
+sending 3788
+[Wrapper 3788] <<< KONEC: Server odpověděl za 0.06s
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/qwen3-coder-30b_TAP_INDIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/qwen3-coder-30b_TAP_INDIRECT.report.html
+✔️  garak run complete in 293.64s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T16:55:28.061797
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'deepseek-v3.2-thinking' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: deepseek-v3.2-thinking
+📜 reporting to /root/.local/share/garak/garak_runs/deepseek-v3.2-thinking_TAP_DIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:17<02:33, 17.10s/it] 20%|[32m██        [0m| 2/10 [00:38<02:37, 19.68s/it] 30%|[32m███       [0m| 3/10 [01:03<02:33, 21.91s/it] 40%|[32m████      [0m| 4/10 [01:25<02:11, 21.96s/it]                                              sending 5188
+[Wrapper 5188] <<< KONEC: Server odpověděl za 5.26s
+sending 3741
+[Wrapper 3741] <<< KONEC: Server odpověděl za 0.03s
+sending 6128
+[Wrapper 6128] <<< KONEC: Server odpověděl za 0.02s
+sending 2736
+[Wrapper 2736] <<< KONEC: Server odpověděl za 2.92s
+sending 6224
+[Wrapper 6224] <<< KONEC: Server odpověděl za 3.21s
+sending 7624
+[Wrapper 7624] <<< KONEC: Server odpověděl za 2.09s
+sending 2108
+[Wrapper 2108] <<< KONEC: Server odpověděl za 4.43s
+sending 2862
+[Wrapper 2862] <<< KONEC: Server odpověděl za 3.27s
+sending 4949
+[Wrapper 4949] <<< KONEC: Server odpověděl za 0.05s
+sending 1099
+[Wrapper 1099] <<< KONEC: Server odpověděl za 3.53s
+sending 6983
+[Wrapper 6983] <<< KONEC: Server odpověděl za 4.28s
+sending 6188
+[Wrapper 6188] <<< KONEC: Server odpověděl za 0.04s
+sending 9232
+[Wrapper 9232] <<< KONEC: Server odpověděl za 2.63s
+sending 7928
+[Wrapper 7928] <<< KONEC: Server odpověděl za 0.04s
+sending 6095
+[Wrapper 6095] <<< KONEC: Server odpověděl za 5.22s
+  0%|          | 0/1 [00:00<?, ?it/s]probes.custom_probe_TAP.TapCustomExternalProbe:   0%|          | 0/1 [00:00<?, ?it/s]                                                                                     Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/app/garak/garak/__main__.py", line 14, in <module>
+    main()
+    ~~~~^^
+  File "/app/garak/garak/__main__.py", line 9, in main
+    cli.main(sys.argv[1:])
+    ~~~~~~~~^^^^^^^^^^^^^^
+  File "/app/garak/garak/cli.py", line 665, in main
+    command.probewise_run(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        generator, parsed_specs["probe"], evaluator, parsed_specs["buff"]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/app/garak/garak/command.py", line 339, in probewise_run
+    probewise_h.run(generator, probe_names, evaluator, buffs)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/garak/garak/harnesses/probewise.py", line 110, in run
+    super().run(model, [probe], detectors, evaluator, announce_probe=False)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/garak/garak/harnesses/base.py", line 151, in run
+    attempt_results = probe.probe(model)
+  File "/app/garak/garak/probes/custom_probe_TAP.py", line 247, in probe
+    return super().probe(wrapped_generator)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/app/garak/garak/probes/tap.py", line 229, in probe
+    attempts_completed.append(self._execute_attempt(this_attempt))
+                              ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/app/garak/garak/probes/base.py", line 308, in _execute_attempt
+    self._generator_cleanup()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/app/garak/garak/probes/base.py", line 202, in _generator_cleanup
+    self.generator.clear_history()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IpiExternalWrapper' object has no attribute 'clear_history'
+sending 8256
+[Wrapper 8256] <<< KONEC: Server odpověděl za 0.03s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T16:57:14.056099
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'deepseek-v3.2-thinking' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: deepseek-v3.2-thinking
+📜 reporting to /root/.local/share/garak/garak_runs/deepseek-v3.2-thinking_TAP_INDIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:35<05:16, 35.19s/it] 20%|[32m██        [0m| 2/10 [01:27<06:03, 45.50s/it] 30%|[32m███       [0m| 3/10 [02:26<06:01, 51.63s/it] 40%|[32m████      [0m| 4/10 [03:49<06:24, 64.08s/it] 50%|[32m█████     [0m| 5/10 [04:47<05:09, 61.84s/it] 60%|[32m██████    [0m| 6/10 [05:20<03:28, 52.05s/it] 70%|[32m███████   [0m| 7/10 [06:25<02:48, 56.17s/it] 80%|[32m████████  [0m| 8/10 [07:02<01:40, 50.08s/it] 90%|[32m█████████ [0m| 9/10 [07:30<00:43, 43.20s/it]100%|[32m██████████[0m| 10/10 [08:01<00:00, 39.33s/it]                                               sending 7089
+[Wrapper 7089] <<< KONEC: Server odpověděl za 16.04s
+sending 4799
+[Wrapper 4799] <<< KONEC: Server odpověděl za 0.10s
+sending 7372
+[Wrapper 7372] <<< KONEC: Server odpověděl za 12.67s
+sending 2253
+[Wrapper 2253] <<< KONEC: Server odpověděl za 13.55s
+sending 1730
+[Wrapper 1730] <<< KONEC: Server odpověděl za 10.50s
+sending 9493
+[Wrapper 9493] <<< KONEC: Server odpověděl za 11.48s
+sending 4323
+[Wrapper 4323] <<< KONEC: Server odpověděl za 14.57s
+sending 1594
+[Wrapper 1594] <<< KONEC: Server odpověděl za 7.27s
+sending 8646
+[Wrapper 8646] <<< KONEC: Server odpověděl za 8.66s
+sending 5448
+[Wrapper 5448] <<< KONEC: Server odpověděl za 11.58s
+sending 2790
+[Wrapper 2790] <<< KONEC: Server odpověděl za 15.45s
+sending 1733
+[Wrapper 1733] <<< KONEC: Server odpověděl za 12.42s
+sending 4968
+[Wrapper 4968] <<< KONEC: Server odpověděl za 12.94s
+sending 5677
+[Wrapper 5677] <<< KONEC: Server odpověděl za 10.99s
+sending 5134
+[Wrapper 5134] <<< KONEC: Server odpověděl za 14.42s
+sending 9618
+[Wrapper 9618] <<< KONEC: Server odpověděl za 0.13s
+sending 8923
+[Wrapper 8923] <<< KONEC: Server odpověděl za 8.91s
+sending 4000
+[Wrapper 4000] <<< KONEC: Server odpověděl za 0.07s
+sending 7915
+[Wrapper 7915] <<< KONEC: Server odpověděl za 11.65s
+sending 8802
+[Wrapper 8802] <<< KONEC: Server odpověděl za 16.89s
+sending 3651
+[Wrapper 3651] <<< KONEC: Server odpověděl za 11.43s
+sending 3497
+[Wrapper 3497] <<< KONEC: Server odpověděl za 0.09s
+sending 8869
+[Wrapper 8869] <<< KONEC: Server odpověděl za 13.74s
+sending 9022
+[Wrapper 9022] <<< KONEC: Server odpověděl za 0.09s
+sending 2535
+[Wrapper 2535] <<< KONEC: Server odpověděl za 0.10s
+sending 6110
+[Wrapper 6110] <<< KONEC: Server odpověděl za 12.17s
+sending 7691
+[Wrapper 7691] <<< KONEC: Server odpověděl za 0.09s
+sending 1861
+[Wrapper 1861] <<< KONEC: Server odpověděl za 12.44s
+sending 7754
+[Wrapper 7754] <<< KONEC: Server odpověděl za 0.07s
+sending 2414
+[Wrapper 2414] <<< KONEC: Server odpověděl za 0.06s
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/deepseek-v3.2-thinking_TAP_INDIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/deepseek-v3.2-thinking_TAP_INDIRECT.report.html
+✔️  garak run complete in 484.09s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T18:29:55.029557
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'deepseek-v3.2' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: deepseek-v3.2
+⚠️  This run can be sped up 🥳 Generator 'OpenAI deepseek-v3.2' supports parallelism! Consider using `--parallel_attempts 16` (or more) to greatly accelerate your run. 🐌
+📜 reporting to /root/.local/share/garak/garak_runs/deepseek-v3.2_TAP_DIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:12<01:56, 12.96s/it] 20%|[32m██        [0m| 2/10 [00:33<02:17, 17.16s/it] 30%|[32m███       [0m| 3/10 [00:59<02:29, 21.41s/it] 40%|[32m████      [0m| 4/10 [01:18<02:02, 20.39s/it] 50%|[32m█████     [0m| 5/10 [01:31<01:29, 17.87s/it] 60%|[32m██████    [0m| 6/10 [01:44<01:04, 16.22s/it] 70%|[32m███████   [0m| 7/10 [01:54<00:42, 14.25s/it] 80%|[32m████████  [0m| 8/10 [02:07<00:27, 13.70s/it] 90%|[32m█████████ [0m| 9/10 [02:18<00:12, 12.80s/it]100%|[32m██████████[0m| 10/10 [02:24<00:00, 10.61s/it]                                               sending 5673
+[Wrapper 5673] <<< KONEC: Server odpověděl za 2.44s
+sending 5256
+[Wrapper 5256] <<< KONEC: Server odpověděl za 1.94s
+sending 8054
+[Wrapper 8054] <<< KONEC: Server odpověděl za 1.79s
+sending 2961
+[Wrapper 2961] <<< KONEC: Server odpověděl za 1.41s
+sending 4225
+[Wrapper 4225] <<< KONEC: Server odpověděl za 2.00s
+sending 8701
+[Wrapper 8701] <<< KONEC: Server odpověděl za 1.39s
+sending 6591
+[Wrapper 6591] <<< KONEC: Server odpověděl za 1.83s
+sending 4750
+[Wrapper 4750] <<< KONEC: Server odpověděl za 1.58s
+sending 5091
+[Wrapper 5091] <<< KONEC: Server odpověděl za 2.16s
+sending 7405
+[Wrapper 7405] <<< KONEC: Server odpověděl za 1.34s
+sending 9061
+[Wrapper 9061] <<< KONEC: Server odpověděl za 0.35s
+sending 6144
+[Wrapper 6144] <<< KONEC: Server odpověděl za 1.38s
+sending 5200
+[Wrapper 5200] <<< KONEC: Server odpověděl za 0.03s
+sending 4362
+[Wrapper 4362] <<< KONEC: Server odpověděl za 0.02s
+sending 8639
+[Wrapper 8639] <<< KONEC: Server odpověděl za 0.03s
+sending 2414
+[Wrapper 2414] <<< KONEC: Server odpověděl za 0.03s
+sending 8071
+[Wrapper 8071] <<< KONEC: Server odpověděl za 0.11s
+sending 6895
+[Wrapper 6895] <<< KONEC: Server odpověděl za 0.03s
+sending 9721
+[Wrapper 9721] <<< KONEC: Server odpověděl za 0.03s
+sending 5819
+[Wrapper 5819] <<< KONEC: Server odpověděl za 0.03s
+sending 4863
+[Wrapper 4863] <<< KONEC: Server odpověděl za 0.02s
+sending 4046
+[Wrapper 4046] <<< KONEC: Server odpověděl za 0.03s
+sending 9852
+[Wrapper 9852] <<< KONEC: Server odpověděl za 0.06s
+sending 9957
+[Wrapper 9957] <<< KONEC: Server odpověděl za 1.99s
+sending 7249
+[Wrapper 7249] <<< KONEC: Server odpověděl za 0.04s
+sending 5103
+[Wrapper 5103] <<< KONEC: Server odpověděl za 0.02s
+sending 9248
+[Wrapper 9248] <<< KONEC: Server odpověděl za 0.03s
+sending 6408
+[Wrapper 6408] <<< KONEC: Server odpověděl za 0.04s
+sending 1795
+[Wrapper 1795] <<< KONEC: Server odpověděl za 0.02s
+sending 1726
+[Wrapper 1726] <<< KONEC: Server odpověděl za 0.03s
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/deepseek-v3.2_TAP_DIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/deepseek-v3.2_TAP_DIRECT.report.html
+✔️  garak run complete in 146.70s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T18:32:22.484841
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'deepseek-v3.2' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: deepseek-v3.2
+📜 reporting to /root/.local/share/garak/garak_runs/deepseek-v3.2_TAP_INDIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:34<05:09, 34.40s/it] 20%|[32m██        [0m| 2/10 [01:10<04:42, 35.26s/it] 30%|[32m███       [0m| 3/10 [02:39<06:59, 59.99s/it] 40%|[32m████      [0m| 4/10 [03:20<05:14, 52.48s/it] 50%|[32m█████     [0m| 5/10 [03:45<03:32, 42.50s/it] 60%|[32m██████    [0m| 6/10 [04:03<02:16, 34.05s/it] 70%|[32m███████   [0m| 7/10 [04:26<01:31, 30.61s/it] 80%|[32m████████  [0m| 8/10 [04:51<00:57, 28.85s/it] 90%|[32m█████████ [0m| 9/10 [05:13<00:26, 26.74s/it]100%|[32m██████████[0m| 10/10 [05:44<00:00, 28.05s/it]                                               sending 5932
+[Wrapper 5932] <<< KONEC: Server odpověděl za 8.28s
+sending 1536
+[Wrapper 1536] <<< KONEC: Server odpověděl za 6.47s
+sending 9253
+[Wrapper 9253] <<< KONEC: Server odpověděl za 8.96s
+sending 6820
+[Wrapper 6820] <<< KONEC: Server odpověděl za 6.63s
+sending 6871
+[Wrapper 6871] <<< KONEC: Server odpověděl za 6.35s
+sending 1487
+[Wrapper 1487] <<< KONEC: Server odpověděl za 9.34s
+sending 6246
+[Wrapper 6246] <<< KONEC: Server odpověděl za 8.13s
+sending 7006
+[Wrapper 7006] <<< KONEC: Server odpověděl za 9.00s
+sending 3485
+[Wrapper 3485] <<< KONEC: Server odpověděl za 6.01s
+sending 9984
+[Wrapper 9984] <<< KONEC: Server odpověděl za 8.56s
+sending 1737
+[Wrapper 1737] <<< KONEC: Server odpověděl za 5.39s
+sending 4134
+[Wrapper 4134] <<< KONEC: Server odpověděl za 6.46s
+sending 6854
+[Wrapper 6854] <<< KONEC: Server odpověděl za 0.08s
+sending 5669
+[Wrapper 5669] <<< KONEC: Server odpověděl za 0.07s
+sending 6784
+[Wrapper 6784] <<< KONEC: Server odpověděl za 6.65s
+sending 1284
+[Wrapper 1284] <<< KONEC: Server odpověděl za 5.71s
+sending 8649
+[Wrapper 8649] <<< KONEC: Server odpověděl za 0.09s
+sending 6343
+[Wrapper 6343] <<< KONEC: Server odpověděl za 0.08s
+sending 8419
+[Wrapper 8419] <<< KONEC: Server odpověděl za 0.08s
+sending 3303
+[Wrapper 3303] <<< KONEC: Server odpověděl za 0.08s
+sending 1873
+[Wrapper 1873] <<< KONEC: Server odpověděl za 0.07s
+sending 3363
+[Wrapper 3363] <<< KONEC: Server odpověděl za 2.27s
+sending 5089
+[Wrapper 5089] <<< KONEC: Server odpověděl za 5.81s
+sending 3021
+[Wrapper 3021] <<< KONEC: Server odpověděl za 0.08s
+sending 9903
+[Wrapper 9903] <<< KONEC: Server odpověděl za 0.06s
+sending 3254
+[Wrapper 3254] <<< KONEC: Server odpověděl za 0.05s
+sending 5968
+[Wrapper 5968] <<< KONEC: Server odpověděl za 0.04s
+sending 6521
+[Wrapper 6521] <<< KONEC: Server odpověděl za 0.05s
+sending 2991
+[Wrapper 2991] <<< KONEC: Server odpověděl za 0.04s
+sending 8802
+[Wrapper 8802] <<< KONEC: Server odpověděl za 0.05s
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/deepseek-v3.2_TAP_INDIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/deepseek-v3.2_TAP_INDIRECT.report.html
+✔️  garak run complete in 347.52s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T19:06:42.919962
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'qwen3.5' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: qwen3.5
+⚠️  This run can be sped up 🥳 Generator 'OpenAI qwen3.5' supports parallelism! Consider using `--parallel_attempts 16` (or more) to greatly accelerate your run. 🐌
+📜 reporting to /root/.local/share/garak/garak_runs/qwen3.5_TAP_DIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:09<01:28,  9.88s/it] 20%|[32m██        [0m| 2/10 [00:30<02:08, 16.04s/it] 30%|[32m███       [0m| 3/10 [00:48<02:00, 17.21s/it] 40%|[32m████      [0m| 4/10 [01:12<01:58, 19.68s/it] 50%|[32m█████     [0m| 5/10 [01:39<01:51, 22.23s/it] 60%|[32m██████    [0m| 6/10 [02:05<01:34, 23.57s/it] 70%|[32m███████   [0m| 7/10 [02:24<01:06, 22.14s/it] 80%|[32m████████  [0m| 8/10 [02:46<00:44, 22.23s/it] 90%|[32m█████████ [0m| 9/10 [03:10<00:22, 22.75s/it]100%|[32m██████████[0m| 10/10 [03:27<00:00, 20.89s/it]                                               sending 1314
+[Wrapper 1314] <<< KONEC: Server odpověděl za 1.26s
+sending 6527
+[Wrapper 6527] <<< KONEC: Server odpověděl za 1.36s
+sending 1062
+[Wrapper 1062] <<< KONEC: Server odpověděl za 0.02s
+sending 4315
+[Wrapper 4315] <<< KONEC: Server odpověděl za 1.43s
+sending 3798
+[Wrapper 3798] <<< KONEC: Server odpověděl za 1.62s
+sending 8916
+[Wrapper 8916] <<< KONEC: Server odpověděl za 1.47s
+sending 3009
+[Wrapper 3009] <<< KONEC: Server odpověděl za 1.49s
+sending 2322
+[Wrapper 2322] <<< KONEC: Server odpověděl za 0.03s
+sending 8117
+[Wrapper 8117] <<< KONEC: Server odpověděl za 1.67s
+sending 8277
+[Wrapper 8277] <<< KONEC: Server odpověděl za 2.42s
+sending 8732
+[Wrapper 8732] <<< KONEC: Server odpověděl za 1.69s
+sending 9466
+[Wrapper 9466] <<< KONEC: Server odpověděl za 1.64s
+sending 1077
+[Wrapper 1077] <<< KONEC: Server odpověděl za 1.28s
+sending 2264
+[Wrapper 2264] <<< KONEC: Server odpověděl za 1.53s
+sending 7915
+[Wrapper 7915] <<< KONEC: Server odpověděl za 2.26s
+sending 4024
+[Wrapper 4024] <<< KONEC: Server odpověděl za 1.87s
+sending 8906
+[Wrapper 8906] <<< KONEC: Server odpověděl za 0.05s
+sending 9470
+[Wrapper 9470] <<< KONEC: Server odpověděl za 0.02s
+sending 6083
+[Wrapper 6083] <<< KONEC: Server odpověděl za 0.03s
+sending 7660
+[Wrapper 7660] <<< KONEC: Server odpověděl za 0.04s
+sending 5863
+[Wrapper 5863] <<< KONEC: Server odpověděl za 0.02s
+sending 1860
+[Wrapper 1860] <<< KONEC: Server odpověděl za 1.58s
+sending 9193
+[Wrapper 9193] <<< KONEC: Server odpověděl za 1.96s
+sending 5863
+[Wrapper 5863] <<< KONEC: Server odpověděl za 0.02s
+sending 6206
+[Wrapper 6206] <<< KONEC: Server odpověděl za 1.56s
+sending 8445
+[Wrapper 8445] <<< KONEC: Server odpověděl za 0.03s
+sending 6613
+[Wrapper 6613] <<< KONEC: Server odpověděl za 2.04s
+sending 5925
+[Wrapper 5925] <<< KONEC: Server odpověděl za 0.03s
+sending 7282
+[Wrapper 7282] <<< KONEC: Server odpověděl za 0.04s
+sending 2432
+[Wrapper 2432] <<< KONEC: Server odpověděl za 0.02s
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/qwen3.5_TAP_DIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/qwen3.5_TAP_DIRECT.report.html
+✔️  garak run complete in 210.23s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T19:10:13.981221
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'qwen3.5' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: qwen3.5
+📜 reporting to /root/.local/share/garak/garak_runs/qwen3.5_TAP_INDIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:19<02:57, 19.69s/it] 20%|[32m██        [0m| 2/10 [00:55<03:52, 29.03s/it] 30%|[32m███       [0m| 3/10 [01:10<02:39, 22.84s/it] 40%|[32m████      [0m| 4/10 [01:44<02:42, 27.14s/it] 50%|[32m█████     [0m| 5/10 [03:04<03:51, 46.39s/it] 60%|[32m██████    [0m| 6/10 [03:45<02:57, 44.43s/it] 70%|[32m███████   [0m| 7/10 [04:07<01:51, 37.18s/it] 80%|[32m████████  [0m| 8/10 [04:24<01:01, 30.60s/it] 90%|[32m█████████ [0m| 9/10 [04:45<00:27, 27.67s/it]100%|[32m██████████[0m| 10/10 [05:29<00:00, 32.68s/it]                                               sending 6338
+[Wrapper 6338] <<< KONEC: Server odpověděl za 4.99s
+sending 3258
+[Wrapper 3258] <<< KONEC: Server odpověděl za 4.68s
+sending 2874
+[Wrapper 2874] <<< KONEC: Server odpověděl za 3.83s
+sending 8485
+[Wrapper 8485] <<< KONEC: Server odpověděl za 3.74s
+sending 2907
+[Wrapper 2907] <<< KONEC: Server odpověděl za 3.61s
+sending 4556
+[Wrapper 4556] <<< KONEC: Server odpověděl za 0.08s
+sending 1597
+[Wrapper 1597] <<< KONEC: Server odpověděl za 0.09s
+sending 9742
+[Wrapper 9742] <<< KONEC: Server odpověděl za 0.08s
+sending 6106
+[Wrapper 6106] <<< KONEC: Server odpověděl za 0.07s
+sending 2819
+[Wrapper 2819] <<< KONEC: Server odpověděl za 3.20s
+sending 2836
+[Wrapper 2836] <<< KONEC: Server odpověděl za 0.07s
+sending 3753
+[Wrapper 3753] <<< KONEC: Server odpověděl za 0.07s
+sending 9538
+[Wrapper 9538] <<< KONEC: Server odpověděl za 4.77s
+sending 2025
+[Wrapper 2025] <<< KONEC: Server odpověděl za 3.73s
+sending 8136
+[Wrapper 8136] <<< KONEC: Server odpověděl za 3.70s
+sending 5021
+[Wrapper 5021] <<< KONEC: Server odpověděl za 3.55s
+sending 5921
+[Wrapper 5921] <<< KONEC: Server odpověděl za 3.72s
+sending 7225
+[Wrapper 7225] <<< KONEC: Server odpověděl za 0.09s
+sending 3636
+[Wrapper 3636] <<< KONEC: Server odpověděl za 0.10s
+sending 2676
+[Wrapper 2676] <<< KONEC: Server odpověděl za 0.08s
+sending 5937
+[Wrapper 5937] <<< KONEC: Server odpověděl za 0.08s
+sending 5953
+[Wrapper 5953] <<< KONEC: Server odpověděl za 0.10s
+sending 3475
+[Wrapper 3475] <<< KONEC: Server odpověděl za 0.09s
+sending 7028
+[Wrapper 7028] <<< KONEC: Server odpověděl za 0.09s
+sending 9124
+[Wrapper 9124] <<< KONEC: Server odpověděl za 3.34s
+sending 6960
+[Wrapper 6960] <<< KONEC: Server odpověděl za 4.14s
+sending 7858
+[Wrapper 7858] <<< KONEC: Server odpověděl za 4.16s
+sending 6236
+[Wrapper 6236] <<< KONEC: Server odpověděl za 3.55s
+sending 5689
+[Wrapper 5689] <<< KONEC: Server odpověděl za 3.07s
+sending 1488
+[Wrapper 1488] <<< KONEC: Server odpověděl za 0.08s
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/qwen3.5_TAP_INDIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/qwen3.5_TAP_INDIRECT.report.html
+✔️  garak run complete in 332.20s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T19:26:26.915725
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'kimi-k2.5' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: kimi-k2.5
+⚠️  This run can be sped up 🥳 Generator 'OpenAI kimi-k2.5' supports parallelism! Consider using `--parallel_attempts 16` (or more) to greatly accelerate your run. 🐌
+📜 reporting to /root/.local/share/garak/garak_runs/kimi-k2.5_TAP_DIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:47<07:10, 47.80s/it] 20%|[32m██        [0m| 2/10 [03:19<14:29, 108.66s/it] 30%|[32m███       [0m| 3/10 [04:52<11:50, 101.52s/it] 40%|[32m████      [0m| 4/10 [05:19<07:12, 72.13s/it]  50%|[32m█████     [0m| 5/10 [05:52<04:50, 58.02s/it] 60%|[32m██████    [0m| 6/10 [06:24<03:16, 49.18s/it] 70%|[32m███████   [0m| 7/10 [06:45<02:00, 40.18s/it] 80%|[32m████████  [0m| 8/10 [07:00<01:03, 32.00s/it] 90%|[32m█████████ [0m| 9/10 [07:07<00:24, 24.11s/it]100%|[32m██████████[0m| 10/10 [07:10<00:00, 17.59s/it]                                               sending 4847
+[Wrapper 4847] <<< KONEC: Server odpověděl za 30.16s
+sending 6495
+[Wrapper 6495] <<< KONEC: Server odpověděl za 4.59s
+sending 7949
+[Wrapper 7949] <<< KONEC: Server odpověděl za 36.02s
+sending 4971
+[Wrapper 4971] <<< KONEC: Server odpověděl za 16.55s
+sending 8315
+[Wrapper 8315] <<< KONEC: Server odpověděl za 18.64s
+sending 9675
+[Wrapper 9675] <<< KONEC: Server odpověděl za 27.51s
+sending 1801
+[Wrapper 1801] <<< KONEC: Server odpověděl za 18.51s
+sending 9496
+[Wrapper 9496] <<< KONEC: Server odpověděl za 0.03s
+sending 8266
+[Wrapper 8266] <<< KONEC: Server odpověděl za 3.44s
+sending 1205
+[Wrapper 1205] <<< KONEC: Server odpověděl za 3.40s
+sending 1653
+[Wrapper 1653] <<< KONEC: Server odpověděl za 0.03s
+sending 2628
+[Wrapper 2628] <<< KONEC: Server odpověděl za 5.05s
+sending 6148
+[Wrapper 6148] <<< KONEC: Server odpověděl za 3.00s
+sending 3206
+[Wrapper 3206] <<< KONEC: Server odpověděl za 0.03s
+sending 9494
+[Wrapper 9494] <<< KONEC: Server odpověděl za 2.13s
+sending 1130
+[Wrapper 1130] <<< KONEC: Server odpověděl za 3.97s
+sending 6868
+[Wrapper 6868] <<< KONEC: Server odpověděl za 12.83s
+sending 9470
+[Wrapper 9470] <<< KONEC: Server odpověděl za 0.04s
+sending 7104
+[Wrapper 7104] <<< KONEC: Server odpověděl za 0.02s
+sending 4144
+[Wrapper 4144] <<< KONEC: Server odpověděl za 0.02s
+sending 5141
+[Wrapper 5141] <<< KONEC: Server odpověděl za 0.04s
+sending 9728
+[Wrapper 9728] <<< KONEC: Server odpověděl za 0.03s
+sending 9327
+[Wrapper 9327] <<< KONEC: Server odpověděl za 0.03s
+sending 2406
+[Wrapper 2406] <<< KONEC: Server odpověděl za 0.04s
+sending 6291
+[Wrapper 6291] <<< KONEC: Server odpověděl za 0.02s
+sending 2221
+[Wrapper 2221] <<< KONEC: Server odpověděl za 0.03s
+sending 2809
+[Wrapper 2809] <<< KONEC: Server odpověděl za 0.03s
+sending 6547
+[Wrapper 6547] <<< KONEC: Server odpověděl za 0.03s
+sending 8070
+[Wrapper 8070] <<< KONEC: Server odpověděl za 0.02s
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/kimi-k2.5_TAP_DIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/kimi-k2.5_TAP_DIRECT.report.html
+✔️  garak run complete in 433.03s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T19:33:40.609693
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'kimi-k2.5' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: kimi-k2.5
+📜 reporting to /root/.local/share/garak/garak_runs/kimi-k2.5_TAP_INDIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:29<04:23, 29.33s/it] 20%|[32m██        [0m| 2/10 [03:14<14:35, 109.43s/it] 30%|[32m███       [0m| 3/10 [04:14<10:08, 86.87s/it]  40%|[32m████      [0m| 4/10 [05:18<07:46, 77.76s/it] 50%|[32m█████     [0m| 5/10 [08:21<09:38, 115.76s/it] 60%|[32m██████    [0m| 6/10 [09:58<07:16, 109.12s/it] 70%|[32m███████   [0m| 7/10 [11:14<04:54, 98.30s/it]  80%|[32m████████  [0m| 8/10 [14:38<04:23, 131.94s/it] 90%|[32m█████████ [0m| 9/10 [15:12<01:41, 101.46s/it]100%|[32m██████████[0m| 10/10 [15:52<00:00, 82.64s/it]                                               sending 1276
+[Wrapper 1276] <<< KONEC: Server odpověděl za 9.38s
+sending 6903
+[Wrapper 6903] <<< KONEC: Server odpověděl za 6.72s
+sending 9769
+[Wrapper 9769] <<< KONEC: Server odpověděl za 7.88s
+sending 7056
+[Wrapper 7056] <<< KONEC: Server odpověděl za 38.52s
+sending 8979
+[Wrapper 8979] <<< KONEC: Server odpověděl za 57.99s
+sending 3880
+[Wrapper 3880] <<< KONEC: Server odpověděl za 32.05s
+sending 1471
+[Wrapper 1471] <<< KONEC: Server odpověděl za 33.13s
+sending 8610
+[Wrapper 8610] <<< KONEC: Server odpověděl za 9.59s
+sending 5591
+[Wrapper 5591] <<< KONEC: Server odpověděl za 0.08s
+sending 3314
+[Wrapper 3314] <<< KONEC: Server odpověděl za 0.08s
+sending 3068
+[Wrapper 3068] <<< KONEC: Server odpověděl za 46.46s
+sending 8311
+[Wrapper 8311] <<< KONEC: Server odpověděl za 0.11s
+sending 9121
+[Wrapper 9121] !!! CHYBA: HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=60)
+sending 3596
+[Wrapper 3596] !!! CHYBA: HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=60)
+sending 7133
+[Wrapper 7133] <<< KONEC: Server odpověděl za 44.13s
+sending 9843
+[Wrapper 9843] <<< KONEC: Server odpověděl za 33.36s
+sending 1082
+[Wrapper 1082] <<< KONEC: Server odpověděl za 31.44s
+sending 5893
+[Wrapper 5893] <<< KONEC: Server odpověděl za 10.21s
+sending 5940
+[Wrapper 5940] <<< KONEC: Server odpověděl za 18.85s
+sending 1277
+[Wrapper 1277] <<< KONEC: Server odpověděl za 12.72s
+sending 6112
+[Wrapper 6112] <<< KONEC: Server odpověděl za 19.69s
+sending 2919
+[Wrapper 2919] <<< KONEC: Server odpověděl za 20.35s
+sending 8186
+[Wrapper 8186] <<< KONEC: Server odpověděl za 8.31s
+sending 3265
+[Wrapper 3265] <<< KONEC: Server odpověděl za 7.81s
+sending 9976
+[Wrapper 9976] <<< KONEC: Server odpověděl za 0.09s
+sending 9162
+[Wrapper 9162] <<< KONEC: Server odpověděl za 0.08s
+sending 1423
+[Wrapper 1423] <<< KONEC: Server odpověděl za 10.52s
+sending 9468
+[Wrapper 9468] <<< KONEC: Server odpověděl za 7.95s
+sending 6885
+[Wrapper 6885] <<< KONEC: Server odpověděl za 6.85s
+sending 1737
+[Wrapper 1737] <<< KONEC: Server odpověděl za 6.88s
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/kimi-k2.5_TAP_INDIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/kimi-k2.5_TAP_INDIRECT.report.html
+✔️  garak run complete in 955.64s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T21:43:57.950337
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+📜 reporting to /root/.local/share/garak/garak_runs/llama-4-scout-17b-16e-instruct_TAP_DIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:08<01:15,  8.36s/it] 20%|[32m██        [0m| 2/10 [00:22<01:35, 11.92s/it] 30%|[32m███       [0m| 3/10 [00:37<01:30, 12.99s/it] 40%|[32m████      [0m| 4/10 [00:49<01:15, 12.59s/it] 50%|[32m█████     [0m| 5/10 [01:00<01:01, 12.25s/it] 60%|[32m██████    [0m| 6/10 [01:09<00:43, 10.93s/it] 70%|[32m███████   [0m| 7/10 [01:15<00:28,  9.55s/it] 80%|[32m████████  [0m| 8/10 [01:18<00:14,  7.33s/it] 90%|[32m█████████ [0m| 9/10 [01:20<00:05,  5.57s/it]100%|[32m██████████[0m| 10/10 [01:22<00:00,  4.55s/it]                                               sending 8149
+[Wrapper 8149] <<< KONEC: Server odpověděl za 0.08s
+sending 5252
+[Wrapper 5252] <<< KONEC: Server odpověděl za 0.08s
+sending 7282
+[Wrapper 7282] <<< KONEC: Server odpověděl za 0.08s
+sending 8154
+[Wrapper 8154] <<< KONEC: Server odpověděl za 0.09s
+sending 7221
+[Wrapper 7221] <<< KONEC: Server odpověděl za 0.06s
+sending 3352
+[Wrapper 3352] <<< KONEC: Server odpověděl za 0.07s
+sending 9940
+[Wrapper 9940] <<< KONEC: Server odpověděl za 0.09s
+sending 8259
+[Wrapper 8259] <<< KONEC: Server odpověděl za 0.06s
+sending 2869
+[Wrapper 2869] <<< KONEC: Server odpověděl za 0.08s
+sending 8491
+[Wrapper 8491] <<< KONEC: Server odpověděl za 0.09s
+sending 8138
+[Wrapper 8138] <<< KONEC: Server odpověděl za 0.08s
+sending 8080
+[Wrapper 8080] <<< KONEC: Server odpověděl za 0.08s
+sending 2803
+[Wrapper 2803] <<< KONEC: Server odpověděl za 0.08s
+sending 9921
+[Wrapper 9921] <<< KONEC: Server odpověděl za 0.07s
+sending 3069
+[Wrapper 3069] <<< KONEC: Server odpověděl za 0.08s
+sending 6329
+[Wrapper 6329] <<< KONEC: Server odpověděl za 0.09s
+sending 5136
+[Wrapper 5136] <<< KONEC: Server odpověděl za 0.08s
+sending 1289
+[Wrapper 1289] <<< KONEC: Server odpověděl za 0.08s
+sending 8802
+[Wrapper 8802] <<< KONEC: Server odpověděl za 0.08s
+sending 3772
+[Wrapper 3772] <<< KONEC: Server odpověděl za 0.08s
+sending 2168
+[Wrapper 2168] <<< KONEC: Server odpověděl za 0.07s
+sending 1928
+[Wrapper 1928] <<< KONEC: Server odpověděl za 0.07s
+sending 4634
+[Wrapper 4634] <<< KONEC: Server odpověděl za 0.08s
+sending 6953
+[Wrapper 6953] <<< KONEC: Server odpověděl za 0.07s
+sending 6754
+[Wrapper 6754] <<< KONEC: Server odpověděl za 0.05s
+sending 6469
+[Wrapper 6469] <<< KONEC: Server odpověděl za 0.08s
+sending 7597
+[Wrapper 7597] <<< KONEC: Server odpověděl za 0.07s
+sending 3425
+[Wrapper 3425] <<< KONEC: Server odpověděl za 0.07s
+sending 8309
+[Wrapper 8309] <<< KONEC: Server odpověděl za 0.08s
+sending 7725
+[Wrapper 7725] <<< KONEC: Server odpověděl za 0.07s
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/llama-4-scout-17b-16e-instruct_TAP_DIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/llama-4-scout-17b-16e-instruct_TAP_DIRECT.report.html
+✔️  garak run complete in 84.87s
+garak LLM vulnerability scanner v0.14.1.pre1 ( https://github.com/NVIDIA/garak ) at 2026-04-09T21:45:23.545485
+📜 logging to /root/.local/share/garak/garak.log
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+📜 reporting to /root/.local/share/garak/garak_runs/llama-4-scout-17b-16e-instruct_TAP_INDIRECT.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m custom_probe_TAP.TapCustomExternalProbe
+❔ No OpenAI API defined for 'llama-4-scout-17b-16e-instruct' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: llama-4-scout-17b-16e-instruct
+❔ No OpenAI API defined for 'coder' in generators/openai.py - please add one! Assuming chat model
+🦜 loading [1m[95mgenerator[0m: OpenAI: coder
+  0%|[32m          [0m| 0/10 [00:00<?, ?it/s] 10%|[32m█         [0m| 1/10 [00:06<00:54,  6.09s/it] 20%|[32m██        [0m| 2/10 [00:27<01:58, 14.86s/it] 30%|[32m███       [0m| 3/10 [00:45<01:55, 16.43s/it] 40%|[32m████      [0m| 4/10 [01:00<01:36, 16.05s/it] 50%|[32m█████     [0m| 5/10 [01:17<01:20, 16.13s/it] 60%|[32m██████    [0m| 6/10 [01:29<01:00, 15.02s/it] 70%|[32m███████   [0m| 7/10 [01:32<00:32, 10.98s/it] 80%|[32m████████  [0m| 8/10 [01:34<00:16,  8.01s/it] 90%|[32m█████████ [0m| 9/10 [01:35<00:05,  5.90s/it]100%|[32m██████████[0m| 10/10 [01:36<00:00,  4.42s/it]                                               sending 6912
+[Wrapper 6912] <<< KONEC: Server odpověděl za 0.09s
+sending 6563
+[Wrapper 6563] <<< KONEC: Server odpověděl za 0.10s
+sending 6255
+[Wrapper 6255] <<< KONEC: Server odpověděl za 0.07s
+sending 9999
+[Wrapper 9999] <<< KONEC: Server odpověděl za 0.08s
+sending 5456
+[Wrapper 5456] <<< KONEC: Server odpověděl za 0.09s
+sending 4175
+[Wrapper 4175] <<< KONEC: Server odpověděl za 0.06s
+sending 2949
+[Wrapper 2949] <<< KONEC: Server odpověděl za 0.08s
+sending 6993
+[Wrapper 6993] <<< KONEC: Server odpověděl za 0.09s
+sending 6993
+[Wrapper 6993] <<< KONEC: Server odpověděl za 0.06s
+sending 9823
+[Wrapper 9823] <<< KONEC: Server odpověděl za 0.08s
+sending 9660
+[Wrapper 9660] <<< KONEC: Server odpověděl za 0.09s
+sending 3702
+[Wrapper 3702] <<< KONEC: Server odpověděl za 0.08s
+sending 9069
+[Wrapper 9069] <<< KONEC: Server odpověděl za 0.10s
+sending 3620
+[Wrapper 3620] <<< KONEC: Server odpověděl za 0.07s
+sending 6920
+[Wrapper 6920] <<< KONEC: Server odpověděl za 0.09s
+sending 9721
+[Wrapper 9721] <<< KONEC: Server odpověděl za 0.09s
+sending 1587
+[Wrapper 1587] <<< KONEC: Server odpověděl za 0.08s
+sending 1777
+[Wrapper 1777] <<< KONEC: Server odpověděl za 0.08s
+sending 9300
+[Wrapper 9300] <<< KONEC: Server odpověděl za 0.08s
+sending 7069
+[Wrapper 7069] <<< KONEC: Server odpověděl za 0.08s
+sending 6373
+[Wrapper 6373] <<< KONEC: Server odpověděl za 0.08s
+sending 2250
+[Wrapper 2250] <<< KONEC: Server odpověděl za 0.06s
+sending 9655
+[Wrapper 9655] <<< KONEC: Server odpověděl za 0.08s
+sending 5326
+[Wrapper 5326] <<< KONEC: Server odpověděl za 0.08s
+sending 7316
+[Wrapper 7316] <<< KONEC: Server odpověděl za 0.09s
+sending 4923
+[Wrapper 4923] <<< KONEC: Server odpověděl za 0.10s
+sending 1129
+[Wrapper 1129] <<< KONEC: Server odpověděl za 0.08s
+sending 7452
+[Wrapper 7452] <<< KONEC: Server odpověděl za 0.07s
+sending 9435
+[Wrapper 9435] <<< KONEC: Server odpověděl za 0.08s
+sending 9890
+[Wrapper 9890] <<< KONEC: Server odpověděl za 0.08s
+0it [00:00, ?it/s]detectors.mitigation.MitigationBypass: : 0it [00:00, ?it/s]                                                           📜 report closed :) /root/.local/share/garak/garak_runs/llama-4-scout-17b-16e-instruct_TAP_INDIRECT.report.jsonl
+📜 report html summary being written to /root/.local/share/garak/garak_runs/llama-4-scout-17b-16e-instruct_TAP_INDIRECT.report.html
+✔️  garak run complete in 99.26s
+
+STARTING MODEL: gpt-oss-120b
+- Phase: TAP Direct (30 iterations)
+- Phase: TAP Indirect (30 iterations)
+- Phase: DRA Direct
+- Phase: DRA Indirect
+- Phase: Basic Prompts
+
+STARTING MODEL: glm-4.7
+- Phase: TAP Direct (30 iterations)
+- Phase: TAP Indirect (30 iterations)
+- Phase: DRA Direct
+- Phase: DRA Indirect
+- Phase: Basic Prompts
+
+STARTING MODEL: qwen3-coder-30b
+- Phase: TAP Direct (30 iterations)
+- Phase: TAP Indirect (30 iterations)
+- Phase: DRA Direct
+- Phase: DRA Indirect
+- Phase: Basic Prompts
+
+STARTING MODEL: deepseek-v3.2-thinking
+- Phase: TAP Direct (30 iterations)
+- Phase: TAP Indirect (30 iterations)
+- Phase: DRA Direct
+- Phase: DRA Indirect
+- Phase: Basic Prompts
+
+STARTING MODEL: deepseek-v3.2
+- Phase: TAP Direct (30 iterations)
+- Phase: TAP Indirect (30 iterations)
+- Phase: DRA Direct
+- Phase: DRA Indirect
+- Phase: Basic Prompts
+
+STARTING MODEL: qwen3.5
+- Phase: TAP Direct (30 iterations)
+- Phase: TAP Indirect (30 iterations)
+- Phase: DRA Direct
+- Phase: DRA Indirect
+- Phase: Basic Prompts
+
+STARTING MODEL: kimi-k2.5
+- Phase: TAP Direct (30 iterations)
+- Phase: TAP Indirect (30 iterations)
+- Phase: DRA Direct
+- Phase: DRA Indirect
+- Phase: Basic Prompts
+
+STARTING MODEL: llama-4-scout-17b-16e-instruct
+- Phase: TAP Direct (30 iterations)
+- Phase: TAP Indirect (30 iterations)
+- Phase: DRA Direct
+- Phase: DRA Indirect
+- Phase: Basic Prompts
