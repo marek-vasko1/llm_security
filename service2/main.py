@@ -103,8 +103,8 @@ def check_input(user_text, risk_name="harm"):
     
     guardian_config = {"risk_name": risk_name}
     messages = [{"role": "user", "content": user_text}]
-    #logging.debug(messages)
-    #logging.debug("INPUT----------------------------------------------")
+    logging.debug(messages)
+    logging.debug("INPUT----------------------------------------------")
 
     input_ids = tokenizer.apply_chat_template(
         messages,
@@ -146,11 +146,11 @@ def check_output(messages, risk_name="harm"):
     Inspirated by https://huggingface.co/ibm-granite/granite-guardian-3.1-2b from 24.03.2026
     """
 
-    #logging.debug(f"----------{messages}------------\n")
+    logging.debug(f"----------{messages}------------\n")
     guardian_config = {"risk_name": risk_name}
     
   
-    #logging.debug("ALL----------------------------------------------")
+    logging.debug("ALL----------------------------------------------")
 
     input_ids = tokenizer.apply_chat_template(
         messages,
@@ -265,7 +265,7 @@ class MCPClient:
                 }
                 for tool in response.tools
             ]
-        #logging.debug(f"\nthere are recived tools:\n self.formatted_tools\n")
+        logging.debug(f"\nthere are recived tools:\n self.formatted_tools\n")
 
     async def send_message_to_llm(self, messages: list[dict]):
         """
@@ -277,7 +277,7 @@ class MCPClient:
         Returns:
             Response object from LLM API.
         """
-        #logger.debug(f"\nSending request to LLM with messages:\n {messages} \n")
+        logger.debug(f"\nSending request to LLM with messages:\n {messages} \n")
 
         response = await client_ai.chat.completions.create(
             model=LLM_MODEL,
@@ -285,7 +285,7 @@ class MCPClient:
             messages=messages,
             tools=self.formatted_tools if self.formatted_tools else None
         )
-        #logger.debug(f"\n recieved response:\n {response}\n")
+        logger.debug(f"\n recieved response:\n {response}\n")
         return response
     
     async def process_query(self, query: str):
@@ -318,7 +318,7 @@ class MCPClient:
         ]
         messages.append({"role":"user", "content": query})        
         
-        #logger.debug("\nSENDING QUERY\n")
+        logger.debug("\nSENDING QUERY\n")
         response = await self.send_message_to_llm(messages)
     
         messages_for_guardian = copy.deepcopy(messages)
@@ -345,7 +345,7 @@ class MCPClient:
 
             # call tool
             tool_result = await self.session.call_tool(tool_name, tool_args)
-            #logger.debug(f"*******************************tool call result {tool_result.content} ***********************************")
+            logger.debug(f"*******************************tool call result {tool_result.content} ***********************************")
             
             if isinstance(tool_result.content, list) and len(tool_result.content) > 0:
                 extracted_text = tool_result.content[0].text
@@ -360,8 +360,8 @@ class MCPClient:
                 }
             )
             messages_for_guardian.append({"role":"user", "content": extracted_text})
-            #logger.debug(f"\nMESSAGES:\n {messages}")
-            #logger.debug(f"\nMESSAGES FOR GUARDIAN:\n{messages_for_guardian}")
+            logger.debug(f"\nMESSAGES:\n {messages}")
+            logger.debug(f"\nMESSAGES FOR GUARDIAN:\n{messages_for_guardian}")
 
             label, probability = await asyncio.to_thread(check_output,messages_for_guardian)
             if label == safe_token:
@@ -411,7 +411,7 @@ async def query_endpoint(request: QueryRequest):
         if label == unsafe_token or label == "Failed":
                 return {"query": request.query, "answer": "Blocked by Granite Guardian"}
         
-        #logger.debug(f"\nCHECK INPUT DONE-------------------{label}{probability}")
+        logger.debug(f"\nCHECK INPUT DONE-------------------{label}{probability}")
         answer = await client.process_query(request.query)
            
         if answer == "Blocked by Granite Guardian":
@@ -419,9 +419,9 @@ async def query_endpoint(request: QueryRequest):
 
         try:
             #check output
-            #logger.debug("\nSTARTING OUTPUT CHECK\n")
+            logger.debug("\nSTARTING OUTPUT CHECK\n")
             messages = [{"role": "user", "content": request.query}, {"role" : "assistant", "content" : answer}]
-            #logger.debug(f"\nMESSAGES:\n {messages}")
+            logger.debug(f"\nMESSAGES:\n {messages}")
             label, probability = await asyncio.to_thread(check_output,messages)
             if label == safe_token:
                 if probability > threshold:

@@ -12,7 +12,9 @@ RUN apt update && apt install -y \
     python3-venv \
     && rm -rf /var/lib/apt/lists/*
 
+RUN pip install requests --break-system-packages
 WORKDIR /app
 
-COPY app.py /app/
+
+CMD ["tail", "-f", "/dev/null"]
 
