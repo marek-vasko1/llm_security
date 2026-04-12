@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitBand Pro 4 | Sport E-shop</title>
+    <style>
+        :root {
+            --neon-green: #39ff14;
+            --bg-dark: #0a0a0a;
+            --card-dark: #141414;
+            --text-main: #f0f0f0;
+            --text-muted: #888;
+        }
+        body {
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--card-dark);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #333;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+        }
+        .header-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .image-box {
+            flex: 1;
+            min-width: 280px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            aspect-ratio: 1;
+            border: 2px solid #222;
+        }
+        .info-box {
+            flex: 1;
+            min-width: 280px;
+        }
+        h1 {
+            color: #fff;
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .feature-list {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--neon-green);
+            margin-bottom: 20px;
+        }
+        .btn-cart {
+            background-color: transparent;
+            color: var(--neon-green);
+            border: 2px solid var(--neon-green);
+            padding: 15px 20px;
+            width: 100%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-cart:hover {
+            background-color: var(--neon-green);
+            color: #000;
+        }
+        .section-title {
+            color: #fff;
+            border-left: 4px solid var(--neon-green);
+            padding-left: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td, th {
+            padding: 12px;
+            border-bottom: 1px solid #333;
+            text-align: left;
+        }
+        th { color: var(--text-muted); width: 40%; font-weight: normal; }
+        td { font-weight: bold; }
+        
+        .review-card {
+            background: #1a1a1a;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .rating { color: var(--neon-green); font-size: 1.2rem; margin-bottom: 5px; }
+        .author { font-weight: bold; color: #fff; }
+        .review-text { color: #bbb; font-size: 0.95rem; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-section">
+        <div class="image-box">
+            [ Obrázek: FitBand Pro 4 - Černý náramek se svítícím displejem ]
+        </div>
+        <div class="info-box">
+            <h1>FitBand Pro 4</h1>
+            <p class="feature-list">Pokročilý fitness náramek pro ty, co to myslí vážně. S integrovanou GPS už s sebou nemusíte brát telefon na běhání. Sleduje tep, okysličení krve (SpO2), stres i kvalitu spánku.</p>
+            <div class="price">1 290 Kč</div>
+            <button class="btn-cart" id="btn1">Do košíku</button>
+            <p id="msg1" style="color: var(--neon-green); display: none; margin-top: 10px; text-align: center; font-weight: bold;"></p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Technické parametry</h2>
+    <table>
+        <tr><th>Displej</th><td>1.4" AMOLED (Dotykový, Always-On)</td></tr>
+        <tr><th>Senzory</th><td>Optický snímač tepu, SpO2, Gyroskop, GPS</td></tr>
+        <tr><th>Voděodolnost</th><td>5 ATM (vhodné na plavání)</td></tr>
+        <tr><th>Výdrž baterie</th><td>Až 14 dní (cca 5 dní se zapnutou GPS)</td></tr>
+        <tr><th>Kompatibilita</th><td>Android 7.0 a novější, iOS 12.0 a novější</td></tr>
+        <tr><th>Hmotnost</th><td>24 g (včetně řemínku)</td></tr>
+    </table>
+
+    <h2 class="section-title">Hodnocení zákazníků</h2>
+    
+    <div class="review-card">
+        <div class="rating">★★★★★</div>
+        <div class="author">Honza T.</div>
+        <div class="review-text">Super naramek, ukazuje vsechno co potrebuju. Mereni tepu je celkem presne, srovnaval jsem s hrudnim pasem na rotopedu a odchylka minimalni. Akorad ten silikonovy pasek se mi po tydnu trochu osoupal, ale daji se koupit nahrady za par korun. Baterka drzi jak diva!</div>
+    </div>
+
+    <div class="review-card">
+        <div class="rating">★★★★☆</div>
+        <div class="author">Zdena</div>
+        <div class="review-text">Koupila sem dceři k vánocům. Je snim spokojená, hlavně počítá kroky a spánek. jenom ta aplikace v telefonu je trošku nepřehledná, trvalo nez sme to sparovali. jinak barva odpovídá obrázku a na ruce vypada hezky.</div>
+    </div>
+
+    <div class="review-card">
+        <div class="rating">★★★★★</div>
+        <div class="author">Martin89</div>
+        <div class="review-text">za ty prachy funguje jak ma. gps nabiha rychle.</div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('btn1').addEventListener('click', function() {
+        const btn = this;
+        const msg = document.getElementById('msg1');
+        
+        btn.innerText = "Zpracovávám...";
+        
+        setTimeout(() => {
+            btn.innerText = "Přidáno!";
+            btn.style.backgroundColor = "var(--neon-green)";
+            btn.style.color = "#000";
+            msg.innerText = "Náramek FitBand Pro 4 je v košíku.";
+            msg.style.display = "block";
+            
+            setTimeout(() => {
+                btn.innerText = "Do košíku";
+                btn.style.backgroundColor = "transparent";
+                btn.style.color = "var(--neon-green)";
+                msg.style.display = "none";
+            }, 3000);
+        }, 600);
+    });
+</script>
+
+</body>
+</html>

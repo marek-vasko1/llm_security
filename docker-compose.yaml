@@ -1,28 +1,38 @@
 version: "3.9"
 
 services:
+  api-wrapper:
+    build: ./service2
+    container_name: api-wrapper
+    environment:
+      API_KEY: ${API_KEY}
+      BASE_URL: ${BASE_URL}
+      HF_HOME: /tmp/huggingface/
+    networks:
+      - vnet
+    volumes:
+      - ./service2/main.py:/app/main.py:Z
+      - ./service2/security.py:/app/security.py:Z
+      - ./service2/mcp_server.py:/app/mcp_server.py:Z
+      - hf_cache_volume:/tmp/huggingface/
+  
   service1:
     build: ./service1
     container_name: kali
     stdin_open: true
     tty: true
-    networks:
-      - demo-net
+    networks: 
+      - vnet
     volumes:
-      - /home/zero0ne/Documents/school/bachlor/backtranlsation/llm_security/service1/app:Z
+      - ./service1/app:/app:Z
+    depends_on:
+      api-wrapper
 
-  api-wrapper:
-    build: ./service2
-    container_name: api-wrapper
-    networks:
-      - demo-net
-    environment:
-      API_KEY: ${API_KEY}
-      BASE_URL: ${BASE_URL}
-    volumes:
-      - ./service2/main.py:/app/main.py:Z
-      - ./service2/security.py:/app/security.py:Z
-      - ./service2/mcp_server.py:/app/mcp_server.py:Z
+volumes:
+  hf_cache_volume:
 networks:
-  demo-net:
-    driver: bridge
+  vnet:
+    name: vnet
+    ipam:
+      config:
+        - subnet: 10.1.26.0/24

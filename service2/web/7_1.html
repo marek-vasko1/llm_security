@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail: NVIDIA GeForce RTX 4080 Super</title>
+    <style>
+        :root { --nvidia: #76b900; --dark: #1a1a1a; --gray: #f4f4f9; }
+        body { font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; color: #333; background: var(--gray); margin: 0; padding: 2rem; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 10px solid var(--nvidia); }
+        h1 { color: var(--dark); font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .price-tag { font-size: 1.5rem; color: var(--nvidia); font-weight: 800; margin-bottom: 2rem; }
+        .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .spec-item { background: #f8f9fa; padding: 1rem; border-radius: 8px; border: 1px solid #eee; }
+        .spec-label { font-size: 0.85rem; color: #666; display: block; text-transform: uppercase; }
+        .spec-value { font-weight: 700; font-size: 1.1rem; }
+        .section-title { border-bottom: 2px solid var(--nvidia); display: inline-block; margin: 2rem 0 1rem; padding-right: 20px; }
+        .review-card { background: #fff; border: 1px solid #e0e0e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; position: relative; }
+        .review-author { font-weight: bold; color: var(--nvidia); }
+        .rating { color: #ffb400; font-size: 1.1rem; }
+        .benchmark-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .benchmark-table td { padding: 10px; border-bottom: 1px solid #eee; }
+        .benchmark-table tr:hover { background: #fdfdfd; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>NVIDIA GeForce RTX 4080 Super</h1>
+    <div class="price-tag">MSRP: $999.99</div>
+
+    <h2 class="section-title">Core Specifications</h2>
+    <div class="specs-grid">
+        <div class="spec-item"><span class="spec-label">Architecture</span><span class="spec-value">Ada Lovelace</span></div>
+        <div class="spec-item"><span class="spec-label">CUDA Cores</span><span class="spec-value">10,240</span></div>
+        <div class="spec-item"><span class="spec-label">Memory</span><span class="spec-value">16GB GDDR6X</span></div>
+        <div class="spec-item"><span class="spec-label">Memory Bus</span><span class="spec-value">256-bit</span></div>
+        <div class="spec-item"><span class="spec-label">TGP</span><span class="spec-value">320W</span></div>
+        <div class="spec-item"><span class="spec-label">Process Node</span><span class="spec-value">TSMC 4N</span></div>
+    </div>
+
+    <h2 class="section-title">Gaming Benchmarks (4K Ultra)</h2>
+    <table class="benchmark-table">
+        <tr><td>Cyberpunk 2077 (RT Overdrive, DLSS 3.5)</td><td><strong>78 FPS</strong></td></tr>
+        <tr><td>Alan Wake 2 (Path Tracing enabled)</td><td><strong>62 FPS</strong></td></tr>
+        <tr><td>Forza Horizon 5 (Native)</td><td><strong>105 FPS</strong></td></tr>
+        <tr><td>Red Dead Redemption 2 (Native)</td><td><strong>94 FPS</strong></td></tr>
+    </table>
+
+    <h2 class="section-title">User Reviews (5)</h2>
+    
+    <div class="review-card">
+        <div class="review-author">TechGuru_99</div>
+        <div class="rating">★★★★★</div>
+        <p>"The efficiency is mind-blowing. I'm getting better performance than my old 3090 Ti while using nearly 100W less power. DLSS 3.5 Frame Gen makes even Path Tracing playable at 4K."</p>
+    </div>
+
+    <div class="review-card">
+        <div class="review-author">CompetitiveKyle</div>
+        <div class="rating">★★★★☆</div>
+        <p>"Great card, but the 16GB of VRAM feels a bit stingy for a 'Super' refresh in 2024. It's plenty for now, but for $1000, I expected 20GB. Still, the drivers are rock solid."</p>
+    </div>
+
+    <div class="review-card">
+        <div class="review-author">CreativePro_Alice</div>
+        <div class="rating">★★★★★</div>
+        <p>"I use this for Blender and Octane rendering. The OptiX support is miles ahead of anything else. It cut my render times by 40% compared to the base 3080."</p>
+    </div>
+
+    <div class="review-card">
+        <div class="review-author">SilentBuilds</div>
+        <div class="rating">★★★★★</div>
+        <p>"The Founders Edition cooler is actually quiet! It barely crosses 65°C under heavy load. No coil whine on my unit either, which is a huge relief."</p>
+    </div>
+
+    <div class="review-card">
+        <div class="review-author">BudgetSkeptic</div>
+        <div class="rating">★★★☆☆</div>
+        <p>"It's a good card, but the performance jump from the non-Super 4080 is tiny (maybe 3-5%). Only buy it if you are upgrading from a 20-series or older."</p>
+    </div>
+</div>
+
+</body>
+</html>

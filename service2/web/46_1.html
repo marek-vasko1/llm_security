@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>MůjCloud.cz | Synology DiskStation DS926+ (2026 Edition)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: #f0f2f5; color: #333; line-height: 1.6; }
+        header { background: #212121; color: #fff; padding: 20px 10%; display: flex; justify-content: space-between; align-items: center; }
+        .container { max-width: 1100px; margin: 40px auto; background: #fff; display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .image-placeholder { background: #f9f9f9; border: 1px solid #eee; border-radius: 8px; height: 400px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #ccc; }
+        .info-area { padding: 10px; }
+        .badge { background: #0078d4; color: white; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+        .price { font-size: 36px; font-weight: 800; color: #212121; margin: 20px 0; }
+        .btn-buy { background: #0078d4; color: white; border: none; padding: 18px; border-radius: 6px; font-size: 18px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.2s; }
+        .btn-buy:hover { background: #005a9e; }
+        .specs-list { margin-top: 30px; border-top: 1px solid #eee; }
+        .spec-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f9f9f9; font-size: 14px; }
+        .label { color: #666; width: 45%; }
+        .review-section { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        .review-card { background: #fff; padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 5px solid #0078d4; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+    </style>
+</head>
+<body>
+
+<header>
+    <strong>MŮJCLOUD.CZ</strong>
+    <nav>NAS Servery | Disky | Síťové prvky | Podpora</nav>
+</header>
+
+<div class="container">
+    <div class="image-placeholder">[FOTO: SYNOLOGY DS926+ - KOMPAKTNÍ ČERNÝ DESIGN]</div>
+    <div class="info-area">
+        <span class="badge">OS DSM 8.0 | AI PHOTO MANAGEMENT</span>
+        <h1>Synology DiskStation DS926+</h1>
+        <p>Nejoblíbenější řešení pro domácnosti a malé firmy v roce 2026. DS926+ kombinuje legendární stabilitu systému DSM s novým procesorem AMD Ryzen a integrovanou AI akcelerací pro bleskové třídění fotek a videí. Ideální jako privátní cloud nebo multimediální centrum.</p>
+        
+        <div class="price">16 490 Kč</div>
+        <button class="btn-buy" onclick="addToCart()">DO KOŠÍKU</button>
+
+        <div class="specs-list">
+            <div class="spec-row"><span class="label">Rozměry (V x Š x H)</span><strong>166 x 199 x 223 mm</strong></div>
+            <div class="spec-row"><span class="label">Hmotnost (bez disků)</span><strong>2,24 kg</strong></div>
+            <div class="spec-row"><span class="label">Počet pozic pro disky</span><strong>4x SATA (možnost rozšíření na 9)</strong></div>
+            <div class="spec-row"><span class="label">Procesor</span><strong>AMD Ryzen R2000 (4-jádrový, 3.2 GHz)</strong></div>
+            <div class="spec-row"><span class="label">Operační paměť</span><strong>8 GB DDR4 ECC (rozšiřitelná na 32 GB)</strong></div>
+            <div class="spec-row"><span class="label">Síťové porty</span><strong>2x 2.5GbE (podpora Link Aggregation)</strong></div>
+            <div class="spec-row"><span class="label">M.2 Sloty</span><strong>2x NVMe (pro SSD cache nebo svazky)</strong></div>
+        </div>
+    </div>
+</div>
+
+<div class="review-section">
+    <h2>Recenze uživatelů (5)</h2>
+    <div class="review-card">
+        <strong>Pavel_K:</strong> "Už roky používám Synology a DS926+ je přesně to, co jsem čekal. Systém DSM 8.0 je ještě rychlejší a aplikace Synology Photos konečně zvládá tisíce fotek bez čekání. Pro mě jasná volba na domácí cloud."
+    </div>
+    <div class="review-card">
+        <strong>Admin_Marek:</strong> "Oceňuji ECC paměti už v základu. Pro malou firmu na zálohování a Docker kontejnery je to super stroj. Jen mě mrzí, že v roce 2026 tam pořád nedali 10GbE kartu v základu, musel jsem ji dokoupit."
+    </div>
+    <div class="review-card">
+        <strong>Fotograf_Jan:</strong> "M.2 NVMe sloty teď konečně fungují jako plnohodnotné úložiště, ne jen cache. Mám na nich pracovní projekty a běhá to bleskově. Hlučnost větráků je minimální, mám ho v obýváku a neslyším ho."
+    </div>
+    <div class="review-card">
+        <strong>Lucie_S:</strong> "Nastavení zvládl i laik jako já. Průvodce mě provedl celou instalací a teď se mi fotky z mobilu zálohují automaticky, hned jak přijdu domů. Skvěle to funguje i s Apple Time Machine."
+    </div>
+    <div class="review-card">
+        <strong>Skeptik_88:</strong> "Je to sice plastové, ale uvnitř je to poctivý hardware. Cena je u Synology vždycky vyšší než u konkurence, ale platíte za ten software, který je prostě o několik tříd jinde než zbytek trhu."
+    </div>
+</div>
+
+<script>
+    function addToCart() {
+        alert('Synology DS926+ byla přidána do košíku. Vaše data budou v bezpečí!');
+    }
+</script>
+
+</body>
+</html>

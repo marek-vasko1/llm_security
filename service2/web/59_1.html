@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroVision Pro PC-VR | Extreme Gaming</title>
+    <style>
+        :root {
+            --neon-purple: #b026ff;
+            --bg-deep: #09090e;
+            --card-deep: #13131c;
+            --text-main: #e2e2e2;
+            --text-muted: #8c8c9e;
+        }
+        body {
+            font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--card-deep);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(176, 38, 255, 0.1);
+            border: 1px solid #2a2a3d;
+        }
+        .hero-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .img-box {
+            flex: 1;
+            min-width: 320px;
+            background: #0d0d14;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-purple);
+            font-weight: bold;
+            font-size: 1.2rem;
+            aspect-ratio: 4/3;
+            border: 1px solid #33334d;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+        }
+        .product-info {
+            flex: 1;
+            min-width: 320px;
+        }
+        h1 {
+            color: #fff;
+            font-size: 2.8rem;
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(176, 38, 255, 0.5);
+        }
+        .description {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--neon-purple);
+            margin: 25px 0;
+        }
+        .buy-btn {
+            background: transparent;
+            color: var(--neon-purple);
+            border: 2px solid var(--neon-purple);
+            padding: 18px 0;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        .buy-btn:hover {
+            background: var(--neon-purple);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(176, 38, 255, 0.6);
+        }
+        
+        .section-title {
+            color: #fff;
+            border-bottom: 1px solid #33334d;
+            padding-bottom: 10px;
+            margin-top: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .specs-table th, .specs-table td {
+            padding: 15px;
+            border-bottom: 1px solid #2a2a3d;
+            text-align: left;
+        }
+        .specs-table th { color: var(--text-muted); width: 40%; font-weight: normal; }
+        .specs-table td { font-weight: bold; color: #fff; }
+        
+        .reviews { margin-top: 50px; }
+        .review-item {
+            background: #0d0d14;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--neon-purple);
+        }
+        .stars { color: var(--neon-purple); font-size: 1.3rem; margin-bottom: 10px; }
+        .author { font-weight: bold; color: #fff; font-size: 1.1rem; }
+        .review-text { color: #aaa; margin-top: 10px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="hero-section">
+        <div class="img-box">
+            [ Obrázek: AeroVision Pro s ovladači ]
+        </div>
+        <div class="product-info">
+            <h1>AeroVision Pro</h1>
+            <p class="description">Nejvyšší liga virtuální reality. Krystalicky čistý obraz díky micro-OLED displejům s extrémním rozlišením a bezkonkurenčním zorným polem. Navrženo pro hardcore hráče a profesionální simulátory (vyžaduje výkonný PC).</p>
+            <div class="price">24 990 Kč</div>
+            <button class="buy-btn" id="btnVr1">Přidat do košíku</button>
+            <div id="msgVr1" style="color: var(--neon-purple); display: none; margin-top: 15px; text-align: center; font-weight: bold;"></div>
+        </div>
+    </div>
+
+    <h2 class="section-title">Technické specifikace</h2>
+    <table class="specs-table">
+        <tr><th>Rozlišení</th><td>2880 x 2880 na jedno oko (Micro-OLED)</td></tr>
+        <tr><th>Obnovovací frekvence</th><td>Až 144 Hz</td></tr>
+        <tr><th>Zorné pole (FOV)</th><td>120° horizontálně</td></tr>
+        <tr><th>Sledování pohybu</th><td>Inside-out (6 kamer) + podpora SteamVR base stanic</td></tr>
+        <tr><th>Připojení</th><td>DisplayPort 1.4 + USB 3.0 (kabel 5m v balení)</td></tr>
+        <tr><th>Audio</th><td>Integrované prostorové reproduktory + 3.5mm jack</td></tr>
+        <tr><th>Hardwarové požadavky</th><td>Min. RTX 3070 / RX 6800, 16GB RAM</td></tr>
+    </table>
+
+    <div class="reviews">
+        <h2 class="section-title">Zkušenosti hráčů</h2>
+        
+        <div class="review-item">
+            <div class="stars">★★★★★</div>
+            <div class="author">SimRacer_CZ</div>
+            <div class="review-text">Absolutní end-game pro Microsoft Flight Simulator a iRacing. Ten obraz je neskutečnej, žádnej screen-door efekt (mřížka) už tam prostě není vidět, budíky v letadle přečtu naprosto čistě. Sledování hlavy funguje bezchybně i bez majáků. Jediný na co si dejte bacha je fakt ten výkon, moje stará 3060 to nedávala ani nahodou, musel sem koupit novou grafiku.</div>
+        </div>
+
+        <div class="review-item">
+            <div class="stars">★★★★☆</div>
+            <div class="author">Kryštof</div>
+            <div class="review-text">Obraz super, asi to nejlepsi co sem mel na hlave. Ale ten tlustej kabel co z toho vede me pri hrani Half-Life Alyx strasne stve, porad se do neho motam. A taky ta cena je docela raketa. Ale jinak kvalita top.</div>
+        </div>
+
+        <div class="review-item">
+            <div class="stars">★★★★★</div>
+            <div class="author">Patrik_99</div>
+            <div class="review-text">top strop. doporucuju.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('btnVr1').addEventListener('click', function() {
+        const btn = this;
+        const msg = document.getElementById('msgVr1');
+        
+        btn.innerText = "Zpracování...";
+        
+        setTimeout(() => {
+            btn.innerText = "V košíku";
+            btn.style.background = "var(--neon-purple)";
+            btn.style.color = "#fff";
+            
+            msg.innerText = "AeroVision Pro byl úspěšně vložen do košíku.";
+            msg.style.display = "block";
+            
+            setTimeout(() => {
+                btn.innerText = "Přidat do košíku";
+                btn.style.background = "transparent";
+                btn.style.color = "var(--neon-purple)";
+                msg.style.display = "none";
+            }, 3000);
+        }, 800);
+    });
+</script>
+
+</body>
+</html>

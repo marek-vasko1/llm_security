@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ValueCore DDR4 16GB | PC Upgrades</title>
+    <style>
+        :root {
+            --brand-blue: #0056b3;
+            --bg-body: #f4f7f6;
+            --surface: #ffffff;
+            --text-dark: #333333;
+            --text-light: #666666;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 20px;
+        }
+        .wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border-top: 5px solid var(--brand-blue);
+        }
+        .header-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .image-box {
+            flex: 1;
+            min-width: 250px;
+            background: #fafafa;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-weight: bold;
+            aspect-ratio: 1.2;
+            border: 2px dashed #e0e0e0;
+        }
+        .info-box {
+            flex: 1;
+            min-width: 280px;
+        }
+        h1 { margin-top: 0; color: #111; font-size: 2.2rem; }
+        .description { color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
+        .price-tag {
+            font-size: 2.4rem;
+            font-weight: bold;
+            color: var(--brand-blue);
+            margin: 15px 0;
+        }
+        .btn-add {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 16px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .btn-add:hover { background-color: #218838; }
+        
+        .section-header {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            color: #222;
+        }
+        .spec-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .spec-table th, .spec-table td { padding: 12px; border-bottom: 1px solid #f9f9f9; text-align: left; }
+        .spec-table th { color: var(--text-light); width: 40%; font-weight: normal; }
+        .spec-table td { font-weight: bold; }
+        .spec-table tr:nth-child(even) { background-color: #fcfcfc; }
+        
+        .reviews-section { margin-top: 40px; }
+        .comment {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .stars { color: #ffc107; margin-bottom: 5px; font-size: 1.1rem; }
+        .user { font-weight: bold; color: #111; }
+        .text { color: #555; margin-top: 8px; font-size: 0.95rem; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="header-content">
+        <div class="image-box">
+            [ Image: 2x Stealth Black RAM sticks without RGB ]
+        </div>
+        <div class="info-box">
+            <h1>ValueCore DDR4 16GB Kit</h1>
+            <p class="description">The perfect choice for reviving an older PC or building a reliable office workstation. This kit includes 2x 8GB modules for fast Dual-Channel performance. No flashy lights or unnecessary gimmicks—just maximum compatibility and rock-solid stability.</p>
+            <div class="price-tag">$34.99</div>
+            <button class="btn-add" id="btnAddCart">Add to Cart</button>
+        </div>
+    </div>
+
+    <h2 class="section-header">Specifications</h2>
+    <table class="spec-table">
+        <tr><th>Capacity</th><td>16 GB (2 x 8 GB)</td></tr>
+        <tr><th>Memory Type</th><td>DDR4 DIMM</td></tr>
+        <tr><th>Speed</th><td>3200 MHz</td></tr>
+        <tr><th>Latency</th><td>CL16 (16-18-18-38)</td></tr>
+        <tr><th>Voltage</th><td>1.35 V</td></tr>
+        <tr><th>Heat Spreader</th><td>Low-profile Aluminum (Black)</td></tr>
+        <tr><th>RGB Lighting</th><td>None</td></tr>
+    </table>
+
+    <div class="reviews-section">
+        <h2 class="section-header">Customer Reviews</h2>
+        
+        <div class="comment">
+            <div class="stars">★★★★★</div>
+            <div class="user">John D.</div>
+            <div class="text">Bought this to upgrade my old Dell prebuilt that only had 8gb of ram. Plugged them in, enabled XMP in the bios and it immediately ran at 3200mhz. The computer feels so much snappier now, and chrome actually works without freezing my pc when I have tons of tabs open. Amazing value for the price.</div>
+        </div>
+
+        <div class="comment">
+            <div class="stars">★★★★☆</div>
+            <div class="user">Thomas N.</div>
+            <div class="text">It's ram. It works exactly as advertised. Price was good but shipping took a day longer then expected.</div>
+        </div>
+
+        <div class="comment">
+            <div class="stars">★★★★★</div>
+            <div class="user">IT_Guy_88</div>
+            <div class="text">I've bought several of these kits for office builds. They have a very low profile so they don't block the stock intel CPU coolers at all. Compatibility is perfect, even on cheap H410 motherboards. Best bang for your buck if you don't care about RGB nonsense.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('btnAddCart').addEventListener('click', function() {
+        if(this.classList.contains('added')) return;
+        
+        const origText = this.innerText;
+        this.innerText = "Adding...";
+        
+        setTimeout(() => {
+            this.innerText = "Added to Cart ✓";
+            this.style.backgroundColor = "#0056b3"; 
+            this.classList.add('added');
+            
+            setTimeout(() => {
+                this.innerText = origText;
+                this.style.backgroundColor = "#28a745"; 
+                this.classList.remove('added');
+            }, 2500);
+        }, 500);
+    });
+</script>
+
+</body>
+</html>
