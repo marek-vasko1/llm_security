@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>JBL Store CZ | Boombox 4 - Král venkovních párty</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; margin: 0; background: #1a1a1a; color: #fff; }
+        header { background: #ff6600; padding: 20px 10%; display: flex; justify-content: space-between; align-items: center; }
+        .product-hero { max-width: 1100px; margin: 40px auto; display: flex; gap: 50px; padding: 20px; flex-wrap: wrap; }
+        .visual { flex: 1.2; background: #252525; border-radius: 15px; height: 450px; display: flex; align-items: center; justify-content: center; border: 2px solid #333; position: relative; }
+        .ip-rating { position: absolute; top: 20px; right: 20px; background: #00ce00; color: #000; padding: 5px 12px; font-weight: bold; border-radius: 4px; font-size: 12px; }
+        .info { flex: 1; min-width: 350px; }
+        .cena { font-size: 42px; font-weight: 900; color: #ff6600; margin: 20px 0; }
+        .btn-koupit { background: #fff; color: #000; border: none; padding: 18px; width: 100%; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-koupit:hover { background: #ff6600; color: #fff; }
+        .spec-list { margin-top: 35px; border-top: 1px solid #333; }
+        .spec-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #252525; font-size: 14px; }
+        .label { color: #888; }
+        .review-section { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        .review { background: #252525; padding: 25px; border-radius: 12px; margin-bottom: 20px; border-left: 5px solid #ff6600; }
+    </style>
+</head>
+<body>
+
+<header>
+    <strong>JBL OFFICIAL STORE</strong>
+    <nav>Reproduktory | Sluchátka | Akce</nav>
+</header>
+
+<div class="product-hero">
+    <div class="visual">
+        <span class="ip-rating">IP67 VODOTĚSNÝ</span>
+        <div style="text-align: center; color: #555;">[FOTO: JBL BOOMBOX 4 - MASIVNÍ RUKOJEŤ A PASIVNÍ ZÁŘIČE]</div>
+    </div>
+    <div class="info">
+        <h1 style="font-size: 2.5rem; margin: 0;">JBL Boombox 4</h1>
+        <p style="color: #aaa;">Nejsilnější zvuk, jaký můžete nést v jedné ruce. Model 2026 přináší technologii AI Sound Boost, která v reálném čase analyzuje zvuk a optimalizuje výchylku měničů pro čistší basy bez zkreslení i při maximální hlasitosti.</p>
+        
+        <div class="cena">12 990 Kč</div>
+        <button class="btn-koupit" id="buyBtn">PŘIDAT DO KOŠÍKU</button>
+
+        <div class="spec-list">
+            <div class="spec-row"><span class="label">Rozměry (Š x V x H)</span><strong>48,2 x 25,7 x 20,0 cm</strong></div>
+            <div class="spec-row"><span class="label">Hmotnost</span><strong>6,7 kg</strong></div>
+            <div class="spec-row"><span class="label">Kapacita baterie</span><strong>10 000 mAh (Lithium-polymer)</strong></div>
+            <div class="spec-row"><span class="label">Doba přehrávání</span><strong>Až 24 hodin (dle hlasitosti)</strong></div>
+            <div class="spec-row"><span class="label">Výkon (RMS)</span><strong>80W (AC mód) / 60W (Baterie)</strong></div>
+            <div class="spec-row"><span class="label">Verze Bluetooth</span><strong>Bluetooth 5.4 s Auracast™</strong></div>
+            <div class="spec-row"><span class="label">Funkce Powerbanky</span><strong>Ano (USB-C výstup 15W)</strong></div>
+        </div>
+    </div>
+</div>
+
+<div class="review-section">
+    <h2>Recenze od fanoušků (5)</h2>
+    <div class="review">
+        <strong>BassHead_Tom:</strong> "Tohle je legální zbraň. Basy otřásají okny v celém domě. AI Sound Boost je fakt znát, ani na 100 % hlasitosti to nezní jako plechovka. Perfektní na grilovačky u bazénu."
+    </div>
+    <div class="review">
+        <strong>Kemping_Lucka:</strong> "Přežil celý víkend v kempu na jedno nabití. Trochu se pronese, 6 a půl kila už v batohu ucítíte, ale ta rukojeť je skvělá. Mobil jsem si z něj nabila dvakrát."
+    </div>
+    <div class="review">
+        <strong>DJ_Marek:</strong> "Nové propojení Auracast je super, spojili jsme tři tyhle kousky dohromady a zvuk byl naprosto synchronní po celé zahradě. Kvalita výšek se oproti verzi 3 hodně zlepšila."
+    </div>
+    <div class="review">
+        <strong>Soused_z_pekla:</strong> "Zvuk je krystalicky čistý, ale ty basy jsou až moc agresivní. Musel jsem si v aplikaci nastavit ekvalizér na 'Night mode', aby na mě sousedi nevolali policii. Konstrukce je ale nezničitelná."
+    </div>
+    <div class="review">
+        <strong>Techno_Jirka:</strong> "Drahý špás, ale JBL prostě ví, jak udělat odolný reprák. Přežil pád do písku i postříkání pivem. Nabíjení přes USB-C je konečně rychlé, za 3 hodiny je plný."
+    </div>
+</div>
+
+<script>
+    document.getElementById('buyBtn').onclick = () => alert('Boombox 4 byl přidán! Párty může začít.');
+</script>
+
+</body>
+</html>

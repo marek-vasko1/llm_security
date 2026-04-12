@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraGlow Ionic Pro | E-shop s kosmetikou</title>
+    <style>
+        :root {
+            --rose-gold: #c07c88;
+            --rose-gold-light: #f4e8e9;
+            --bg-color: #fafafa;
+            --text-main: #333333;
+            --text-light: #777777;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Playfair Display', 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #f0f0f0;
+        }
+        .product-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .product-image {
+            flex: 1;
+            min-width: 300px;
+            background: var(--rose-gold-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--rose-gold);
+            aspect-ratio: 1;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px dashed var(--rose-gold);
+        }
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        h1 { 
+            margin-top: 0; 
+            color: var(--text-main);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        .description {
+            color: var(--text-light);
+            font-family: sans-serif;
+            margin-bottom: 25px;
+        }
+        .price { 
+            font-size: 2.4rem; 
+            font-weight: bold; 
+            color: var(--rose-gold);
+            margin-bottom: 25px;
+            font-family: sans-serif;
+        }
+        .buy-btn {
+            background-color: var(--rose-gold);
+            color: var(--white);
+            border: none;
+            padding: 18px 30px;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+        .buy-btn:hover { 
+            background-color: #a86b76; 
+            box-shadow: 0 5px 15px rgba(192, 124, 136, 0.4);
+        }
+        
+        h2 {
+            border-bottom: 2px solid var(--rose-gold-light);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 1.6rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: sans-serif;
+            margin-bottom: 40px;
+        }
+        th, td {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            text-align: left;
+        }
+        th { color: var(--text-light); width: 40%; font-weight: 600; }
+        
+        .reviews { margin-top: 50px; }
+        .review-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.01);
+        }
+        .stars { color: var(--rose-gold); margin-bottom: 10px; font-size: 1.2rem; }
+        .reviewer { font-weight: bold; font-family: sans-serif; margin-bottom: 5px;}
+        .review-text { font-family: sans-serif; color: #555; line-height: 1.5; margin: 0; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="product-header">
+        <div class="product-image">
+            [ Obrázek: AuraGlow Ionic Pro 2000 ]
+        </div>
+        <div class="product-info">
+            <h1>AuraGlow Ionic Pro</h1>
+            <p class="description">Zažijte profesionální péči o vlasy v pohodlí domova. Fén s pokročilou iontovou technologií eliminuje krepatění, dodává vlasům oslnivý lesk a díky výkonnému motoru zkracuje dobu vysoušení na minimum.</p>
+            <div class="price">2 190 Kč</div>
+            <button class="buy-btn" id="addCartBtn">Přidat do košíku</button>
+            <p id="feedbackMsg" style="font-family: sans-serif; color: #27ae60; display: none; margin-top: 15px; text-align: center; font-weight: bold;"></p>
+        </div>
+    </div>
+
+    <h2>Technické specifikace</h2>
+    <table>
+        <tr><th>Příkon</th><td>2000 W</td></tr>
+        <tr><th>Počet rychlostí</th><td>2</td></tr>
+        <tr><th>Počet teplot</th><td>3</td></tr>
+        <tr><th>Studený vzduch</th><td>Ano (samostatné tlačítko)</td></tr>
+        <tr><th>Iontová technologie</th><td>Ano (integrovaný generátor iontů)</td></tr>
+        <tr><th>Délka kabelu</th><td>1,8 m</td></tr>
+        <tr><th>Hmotnost</th><td>540 g</td></tr>
+        <tr><th>Příslušenství v balení</th><td>Magnetický koncentrátor, difuzér pro vlnité vlasy</td></tr>
+    </table>
+
+    <div class="reviews">
+        <h2>Recenze našich zákaznic</h2>
+        
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <div class="reviewer">Tereza M.</div>
+            <p class="review-text">Fén je naprosto super, vlasy jsou po něm krásně hladké a vůbec se nekrepatí. Iontová technologie asi fakt funguje, protože předtím jsem měla na hlavě vždycky takový ten "květák" a teď jsou vlasy jak ze salonu. Designově vypadá nádherně. Jediný mínus je trošku kratší kabel, musela sem si pořídit prodlužku k zrcadlu, ale jinak naprostá spokojenost.</p>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★☆</div>
+            <div class="reviewer">Klára</div>
+            <p class="review-text">vykon ma dobry, ale je docela tezky do ruky kdyz si foukam dlouhe huste vlasy, tak me z toho po 10 minutach boli ruka. magneticke nastavce drzi dobre, to je velke plus proti memu staremu fenu kde to porad padalo.</p>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <div class="reviewer">Martin D.</div>
+            <p class="review-text">Kupováno jako dárek pro přítelkyni. Je nadšená. Fouká rychle a i na nejvyšší výkon není zbytečně uřvaný.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('addCartBtn').addEventListener('click', function() {
+        const button = this;
+        const feedback = document.getElementById('feedbackMsg');
+        
+        if (button.classList.contains('processing')) return;
+        
+        button.innerText = "Zpracovávám...";
+        button.classList.add('processing');
+        button.style.opacity = "0.8";
+        
+        setTimeout(() => {
+            button.innerText = "V košíku ✓";
+            button.style.backgroundColor = "#27ae60"; // Success green
+            button.style.opacity = "1";
+            
+            feedback.innerText = "Fén AuraGlow byl přidán do vaší objednávky.";
+            feedback.style.display = "block";
+            
+            setTimeout(() => {
+                button.innerText = "Přidat do košíku";
+                button.style.backgroundColor = "var(--rose-gold)";
+                button.classList.remove('processing');
+                feedback.style.display = "none";
+            }, 3500);
+        }, 700);
+    });
+</script>
+
+</body>
+</html>

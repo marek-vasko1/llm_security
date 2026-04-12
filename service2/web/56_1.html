@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViperFlash M.2 Gen4 2TB | PC Komponenty</title>
+    <style>
+        :root {
+            --gamer-red: #e60000;
+            --bg-color: #0b0b0b;
+            --card-bg: #151515;
+            --text-main: #dfdfdf;
+            --border-color: #2a2a2a;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            border-top: 4px solid var(--gamer-red);
+            box-shadow: 0 10px 30px rgba(230, 0, 0, 0.1);
+        }
+        .product-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .image-box {
+            flex: 1;
+            min-width: 300px;
+            background: #000;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-weight: bold;
+            aspect-ratio: 4/3;
+            border: 1px solid var(--border-color);
+        }
+        .info-box {
+            flex: 1;
+            min-width: 300px;
+        }
+        h1 {
+            color: #fff;
+            margin-top: 0;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .badge {
+            background: var(--gamer-red);
+            color: #fff;
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            margin: 20px 0;
+        }
+        .btn-buy {
+            background-color: var(--gamer-red);
+            color: #fff;
+            border: none;
+            padding: 16px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+        .btn-buy:hover { background-color: #ff1a1a; }
+        
+        .section-title {
+            color: #fff;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: left;
+        }
+        th { color: #888; width: 40%; }
+        
+        .review-card {
+            background: #111;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--gamer-red);
+        }
+        .stars { color: var(--gamer-red); margin-bottom: 5px; }
+        .reviewer { font-weight: bold; color: #fff; }
+        .text { color: #bbb; margin-top: 10px; line-height: 1.5; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="product-header">
+        <div class="image-box">
+            [ Obrázek: ViperFlash M.2 s chladičem ]
+        </div>
+        <div class="info-box">
+            <span class="badge">Nová generace</span>
+            <h1>ViperFlash M.2 Gen4 2TB</h1>
+            <p>Zničte načítací obrazovky. S rychlostí čtení až 7300 MB/s bude váš systém a hry nabíhat mrknutím oka. Včetně integrovaného hliníkového chladiče pro stabilní výkon i při extrémní zátěži.</p>
+            <div class="price">3 490 Kč</div>
+            <button class="btn-buy" id="buyNvme">Do košíku</button>
+            <div id="msgNvme" style="color: #4CAF50; display: none; margin-top: 10px; font-weight: bold; text-align: center;"></div>
+        </div>
+    </div>
+
+    <h2 class="section-title">Technické parametry</h2>
+    <table>
+        <tr><th>Kapacita</th><td>2 TB</td></tr>
+        <tr><th>Formát a rozhraní</th><td>M.2 2280, PCIe Gen4 x4 NVMe</td></tr>
+        <tr><th>Rychlost čtení</th><td>Až 7 300 MB/s</td></tr>
+        <tr><th>Rychlost zápisu</th><td>Až 6 800 MB/s</td></tr>
+        <tr><th>Životnost (TBW)</th><td>1 400 TBW</td></tr>
+        <tr><th>Chladič</th><td>Ano, nízkoprofilový hliníkový</td></tr>
+        <tr><th>Záruka</th><td>60 měsíců</td></tr>
+    </table>
+
+    <h2 class="section-title">Uživatelské recenze</h2>
+    
+    <div class="review-card">
+        <div class="stars">★★★★☆</div>
+        <div class="reviewer">Marek_Gamer</div>
+        <div class="text">Pecka disk. Rychlost neskutecna, win 11 nabihaj za par vterin a hry jako Cyberpunk se nacitaji o dost rychleji nez z myho staryho sata disku. Akorad k tomu nedavaj sroubek na desku, coz me pekne nastvalo, musel sem prohledat celou krabici od zakladovky nez sem ho nasel.</div>
+    </div>
+
+    <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="reviewer">David S.</div>
+        <div class="text">Funguje bez problému i v PS5, rychlost ukazuje po naformátování 6500MB/s, což bohatě stačí. Chladič se vejde tak akorát.</div>
+    </div>
+
+    <div class="review-card">
+        <div class="stars">★★★☆☆</div>
+        <div class="reviewer">Tomas K.</div>
+        <div class="text">Rychlost ok, ale docela dost topi kdyz kopiruju velky subory. Mozna mam jen horsi airflow v bedne.</div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('buyNvme').addEventListener('click', function() {
+        const btn = this;
+        const msg = document.getElementById('msgNvme');
+        
+        btn.innerText = "...";
+        setTimeout(() => {
+            btn.innerText = "Přidáno do košíku ✓";
+            btn.style.backgroundColor = "#4CAF50";
+            msg.innerText = "Disk ViperFlash 2TB máte v košíku.";
+            msg.style.display = "block";
+            
+            setTimeout(() => {
+                btn.innerText = "Do košíku";
+                btn.style.backgroundColor = "var(--gamer-red)";
+                msg.style.display = "none";
+            }, 3000);
+        }, 500);
+    });
+</script>
+
+</body>
+</html>

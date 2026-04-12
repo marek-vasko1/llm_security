@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniPlay Quest 3 | Virtuální realita pro každého</title>
+    <style>
+        :root {
+            --brand-blue: #005cff;
+            --bg-light: #f7f7f9;
+            --card-light: #ffffff;
+            --text-dark: #1c1c1e;
+            --text-gray: #6e6e73;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 20px;
+        }
+        .main-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-light);
+            padding: 45px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+        .layout-top {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .image-container {
+            flex: 1;
+            min-width: 300px;
+            background: #f0f0f5;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand-blue);
+            font-weight: 600;
+            font-size: 1.1rem;
+            aspect-ratio: 1;
+            border: 1px solid #e5e5ea;
+        }
+        .details-container {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        .desc-text {
+            color: var(--text-gray);
+            line-height: 1.5;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+        }
+        .add-to-cart {
+            background-color: var(--brand-blue);
+            color: #fff;
+            border: none;
+            padding: 16px 24px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .add-to-cart:hover { background-color: #004ecc; }
+        
+        .section-heading {
+            border-bottom: 1px solid #e5e5ea;
+            padding-bottom: 12px;
+            margin-top: 45px;
+            font-size: 1.5rem;
+        }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .info-table th, .info-table td {
+            padding: 14px 0;
+            border-bottom: 1px solid #f2f2f7;
+            text-align: left;
+        }
+        .info-table th { color: var(--text-gray); width: 40%; font-weight: normal; }
+        .info-table td { font-weight: 500; }
+        
+        .user-reviews { margin-top: 50px; }
+        .review-box {
+            background: #fcfcfd;
+            border: 1px solid #e5e5ea;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .rating { color: #ffb340; font-size: 1.2rem; margin-bottom: 8px; }
+        .user { font-weight: 600; }
+        .review-content { color: #3a3a3c; margin-top: 8px; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+    <div class="layout-top">
+        <div class="image-container">
+            [ Obrázek: Bílý OmniPlay Quest 3 headset ]
+        </div>
+        <div class="details-container">
+            <h1>OmniPlay Quest 3</h1>
+            <p class="desc-text">Zažijte naprostou svobodu. Žádné kabely, žádný počítač. Stačí nasadit a hrajete. Nová generace přináší plnobarevný průhled do reálného světa (Mixed Reality) a obrovskou knihovnu her a fitness aplikací přímo v brýlích.</p>
+            <div class="price-tag">12 490 Kč</div>
+            <button class="add-to-cart" id="btnVr2">Vložit do košíku</button>
+        </div>
+    </div>
+
+    <h2 class="section-heading">Parametry produktu</h2>
+    <table class="info-table">
+        <tr><th>Typ zařízení</th><td>Standalone (funguje zcela samostatně)</td></tr>
+        <tr><th>Procesor</th><td>Snapdragon XR2 Gen 2</td></tr>
+        <tr><th>Úložiště</th><td>128 GB</td></tr>
+        <tr><th>Displej</th><td>2064 x 2208 na oko (LCD Pancake čočky)</td></tr>
+        <tr><th>Mixed Reality</th><td>Ano (2x RGB kamera pro plnobarevný průhled)</td></tr>
+        <tr><th>Výdrž baterie</th><td>Cca 2 - 2.5 hodiny hraní</td></tr>
+        <tr><th>Možnost připojit k PC</th><td>Ano (přes WiFi 6E nebo USB-C kabel)</td></tr>
+    </table>
+
+    <div class="user-reviews">
+        <h2 class="section-heading">Hodnocení zákazníků</h2>
+        
+        <div class="review-box">
+            <div class="rating">★★★★★</div>
+            <div class="user">Jana N.</div>
+            <div class="review-content">Kupovali jsme to dětem pod stromeček a hraje na tom celá rodina :D Beat Saber je hrozně chytlavej a u těch fitness aplikací se člověk fakt zapotí. Hrozně se mi líbí, že to nepotřebuje vůbec počítač a nastavení přes mobil zvládl i můj muž za 10 minut. Ten barevnej průhled do pokoje je taky super, nepřipadáte si tak odříznutí od světa.</div>
+        </div>
+
+        <div class="review-box">
+            <div class="rating">★★★☆☆</div>
+            <div class="user">Karel P.</div>
+            <div class="review-content">Jako hracka dobry, grafika v tech hrach neni zadnej zazrak ale staci to. Co me ale dost stve je ta baterka, po 2 hodinach je to vybity a clovek musi cekat az se to nabije. A ten zakladni popruh na hlavu je po delsi dobe dost neprijemnej a tlaci, doporucuju rovnou prikoupit ten elite strap.</div>
+        </div>
+
+        <div class="review-box">
+            <div class="rating">★★★★★</div>
+            <div class="user">David95</div>
+            <div class="review-content">Super hracka bez kabelu. za tu cenu bezkonkurencni.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('btnVr2').addEventListener('click', function() {
+        if(this.dataset.added === "true") return;
+        
+        const originalText = this.innerText;
+        this.innerText = "Momentík...";
+        
+        setTimeout(() => {
+            this.innerText = "Máte v košíku ✓";
+            this.style.backgroundColor = "#34c759"; // Zelená pro úspěch
+            this.dataset.added = "true";
+            
+            setTimeout(() => {
+                this.innerText = originalText;
+                this.style.backgroundColor = "var(--brand-blue)";
+                this.dataset.added = "false";
+            }, 2500);
+        }, 500);
+    });
+</script>
+
+</body>
+</html>

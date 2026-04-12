@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LumiSmart Pro RGBIC 5m | Smart Home</title>
+    <style>
+        :root {
+            --accent-color: #e94560;
+            --bg-dark: #1a1a2e;
+            --card-dark: #16213e;
+            --text-light: #e0e0e0;
+            --text-muted: #888;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: var(--card-dark);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border: 1px solid #2a2a4a;
+        }
+        .product-top {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .image-box {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(135deg, #0f3460, #1a1a2e);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #4a4a6a;
+            aspect-ratio: 1;
+            border: 2px solid #2a2a4a;
+            position: relative;
+            overflow: hidden;
+        }
+        .image-box::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; right: -50%; bottom: -50%;
+            background: linear-gradient(to right, rgba(233, 69, 96, 0.1), rgba(15, 52, 96, 0.1));
+            transform: rotate(45deg);
+            z-index: 0;
+        }
+        .info-box {
+            flex: 1;
+            min-width: 300px;
+            z-index: 1;
+        }
+        h1 { margin-top: 0; color: #fff; font-size: 2.2rem; }
+        .tag {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .price { font-size: 2.5rem; font-weight: bold; color: #fff; margin: 20px 0; }
+        .btn-buy {
+            background: linear-gradient(90deg, #e94560, #d63d56);
+            color: #fff;
+            border: none;
+            padding: 16px 30px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+        }
+        .btn-buy:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6); }
+        
+        .section-header {
+            font-size: 1.5rem;
+            color: #fff;
+            border-bottom: 2px solid #2a2a4a;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 15px 10px; border-bottom: 1px solid #2a2a4a; text-align: left; }
+        th { color: var(--text-muted); width: 40%; font-weight: normal; }
+        td { font-weight: 500; }
+        
+        .review-card {
+            background: #1a1a2e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-color);
+        }
+        .stars { color: #f39c12; margin-bottom: 8px; font-size: 1.2rem; }
+        .reviewer { font-weight: bold; color: #fff; }
+        .review-text { margin-top: 5px; color: #bbb; line-height: 1.5; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="product-top">
+        <div class="image-box">
+            <span>[ Obrázek: LumiSmart RGBIC svítící více barvami ]</span>
+        </div>
+        <div class="info-box">
+            <span class="tag">WiFi ovládané</span>
+            <h1>LumiSmart Pro RGBIC 5m</h1>
+            <p>Posuňte osvětlení na novou úroveň. Díky RGBIC technologii dokáže tento chytrý pásek svítit několika barvami současně a vytvářet plynulé efekty. Ovládejte ho kompletně přes mobilní aplikaci odkudkoliv, nebo použijte hlasové povely.</p>
+            <div class="price">1 190 Kč</div>
+            <button class="btn-buy" id="btnSmart">Přidat do košíku</button>
+            <p id="msgSmart" style="color: #4CAF50; display: none; margin-top: 15px; text-align: center; font-weight: bold;"></p>
+        </div>
+    </div>
+
+    <h2 class="section-header">Technické specifikace</h2>
+    <table>
+        <tr><th>Délka pásku</th><td>5 metrů</td></tr>
+        <tr><th>Konektivita</th><td>WiFi 2.4GHz a Bluetooth</td></tr>
+        <tr><th>Technologie diod</th><td>RGBIC (adresovatelné LED - svítí více barvami najednou)</td></tr>
+        <tr><th>Ovládání mobilem</th><td>Aplikace Tuya Smart / Smart Life (v češtině)</td></tr>
+        <tr><th>Hlasoví asistenti</th><td>Google Assistant, Amazon Alexa, Apple Siri</td></tr>
+        <tr><th>Napájení</th><td>Adaptér 12V (je součástí balení)</td></tr>
+        <tr><th>Voděodolnost</th><td>IP65 (pásek je zalitý v silikonu)</td></tr>
+    </table>
+
+    <h2 class="section-header">Uživatelské recenze</h2>
+    
+    <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="reviewer">Tomáš V.</div>
+        <div class="review-text">Pásek svítí uplně mega! RGBIC je fakt pecka, dřív jsem měl obyčejný RGB a tohle je úplně jinde. Aplikace jede bez seku, spárování s Google Home zabralo asi minutu a teď to zapínám jenom hlasem "hey google turn on desk light". Za mě top produkt.</div>
+    </div>
+
+    <div class="review-card">
+        <div class="stars">★★★★☆</div>
+        <div class="reviewer">Petr S.</div>
+        <div class="review-text">Montáž lehká, oboustranná paska od 3M docela lepí dobře. Jen si dejte bacha na ohyby v rozích, tam se to kvuli tomu silikonu trochu víc kroutí a musí se to pořádně přimáčknout. Barvy krásný, svítivost obrovská, na max to ani nepoužívám.</div>
+    </div>
+
+    <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="reviewer">Honza</div>
+        <div class="review-text">svítí pěkně, spokojenost. funguje to i s hudbou.</div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('btnSmart').addEventListener('click', function() {
+        const btn = this;
+        const msg = document.getElementById('msgSmart');
+        
+        btn.innerText = "Komunikuji se serverem...";
+        btn.style.opacity = "0.7";
+        
+        setTimeout(() => {
+            btn.innerText = "Úspěšně přidáno do košíku ✓";
+            btn.style.background = "#27ae60";
+            btn.style.boxShadow = "none";
+            btn.style.opacity = "1";
+            
+            msg.innerText = "LumiSmart Pro RGBIC byl přidán do vaší objednávky.";
+            msg.style.display = "block";
+            
+            setTimeout(() => {
+                btn.innerText = "Přidat do košíku";
+                btn.style.background = "linear-gradient(90deg, #e94560, #d63d56)";
+                btn.style.boxShadow = "0 4px 15px rgba(233, 69, 96, 0.4)";
+                msg.style.display = "none";
+            }, 3000);
+        }, 800);
+    });
+</script>
+
+</body>
+</html>

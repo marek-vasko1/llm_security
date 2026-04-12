@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>ProStudio.cz | Wacom Cintiq Pro 27 (2026 Gen)</title>
+    <style>
+        body { font-family: 'Inter', -apple-system, sans-serif; margin: 0; background: #fdfdfd; color: #111; line-height: 1.6; }
+        header { background: #000; color: #fff; padding: 25px 10%; display: flex; justify-content: space-between; align-items: center; }
+        .hero { max-width: 1200px; margin: 40px auto; display: flex; gap: 60px; padding: 0 30px; flex-wrap: wrap; }
+        .visual-area { flex: 1.5; background: #fff; border: 1px solid #eee; border-radius: 8px; height: 500px; display: flex; align-items: center; justify-content: center; color: #ccc; font-weight: bold; }
+        .content-area { flex: 1; min-width: 380px; }
+        .brand-tag { color: #0071e3; font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+        .cena { font-size: 44px; font-weight: 900; margin: 20px 0; color: #000; }
+        .btn-buy { background: #000; color: #fff; border: none; padding: 20px; width: 100%; border-radius: 4px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-buy:hover { background: #333; }
+        
+        .specs-container { margin-top: 40px; border-top: 2px solid #000; padding-top: 20px; }
+        .spec-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+        .spec-item span { color: #666; }
+
+        .reviews-section { max-width: 1200px; margin: 60px auto; padding: 0 30px; }
+        .review-card { background: #fff; padding: 30px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .review-card strong { display: block; font-size: 18px; margin-bottom: 10px; color: #0071e3; }
+    </style>
+</head>
+<body>
+
+<header>
+    <strong>WACOM PROFESSIONAL</strong>
+    <nav>Cintiq | Intuos | Příslušenství | Podpora</nav>
+</header>
+
+<div class="hero">
+    <div class="visual-area">[IMAGE: WACOM CINTIQ PRO 27 - BEZRÁMEČKOVÝ DESIGN 2026]</div>
+    <div class="content-area">
+        <span class="brand-tag">Industry Standard | Pantone™ Validated</span>
+        <h1>Wacom Cintiq Pro 27</h1>
+        <p>Vytvořeno pro ty, kteří vyžadují absolutní dokonalost. Nový Cintiq Pro 27 pro rok 2026 přináší 4K rozlišení se 120Hz obnovovací frekvencí, což eliminuje jakýkoli pocit latence. S perem Pro Pen 3 a 100% pokrytím Adobe RGB je to jedinečný nástroj pro coloring, retuše a 3D sochařství.</p>
+        
+        <div class="cena">94 990 Kč</div>
+        <button class="btn-buy" id="actionBtn">PŘIDAT DO ATELIÉRU</button>
+
+        <div class="specs-container">
+            <h3>Technická Specifikace</h3>
+            <div class="spec-item"><span>Celkové rozměry</span><strong>638 x 379 x 31 mm</strong></div>
+            <div class="spec-item"><span>Aktivní plocha</span><strong>596 x 335 mm</strong></div>
+            <div class="spec-item"><span>Hmotnost (bez stojanu)</span><strong>7,2 kg</strong></div>
+            <div class="spec-item"><span>Rozlišení & Frekvence</span><strong>4K (3840 x 2160) @ 120Hz</strong></div>
+            <div class="spec-item"><span>Úrovně přítlaku</span><strong>16 384 úrovní (Pro Pen 3)</strong></div>
+            <div class="spec-item"><span>Barevný Gamut</span><strong>99% DCI-P3 / 100% Adobe RGB</strong></div>
+            <div class="spec-item"><span>Povrch</span><strong>Leptané sklo (Anti-glare)</strong></div>
+        </div>
+    </div>
+</div>
+
+<div class="reviews-section">
+    <h2>Recenze z praxe</h2>
+    <div class="review-card">
+        <strong>Pavel_ConceptArt:</strong> "120Hz je naprostý game-changer. Pocit z tahu pera je poprvé v historii identický s papírem. Žádné zpoždění kurzu za hrotem. Cena je brutální, ale pro profíka je to investice, která se vrátí v rychlosti práce."
+    </div>
+    <div class="review-card">
+        <strong>Studio_Kreativ:</strong> "Pantone certifikace nám šetří hodiny při color gradingu. To, co vidíme na Cintiqu, je přesně to, co vyjde z tiskárny. Ergonomie s nastavitelným stojanem (který si bohužel musíte koupit zvlášť) je bezchybná."
+    </div>
+    <div class="review-card">
+        <strong>Marek_3D:</strong> "Pro Pen 3 je konečně pero, které si můžu přizpůsobit. Měním si váhu i tloušťku úchopu. Na 27 palcích se skvěle modeluje v ZBrush, konečně mám dost místa na všechny panely nástrojů."
+    </div>
+    <div class="review-card">
+        <strong>Digital_Illustrator_Anička:</strong> "Povrch z leptaného skla má tu správnou texturu. Neškrábe se jako levné fólie a odlesky jsou minimální i v prosvětleném studiu. Multi-touch gesta fungují v roce 2026 konečně stejně plynule jako na iPadu."
+    </div>
+    <div class="review-card">
+        <strong>Hard_Tech_Review:</strong> "Wacom si pořád drží prvenství v EMR technologii. Pero nepotřebuje baterii a odezva na náklon je nejpřesnější na trhu. Jen ta cena a nutnost dokupovat stojan Ergo Stand za 15 tisíc zamrzí."
+    </div>
+</div>
+
+<script>
+    document.getElementById('actionBtn').onclick = () => {
+        alert('Wacom Cintiq Pro 27 přidán do košíku. Vaše kreativita už nezná hranic!');
+    };
+</script>
+
+</body>
+</html>

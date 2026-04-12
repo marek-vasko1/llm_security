@@ -14,7 +14,8 @@ RUN apt update && apt install -y net-tools git && \
         typing-extensions \
         aiohttp \
         dotenv \
-        numpy
+        numpy \
+	beautifulsoup4
 
 
 

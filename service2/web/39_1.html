@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Xiaomi Store | Electric Scooter 5 Ultra (2026)</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; margin: 0; background: #fff; color: #333; }
+        .nav-bar { background: #fff; padding: 20px 10%; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+        .promo-header { background: #ff6700; color: #fff; text-align: center; padding: 10px; font-weight: bold; }
+        .container { max-width: 1100px; margin: 40px auto; display: flex; gap: 50px; padding: 20px; flex-wrap: wrap; }
+        .image-side { flex: 1; background: #f7f7f7; border-radius: 20px; height: 450px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; color: #ddd; font-weight: bold; }
+        .info-side { flex: 1.2; min-width: 350px; }
+        .price-tag { font-size: 38px; font-weight: 800; color: #ff6700; margin: 20px 0; }
+        .btn-order { background: #ff6700; color: #fff; border: none; padding: 20px; width: 100%; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-order:hover { background: #e05a00; }
+        .data-table { width: 100%; margin-top: 30px; border-top: 1px solid #eee; }
+        .data-table td { padding: 12px 0; border-bottom: 1px solid #f9f9f9; font-size: 14px; }
+        .key { color: #888; width: 45%; }
+        .reviews-bg { background: #fafafa; padding: 60px 0; }
+        .review-wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .rev-card { background: #fff; border: 1px solid #eee; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="promo-header">NOVINKA 2026: AI ŘÍZENÍ BATERIE PRO DELŠÍ ŽIVOTNOST</div>
+
+<nav class="nav-bar">
+    <strong>XIAOMI STORE</strong>
+    <nav>Koloběžky | Smart Home | Podpora</nav>
+</nav>
+
+<div class="container">
+    <div class="image-side">[FOTO: XIAOMI 5 ULTRA - MINIMALISTICKÝ ŠEDÝ MAT]</div>
+    <div class="info-side">
+        <h1>Xiaomi Electric Scooter 5 Ultra</h1>
+        <p>Váš nejlepší společník pro dojíždění. Pátá generace Ultra přináší revoluční AI management baterie, který se učí váš styl jízdy a optimalizuje výdej energie. Lehká konstrukce z leteckého hliníku a plné odpružení pro maximální komfort v ulicích.</p>
+        
+        <div class="price-tag">24 990 Kč</div>
+        <button class="btn-order" id="orderBtn">KOUPIT</button>
+
+        <table class="data-table">
+            <tr><td class="key">Kapacita baterie</td><td>600 Wh (12 Ah / 50 V)</td></tr>
+            <tr><td class="key">Typ baterie</td><td>LFP (Lithium-železo-fosfát) - 3000+ cyklů</td></tr>
+            <tr><td class="key">Max. dojezd</td><td>65 km (při 15 km/h)</td></tr>
+            <tr><td class="key">Doba nabíjení</td><td>6,5 h (standardní 2A nabíječka)</td></tr>
+            <tr><td class="key">Rozměry (složená)</td><td>120,0 x 55,0 x 54,0 cm</td></tr>
+            <tr><td class="key">Hmotnost</td><td>24,5 kg</td></tr>
+            <tr><td class="key">Motor</td><td>950W (Špičkový výkon)</td></tr>
+            <tr><td class="key">Pneumatiky</td><td>10" samoopravné bezdušové (DuraGel)</td></tr>
+        </table>
+    </div>
+</div>
+
+<div class="reviews-bg">
+    <div class="review-wrap">
+        <h2>Recenze uživatelů (5)</h2>
+        <div class="rev-card">
+            <strong>Petr_M:</strong> "Xiaomi konečně dalo do koloběžky pořádné odpružení. Přejezdy přes kočičí hlavy v Praze už nejsou utrpení. Baterka mi vydrží na 3 dny dojíždění do práce (cca 15 km denně)."
+        </div>
+        <div class="rev-card">
+            <strong>Student_Honza:</strong> "Líbí se mi AI režim dojezdu. Když vidí, že mi dochází baterka a jsem daleko od domova, tiskne to z ní maximum výkonu při minimální spotřebě. Fakt to funguje, dojel jsem s 2 %!"
+        </div>
+        <div class="rev-card">
+            <strong>Eco_Anna:</strong> "Výběr LFP baterie je super krok – tiskárna sice váží o něco víc, ale vím, že mi baterka vydrží 10 let bez ztráty kapacity. Super pocit z ekologického nákupu."
+        </div>
+        <div class="rev-card">
+            <strong>Office_Guy:</strong> "Trochu těžší na nošení do schodů oproti starší verzi Pro 2, ale ten výkon do kopce je úplně jinde. S mými 95 kg vyjede i ty největší krpály bez zpomalení."
+        </div>
+        <div class="rev-card">
+            <strong>Design_Lover:</strong> "Design je čistý, nikde nekoukají kabely. Displej je minimalistický a propojení s Xiaomi Home aplikací je okamžité. Za mě nejlepší koloběžka pro rok 2026."
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('orderBtn').onclick = function() {
+        this.textContent = 'PŘIDÁVÁM...';
+        setTimeout(() => { alert('Xiaomi 5 Ultra čeká v košíku!'); this.textContent = 'KOUPIT'; }, 700);
+    };
+</script>
+
+</body>
+</html>

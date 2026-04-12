@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CruzerTech SSD 2.5" 500GB | Upgrade PC</title>
+    <style>
+        :root {
+            --brand-blue: #0066cc;
+            --bg-light: #f4f7f6;
+            --text-dark: #333;
+            --text-muted: #666;
+            --white: #fff;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 20px;
+        }
+        .wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .header-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .img-placeholder {
+            flex: 1;
+            min-width: 250px;
+            background: #eef2f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand-blue);
+            font-weight: bold;
+            aspect-ratio: 1;
+            border: 2px dashed #cdd7e0;
+        }
+        .details-box {
+            flex: 1;
+            min-width: 280px;
+        }
+        h1 { margin-top: 0; color: #111; font-size: 2rem; }
+        .price-tag {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--brand-blue);
+            margin: 15px 0;
+        }
+        .btn-add {
+            background-color: #ff9900;
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .btn-add:hover { background-color: #e68a00; }
+        
+        h2 { border-bottom: 2px solid #eef2f5; padding-bottom: 10px; margin-top: 40px; }
+        table { width: 100%; border-collapse: collapse; }
+        td, th { padding: 12px; border-bottom: 1px solid #eee; text-align: left; }
+        th { color: var(--text-muted); width: 40%; font-weight: normal; }
+        td { font-weight: bold; }
+        
+        .comment-section { margin-top: 40px; }
+        .comment {
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .stars { color: #f39c12; margin-bottom: 5px; font-size: 1.1rem; }
+        .user { font-weight: bold; }
+        .date { font-size: 0.8rem; color: #999; margin-left: 10px; }
+        .body-text { color: #555; margin-top: 8px; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="header-box">
+        <div class="img-placeholder">
+            [ Obrázek: CruzerTech 2.5" SSD ]
+        </div>
+        <div class="details-box">
+            <h1>CruzerTech SSD 2.5" 500GB</h1>
+            <p>Vdechněte svému starému notebooku nebo počítači nový život. Až 10x rychlejší než klasický pevný disk. Snadná instalace díky standardnímu formátu 2.5 palce.</p>
+            <div class="price-tag">790 Kč</div>
+            <button class="btn-add" id="addSata">Vložit do nákupního košíku</button>
+        </div>
+    </div>
+
+    <h2>Specifikace</h2>
+    <table>
+        <tr><th>Kapacita</th><td>500 GB</td></tr>
+        <tr><th>Formát</th><td>2.5" (tloušťka 7mm)</td></tr>
+        <tr><th>Rozhraní</th><td>SATA III (6 Gb/s)</td></tr>
+        <tr><th>Max. rychlost čtení</th><td>540 MB/s</td></tr>
+        <tr><th>Max. rychlost zápisu</th><td>500 MB/s</td></tr>
+        <tr><th>Typ paměti</th><td>TLC 3D NAND</td></tr>
+    </table>
+
+    <div class="comment-section">
+        <h2>Recenze zákazníků</h2>
+        
+        <div class="comment">
+            <div class="stars">★★★★★</div>
+            <span class="user">Jana N.</span><span class="date">před měsícem</span>
+            <div class="body-text">Koupil sem to do staryho notebooku Lenovo kterej uz se nedal vubec pouzivat jak byl pomaly. Vymena docela sla, instalace v pohode. Notebok ted lita jak novej, zapne se za 15 vterin. Za tyhle penize naprosta pecka, doporucuji vsem co maji stary disk.</div>
+        </div>
+
+        <div class="comment">
+            <div class="stars">★★★★☆</div>
+            <span class="user">Pavel K.</span><span class="date">před 2 měsíci</span>
+            <div class="body-text">Disk funguje jak má, zrychlení je znát. Konstrukce je ale taková celá z levnýho plastu, působí to dost křehce, ale jelikož to bude jen ležet v bedně, tak je to asi jedno.</div>
+        </div>
+
+        <div class="comment">
+            <div class="stars">★★★★★</div>
+            <span class="user">Zákazník e-shopu</span><span class="date">před 3 měsíci</span>
+            <div class="body-text">vse v poradku diky.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('addSata').addEventListener('click', function() {
+        if(this.classList.contains('added')) return;
+        
+        let originalText = this.innerText;
+        this.innerText = "Momentík...";
+        
+        setTimeout(() => {
+            this.innerText = "Máte v košíku!";
+            this.style.backgroundColor = "#27ae60";
+            this.classList.add('added');
+            
+            setTimeout(() => {
+                this.innerText = originalText;
+                this.style.backgroundColor = "#ff9900";
+                this.classList.remove('added');
+            }, 2500);
+        }, 600);
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>HueStore.cz | Philips Hue Smart Plug (2026 Matter Edition)</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; margin: 0; background: #f8f9fa; color: #1a1a1a; }
+        .nav { background: #fff; padding: 20px 10%; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; }
+        .hero { max-width: 1000px; margin: 40px auto; display: flex; gap: 40px; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .img-placeholder { flex: 1; background: radial-gradient(circle, #f0f0f0, #e0e0e0); border-radius: 8px; height: 350px; display: flex; align-items: center; justify-content: center; color: #aaa; font-weight: bold; }
+        .info { flex: 1.2; }
+        .tag { background: #6f42c1; color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; }
+        .cena { font-size: 32px; font-weight: 700; margin: 15px 0; color: #000; }
+        .btn-add { background: #6f42c1; color: #fff; border: none; padding: 15px 30px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-add:hover { background: #5a32a3; }
+        .specs { margin-top: 30px; }
+        .spec-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+        .label { color: #666; }
+        .reviews { max-width: 1000px; margin: 40px auto; padding: 20px; }
+        .rev-card { background: #fff; padding: 20px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #6f42c1; }
+    </style>
+</head>
+<body>
+<div class="nav"><strong>HUESTORE.CZ</strong> <span>Produkty | Světla | Aplikace</span></div>
+<div class="hero">
+    <div class="img-placeholder">[FOTO: PHILIPS HUE PLUG - MINIMALISTICKÝ BÍLÝ]</div>
+    <div class="info">
+        <span class="tag">MATTER & ZIGBEE SUPPORT</span>
+        <h1>Philips Hue Smart Plug</h1>
+        <p>Proměňte jakékoli svítidlo v chytré. Model 2026 plně podporuje standard Matter, což zajišťuje okamžitou odezvu v Apple HomeKit, Google Home i Alexa. Díky kompaktnímu designu nezabírá sousední zásuvky.</p>
+        <div class="cena">899 Kč</div>
+        <button class="btn-add" id="hueBtn">PŘIDAT DO KOŠÍKU</button>
+        <div class="specs">
+            <div class="spec-item"><span class="label">Rozměry (Š x V x H)</span><strong>51 x 51 x 81 mm</strong></div>
+            <div class="spec-item"><span class="label">Max. zátěž</span><strong>2 300 W (10 A)</strong></div>
+            <div class="spec-item"><span class="label">Protokol</span><strong>Zigbee, Bluetooth, Matter</strong></div>
+            <div class="spec-item"><span class="label">Aplikace</span><strong>Philips Hue (iOS/Android)</strong></div>
+            <div class="spec-item"><span class="label">Vlastnosti</span><strong>Časovače, Scény, Bridge sync</strong></div>
+        </div>
+    </div>
+</div>
+<div class="reviews">
+    <h2>Recenze uživatelů (5)</h2>
+    <div class="rev-card"><strong>Lukas_H:</strong> "Nejspolehlivější zásuvka, co mám. Nikdy neodpadla z Wi-Fi (protože jede přes Bridge). Matter funguje skvěle, Siri ji najde hned."</div>
+    <div class="rev-card"><strong>Jana_M:</strong> "Design je super, v dvojzásuvce se vedle ní vejde i tlustý kabel od vysavače. Jen škoda, že neměří spotřebu, za tu cenu by to už mohla umět."</div>
+    <div class="rev-card"><strong>Tech_Filip:</strong> "Kupoval jsem ji do ekosystému Hue. Nastavení trvalo asi 10 sekund. Scény se spouštějí bleskově."</div>
+    <div class="rev-card"><strong>Olda_K:</strong> "Trochu dražší než konkurence, ale ten klid, že to prostě funguje a neproblikává, za to stojí."</div>
+    <div class="rev-card"><strong>Design_Lover:</strong> "Minimalistická, neruší. Používám ji na kávovar a vypadá to v kuchyni dobře."</div>
+</div>
+<script>
+    document.getElementById('hueBtn').onclick = () => alert('Philips Hue Plug přidán! Světla pod kontrolou.');
+</script>
+</body>
+</html>

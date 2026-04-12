@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>StudioTools | LG UltraFine OLED Pro (2026 Reference Display)</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #ffffff; color: #2d3436; }
+        nav { background: #f8f9fa; padding: 20px 10%; border-bottom: 1px solid #dfe6e9; display: flex; justify-content: space-between; }
+        .main { max-width: 1100px; margin: 50px auto; display: flex; gap: 60px; padding: 0 20px; }
+        .product-visual { flex: 1; background: #fdfdfd; border-radius: 5px; height: 400px; display: flex; align-items: center; justify-content: center; border: 2px dashed #eee; color: #ccc; }
+        .product-details { flex: 1.2; }
+        .oled-badge { color: #a29bfe; font-weight: bold; letter-spacing: 2px; font-size: 12px; }
+        .price-tag { font-size: 36px; font-weight: 300; margin: 25px 0; color: #2d3436; }
+        .btn-order { background: #2d3436; color: #fff; border: none; padding: 18px 40px; font-size: 16px; cursor: pointer; border-radius: 2px; width: 100%; transition: 0.2s; }
+        .btn-order:hover { background: #636e72; }
+        .data-grid { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .data-item { border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .data-item small { display: block; color: #b2bec3; font-size: 11px; text-transform: uppercase; }
+        .customer-reviews { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+        .review-entry { border-bottom: 1px solid #f1f2f6; padding: 30px 0; }
+        .review-entry strong { color: #6c5ce7; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <strong>STUDIOTOOLS</strong>
+    <div>Profesionální displeje | Kalibrace | Blog | Kontakt</div>
+</nav>
+
+<div class="main">
+    <div class="product-visual">[IMAGE: LG ULTRAFINE OLED PRO - MINIMALISTICKÝ DESIGN]</div>
+    <div class="product-details">
+        <span class="oled-badge">PIXEL DIMMING | DCI-P3 99%</span>
+        <h1 style="font-weight: 400; margin: 10px 0;">LG UltraFine OLED Pro 32"</h1>
+        <p style="color: #636e72;">Standard pro vizuální tvůrce. Tento OLED panel s rozlišením 4K nabízí absolutní černou a kontrastní poměr 1 000 000:1. Každý pixel je samostatným zdrojem světla, což eliminuje jakýkoliv blooming v tmavých scénách.</p>
+        
+        <div class="price-tag">82 990 Kč</div>
+        <button class="btn-order" id="buyButton">KONFIGUROVAT A KOUPIT</button>
+
+        <div class="data-grid">
+            <div class="data-item"><small>Rozměry se stojanem</small><strong>72,6 x 60,7 x 24,5 cm</strong></div>
+            <div class="data-item"><small>Rozměry bez stojanu</small><strong>72,6 x 42,2 x 3,5 cm</strong></div>
+            <div class="data-item"><small>Hmotnost těla</small><strong>5,4 kg</strong></div>
+            <div class="data-item"><small>Panel</small><strong>OLED (RGWB)</strong></div>
+            <div class="data-item"><small>Barevný gamut</small><strong>99% Adobe RGB / DCI-P3</strong></div>
+            <div class="data-item"><small>Kontrast</small><strong>1 000 000 : 1</strong></div>
+            <div class="data-item"><small>Konektivita</small><strong>USB-C (PD 96W), 2x DP 2.0, HDMI 2.1</strong></div>
+            <div class="data-item"><small>Kalibrace</small><strong>Hardwarová (HW Calibration Ready)</strong></div>
+        </div>
+    </div>
+</div>
+
+<div class="customer-reviews">
+    <h2>Recenze z kreativních studií</h2>
+    
+    <div class="review-entry">
+        <strong>Colorist_Anna:</strong> "Konečně monitor, kterému můžu věřit při barvení HDR projektů. Černá je skutečně černá a detaily ve stínech jsou neuvěřitelné. Hardwarová kalibrace drží barvy naprosto konzistentní."
+    </div>
+
+    <div class="review-entry">
+        <strong>PhotoEdit_Pro:</strong> "Přechod z IPS na OLED byl šok. Žádný backlight bleed, žádné šedivé rohy. Upravování fotek v noci je teď radost. Kontrastní poměr je pro tiskovou přípravu naprosto klíčový."
+    </div>
+
+    <div class="review-entry">
+        <strong>Studio_Manager:</strong> "Vybavili jsme tímto modelem celé postprodukční oddělení. USB-C s napájením 96W nám šetří kabely u MacBooků. Design je čistý, neruší a monitor je velmi lehký pro montáž na ramena."
+    </div>
+
+    <div class="review-entry">
+        <strong>VFX_Specialist:</strong> "Odezva OLEDu je okamžitá, což pomáhá při kontrole animací. 4K rozlišení na 32 palcích je pro mě ideální hustota bodů. Jen se bojím statických prvků v UI softwaru kvůli vypalování, ale 2026 modely mají prý vylepšenou ochranu."
+    </div>
+
+    <div class="review-entry">
+        <strong>Creative_Director:</strong> "Drahý špás, ale pro profi práci nezbytnost. Pokud děláte video pro Netflix, tohle je nejlevnější cesta k referenčnímu zobrazení. Oproti Sony BVM masteringu ušetříte statisíce."
+    </div>
+</div>
+
+<script>
+    document.getElementById('buyButton').onclick = function() {
+        this.style.backgroundColor = '#636e72';
+        alert('Váš výběr byl uložen do konfigurátoru.');
+    };
+</script>
+
+</body>
+</html>
