@@ -1,6 +1,7 @@
 from mcp.server.fastmcp import FastMCP
 import logging
 from urllib.parse import urlparse
+import html
 
 from pathlib import Path
 from bs4 import BeautifulSoup
@@ -32,22 +33,20 @@ async def web_fetch(url: str) -> str:
     path_string = FILE_REGISTRY.get(url)
 
     if not path_string:
-        return f"Error: URL '{url}' not found. The website does not exist or there is a problem with the URL."
+        return f"<error url='{html.escape(url)}'> URL not found. The website does not exist or there is a problem with the URL.</error>"
     
     try:
         full_path = WEB_FILES_DIR / path_string   
         logging.info(f"web_fetch called with URL: {url} file {full_path}")
-        #if not full_path.exists():
-        #    return f"Error: File {full_path} not found."
 
         html_content = full_path.read_text(encoding="utf-8")
         soup = BeautifulSoup(html_content, "html.parser")
         
         title, clean_text = extract_clean_text(soup)
 
-        return f'<source url="{url}" title="{title}">\n{clean_text}\n</source>'
+        return f'<source url="{html.escape(url)}" title="{html.escape(title)}">\n{clean_text}\n</source>'
     except Exception as e:
-        return f"Error when accessing URL {url}: {e}"
+        return f"<error>Error when accessing URL {html.escape(url)}: {e}</error>"
 
 @mcp.tool()
 async def register_new_file(web_url: str, path: str) -> str:

@@ -18,7 +18,7 @@ import logging
 from openai import AsyncOpenAI
 
 from llm_jailbreaking_defense import DefendedTargetLM, BacktranslationConfig, load_defense, TargetLM
-
+from openai.types.chat.chat_completion_message_tool_call import ChatCompletionMessageToolCall, Function
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)
@@ -47,40 +47,63 @@ app = FastAPI(title="MCP_Gateway_API")
 
 def fix_raw_tool_call(message):
     """
-    Checks if the LLM leaked a tool call as raw text tokens.
-    If so, it extracts the data, creates a valid 'tool_calls' object, 
-    and clears the messy text.
+    Fix RAW MCP leaked tool calls (multi-tool safe).
+    Returns OpenAI-compatible assistant message dict.
     """
-    
 
-    if message.tool_calls or not message.content or "<|call|>" not in message.content:
+    content = getattr(message, "content", None)
+
+    if not content:
         return message
 
-    logger.warning("Intercepted raw tool call format in text! Performing manual extraction.")
+    if "to=functions." not in content or "<|message|>" not in content:
+        return message
 
+    logger.warning("Intercepted RAW MCP multi-tool format. Repairing...")
 
-    pattern = r"to=functions\.(\w+).*?<\|message\|>(\{.*?\})<\|call\|>"
-    match = re.search(pattern, message.content, re.DOTALL)
+    tool_calls = []
 
-    if match:
-        extracted_name = match.group(1)
-        extracted_args = match.group(2)
+    # split into blocks
+    blocks = content.split("<|call|>")
 
-        # Dummy classes to recreate the structure expected by the OpenAI API format
-        class DummyFunction:
-            def __init__(self, name, arguments):
-                self.name = name
-                self.arguments = arguments
+    for block in blocks:
+        if "to=functions." not in block:
+            continue
 
-        class DummyToolCall:
-            def __init__(self, function):
-                self.id = f"call_{uuid.uuid4().hex[:10]}"
-                self.function = function
-    
+        # tool name
+        match = re.search(r"to=functions\.([a-zA-Z0-9_\-]+)", block)
+        if not match:
+            continue
 
-        message.tool_calls = [DummyToolCall(DummyFunction(extracted_name, extracted_args))]
-        message.content = ""
-    return message
+        tool_name = match.group(1)
+
+        # args
+        args_str = "{}"
+
+        try:
+            if "<|message|>" in block:
+                json_part = block.split("<|message|>")[1].strip()
+
+                if json_part:
+                    json.loads(json_part)  # validation only
+                    args_str = json_part
+
+        except Exception as e:
+            logger.debug(f"Invalid JSON in tool call for {tool_name}: {e}")
+            args_str = "{}"
+
+        tool_calls.append(
+            ChatCompletionMessageToolCall(
+                id=f"call_{uuid.uuid4().hex[:10]}",
+                type="function",
+                function=Function(name=tool_name, arguments=args_str)
+            )    
+        )
+        
+    if not tool_calls:
+        return message
+
+    return message.model_copy(update={"content":None, "tool_calls": tool_calls})
 
 class QueryRequest(BaseModel):
     """
