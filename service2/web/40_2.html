@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>ShellyShop.cz | Shelly Plus Plug S (Gen 3)</title>
+    <style>
+        body { font-family: 'Roboto', sans-serif; margin: 0; background: #121212; color: #e0e0e0; }
+        .navbar { background: #1e1e1e; padding: 15px 10%; display: flex; justify-content: space-between; border-bottom: 2px solid #00aaff; }
+        .main { max-width: 1000px; margin: 40px auto; display: flex; gap: 40px; padding: 20px; }
+        .product-img { flex: 1; background: #1e1e1e; border: 1px solid #333; height: 350px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #444; }
+        .details { flex: 1.2; }
+        .energy-tag { background: #00aaff; color: #000; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: bold; }
+        .price { font-size: 32px; font-weight: 800; color: #00aaff; margin: 15px 0; }
+        .buy-now { background: #fff; color: #000; border: none; padding: 15px; width: 100%; border-radius: 4px; font-weight: bold; cursor: pointer; }
+        .spec-list { margin-top: 30px; }
+        .spec-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #333; font-size: 14px; }
+        .label { color: #888; }
+        .reviews-bg { background: #1e1e1e; padding: 40px 0; margin-top: 40px; }
+        .review-box { max-width: 1000px; margin: 0 auto 15px; padding: 20px; border: 1px solid #333; border-radius: 8px; }
+    </style>
+</head>
+<body>
+<div class="navbar"><strong>SHELLYSHOP.CZ</strong> <span>Produkty | Cloud | Vývojáři</span></div>
+<div class="main">
+    <div class="product-img">[FOTO: SHELLY PLUG S - LED OKRUŽÍ]</div>
+    <div class="details">
+        <span class="energy-tag">MĚŘENÍ SPOTŘEBY + ESP32</span>
+        <h1>Shelly Plus Plug S (Gen 3)</h1>
+        <p>Nejchytřejší zásuvka pro fanoušky dat. Shelly Plus Plug S měří spotřebu s přesností na watty a vizuálně ji zobrazuje pomocí barevného LED prstence. Podporuje vlastní skripty a lokální ovládání bez cloudu.</p>
+        <div class="price">649 Kč</div>
+        <button class="buy-now" id="shellyBtn">KOUPIT DATA</button>
+        <div class="spec-list">
+            <div class="spec-row"><span class="label">Rozměry (Š x V x H)</span><strong>44 x 44 x 70 mm</strong></div>
+            <div class="spec-row"><span class="label">Max. zátěž</span><strong>2 500 W (12 A)</strong></div>
+            <div class="spec-row"><span class="label">Protokol</span><strong>Wi-Fi, Bluetooth</strong></div>
+            <div class="spec-row"><span class="label">Měření energie</span><strong>Ano (V, A, W, kWh)</strong></div>
+            <div class="spec-row"><span class="label">LED indikace</span><strong>Nastavitelná RGB podle zátěže</strong></div>
+        </div>
+    </div>
+</div>
+<div class="reviews-bg">
+    <div class="review-box"><strong>Martin_Tech:</strong> "Nejmenší zásuvka s měřením na trhu. LED kroužek, co mění barvu podle toho, kolik žere lednice, je geniální vizuální pomůcka."</div>
+    <div class="review-box"><strong>Elektro_Lojza:</strong> "Konečně zásuvka, která nepotřebuje čínský cloud. Jede mi to na Home Assistantu čistě lokálně. Skvělá odezva."</div>
+    <div class="review-box"><strong>Data_Analytik:</strong> "Export grafů spotřeby do CSV je super. Zjistil jsem, že starý mrazák mě stojí 2000 ročně navíc."</div>
+    <div class="review-box"><strong>Petr_M:</strong> "Trochu složitější nastavení pro laiky, ale pro hračičky je to ráj. Skripty umožňují věci, co konkurence neumí."</div>
+    <div class="review-box"><strong>Kritik_88:</strong> "Barevná LED v noci docela svítí, musel jsem ji v aplikaci ztlumit na 10 %, aby mě to nerušilo v ložnici."</div>
+</div>
+<script>
+    document.getElementById('shellyBtn').onclick = () => alert('Shelly Plus Plug S vybrána! Vaše spotřeba pod drobnohledem.');
+</script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SonicBuds Active | Sportovní E-shop</title>
+    <style>
+        :root {
+            --accent-color: #ff5722;
+            --bg-color: #f9f9fa;
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+        .product-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .product-image {
+            flex: 1;
+            min-width: 300px;
+            background: #f0f0f0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #999;
+            aspect-ratio: 1;
+            border: 2px dashed #ddd;
+        }
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        h1 { margin-top: 0; color: #111; font-size: 2.5rem; }
+        .tag {
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .price { font-size: 2.2rem; font-weight: bold; margin: 20px 0; color: var(--accent-color); }
+        .buy-btn {
+            background-color: #111;
+            color: #fff;
+            border: none;
+            padding: 16px 30px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .buy-btn:hover { background-color: var(--accent-color); box-shadow: 0 6px 15px rgba(255, 87, 34, 0.4); }
+        .buy-btn:active { transform: translateY(2px); }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+        }
+        th, td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+        th { color: #555; width: 40%; font-weight: 600; }
+        
+        .reviews { margin-top: 40px; }
+        .review-card {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-color);
+        }
+        .stars { color: var(--accent-color); margin-bottom: 10px; font-size: 1.2rem; letter-spacing: 2px;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="product-header">
+        <div class="product-image">
+            [ Obrázek: SonicBuds Active ]
+        </div>
+        <div class="product-info">
+            <span class="tag">Bestseller</span>
+            <h1>SonicBuds Active</h1>
+            <p>Tvoje hudba, tvoje tempo. Bezdrátová špuntová sluchátka navržená pro extrémní sportovní výkony. Nikdy nevypadnou a díky certifikaci IPX7 se nezaleknou deště ani potu.</p>
+            <div class="price">1 890 Kč</div>
+            <button class="buy-btn" id="addToCartBtn2">Vložit do košíku</button>
+        </div>
+    </div>
+
+    <h2>Technické specifikace</h2>
+    <table>
+        <tr><th>Typ konstrukce</th><td>Špunty do uší (In-Ear) s háčky</td></tr>
+        <tr><th>Konektivita</th><td>Bluetooth 5.2 (dosah až 15m)</td></tr>
+        <tr><th>Odolnost proti vodě</th><td>IPX7 (vodotěsné)</td></tr>
+        <tr><th>Výdrž baterie</th><td>9 hodin (sluchátka) + 35 hodin (nabíjecí pouzdro)</td></tr>
+        <tr><th>Hmotnost</th><td>7 g (jedno sluchátko)</td></tr>
+        <tr><th>Ovládání</th><td>Dotykové plochy na sluchátkách</td></tr>
+    </table>
+
+    <div class="reviews">
+        <h2>Hodnocení zákazníků</h2>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <strong>Tomáš D.</strong>
+            <p>"Konečně sluchátka, která mi při běhání nevypadávají z uší! Zvuk je dostatečně basový, aby nakopl k výkonu, a baterka drží neskutečně dlouho."</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★☆</div>
+            <strong>Petra S.</strong>
+            <p>"Skvělé na fitness. Párování s telefonem je bleskové. Jedna hvězdička dolů, protože pouzdro by mohlo být o něco menší do kapsy."</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <strong>David V.</strong>
+            <p>"Za tu cenu naprostá pecka. Zkoušel jsem je i ve sprše a přežily bez újmy."</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('addToCartBtn2').addEventListener('click', function() {
+        if(this.classList.contains('added')) return;
+        
+        const originalText = this.innerText;
+        this.innerText = "Zpracovávám...";
+        
+        setTimeout(() => {
+            this.innerText = "Máš to v košíku!";
+            this.style.backgroundColor = "#4CAF50";
+            this.classList.add('added');
+            
+            // Notifikace vyskakovacím oknem (alert)
+            alert("SonicBuds Active byly přidány do nákupního košíku.");
+            
+            setTimeout(() => {
+                this.innerText = originalText;
+                this.style.backgroundColor = "#111";
+                this.classList.remove('added');
+            }, 2500);
+        }, 500);
+    });
+</script>
+
+</body>
+</html>

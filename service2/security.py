@@ -7,10 +7,7 @@ from perplexity_calc import compute_perplexity
 
 logger = logging.getLogger(__name__)
 
-# Global env for model
 
-detector_model = None
-detector_threshold = None
 class SecurityDetector:
     """
     A security handler that encapsulates the LightGBM classifier
@@ -27,10 +24,10 @@ class SecurityDetector:
         data = joblib.load('jailbreak_detector.pkl')
         self.model = data['model']
         self.threshold = data['threshold']
-        logger.info(f"LightGBM loaded (Treshold: {self.hreshold:.4f})")
+        logger.info(f"LightGBM loaded (Treshold: {self.threshold:.4f})")
         
 
-    async def check_perplexity(query_text: str):
+    async def check_perplexity(self, query_text: str):
         """
         Perform a security audit on the incoming prompt using Perplexity and Length features.
     

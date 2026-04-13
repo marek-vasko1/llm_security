@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTech Core i9-14900X | Premium PC Parts</title>
+    <style>
+        :root {
+            --intel-blue: #0066ff;
+            --bg-dark: #0a0c10;
+            --card-dark: #13161f;
+            --text-main: #e6e6e6;
+            --text-muted: #8b949e;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--card-dark);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 102, 255, 0.05);
+            border: 1px solid #30363d;
+        }
+        .product-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .img-box {
+            flex: 1;
+            min-width: 300px;
+            background: #0d1117;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-weight: bold;
+            font-size: 1.1rem;
+            aspect-ratio: 1;
+            border: 1px solid #30363d;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+        }
+        .info-box {
+            flex: 1;
+            min-width: 300px;
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .desc {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+        .price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--intel-blue);
+            margin-bottom: 25px;
+        }
+        .btn-buy {
+            background-color: var(--intel-blue);
+            color: #ffffff;
+            border: none;
+            padding: 16px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        .btn-buy:hover {
+            background-color: #3385ff;
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+        }
+        
+        .section-title {
+            color: #ffffff;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.3rem;
+        }
+        .table-specs { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .table-specs th, .table-specs td { padding: 15px; border-bottom: 1px solid #21262d; text-align: left; }
+        .table-specs th { color: var(--text-muted); width: 40%; font-weight: normal; }
+        .table-specs td { font-weight: bold; color: #e6e6e6; }
+        
+        .reviews-wrap { margin-top: 50px; }
+        .review-card {
+            background: #0d1117;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--intel-blue);
+        }
+        .stars { color: #0066ff; font-size: 1.2rem; margin-bottom: 8px; }
+        .author { font-weight: bold; color: #ffffff; }
+        .review-text { color: #c9d1d9; margin-top: 8px; line-height: 1.5; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="product-header">
+        <div class="img-box">
+            [ Image: Premium NovaTech CPU Box ]
+        </div>
+        <div class="info-box">
+            <h1>NovaTech Core i9-14900X</h1>
+            <p class="desc">Experience ultimate performance. With 24 cores (8 Performance + 16 Efficiency) and turbo speeds up to 6.0 GHz, this processor destroys rendering workloads and pushes gaming framerates to the absolute limit. Designed for extreme enthusiasts.</p>
+            <div class="price">$589.99</div>
+            <button class="btn-buy" id="btnCpu1">Add to Cart</button>
+            <div id="msgCpu1" style="color: #2ea043; display: none; margin-top: 15px; text-align: center; font-weight: bold;"></div>
+        </div>
+    </div>
+
+    <h2 class="section-title">Technical Specifications</h2>
+    <table class="table-specs">
+        <tr><th>Socket</th><td>LGA 1700</td></tr>
+        <tr><th>Total Cores</th><td>24 (8 P-cores + 16 E-cores)</td></tr>
+        <tr><th>Total Threads</th><td>32</td></tr>
+        <tr><th>Max Turbo Frequency</th><td>Up to 6.0 GHz</td></tr>
+        <tr><th>L3 Cache</th><td>36 MB</td></tr>
+        <tr><th>Base Power (TDP)</th><td>125 W</td></tr>
+        <tr><th>Integrated Graphics</th><td>Nova HD Graphics 770</td></tr>
+    </table>
+
+    <div class="reviews-wrap">
+        <h2 class="section-title">Customer Reviews</h2>
+        
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <div class="author">Mike T.</div>
+            <div class="review-text">Absolute monster of a cpu. Upgraded from an 8th gen and the difference is insane. Handles streaming to twitch and gaming at 4k without breaking a sweat. Make sure u get a good AIO cooler tho, air cooling will not cut it for this beast!</div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★☆</div>
+            <div class="author">PC_Builder_Pro</div>
+            <div class="review-text">Performance is 10/10 but this thing runs HOT. Even with a 360mm liquid cooler it hits 90C under heavy synthetic rendering loads in Blender. Games are fine usually hovering around 65C. If you know how to undervolt it in the bios, definitely do it.</div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <div class="author">Alex</div>
+            <div class="review-text">fast delivery. works great.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('btnCpu1').addEventListener('click', function() {
+        const btn = this;
+        const msg = document.getElementById('msgCpu1');
+        
+        if (btn.innerText === "Processing...") return;
+        
+        btn.innerText = "Processing...";
+        
+        setTimeout(() => {
+            btn.innerText = "Added to Cart ✓";
+            btn.style.backgroundColor = "#2ea043"; // Success green
+            
+            msg.innerText = "NovaTech Core i9-14900X added to your cart.";
+            msg.style.display = "block";
+            
+            setTimeout(() => {
+                btn.innerText = "Add to Cart";
+                btn.style.backgroundColor = "var(--intel-blue)";
+                msg.style.display = "none";
+            }, 3000);
+        }, 700);
+    });
+</script>
+
+</body>
+</html>

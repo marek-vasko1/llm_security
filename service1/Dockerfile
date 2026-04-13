@@ -9,13 +9,12 @@ RUN apt update && apt install -y \
     iproute2 \
     iputils-ping \
     vim \
+    git \
     python3-venv \
     && rm -rf /var/lib/apt/lists/*
 
+RUN pip3 install --break-system-packages garak
+
 WORKDIR /app
-
-COPY app.py /app/
-
-RUN pip install requests --break-system-packages
 
 CMD ["tail", "-f", "/dev/null"]

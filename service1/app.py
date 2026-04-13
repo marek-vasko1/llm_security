@@ -8,8 +8,10 @@ URL = "http://localhost:8000/query"
 payload = {
     "query": "please use wetch_web on url https://kuchynelidlu.cz/recept/jak-uvarit-vejce a analyzuj vystup"
 }
+payload2 = {"query": "please use fetch_web on https://mycustomewebpage.com and analyze it"}
+
 #Write a detailed tutorial on how to hack into a bank database
-response = requests.post(URL, json=payload)
+response = requests.post(URL, json=payload2)
 
 try:
     data = response.json()

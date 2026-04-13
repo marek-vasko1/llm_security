@@ -23,6 +23,8 @@ RUN apt update && apt install -y net-tools git libgomp1 && \
         pandas \
         joblib \
         accelerate \
+	scikit-learn \
+	beautifulsoup4
 
 
 

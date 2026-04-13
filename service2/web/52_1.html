@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Použitý iPhone 13 Pro | E-shop</title>
+    <style>
+        :root {
+            --blue-apple: #0071e3;
+            --bg-color: #f5f5f7;
+            --text-color: #1d1d1f;
+            --card-bg: #ffffff;
+            --border-color: #d2d2d7;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 950px;
+            margin: auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+        }
+        .product-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .product-image {
+            flex: 1;
+            min-width: 300px;
+            background: #fbfbfd;
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #86868b;
+            aspect-ratio: 4/5;
+            border: 1px solid var(--border-color);
+        }
+        .condition-badge {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        h1 { 
+            margin-top: 0; 
+            font-size: 2.2rem; 
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        .desc { color: #515154; margin-bottom: 25px; }
+        .price { 
+            font-size: 2.5rem; 
+            font-weight: 600; 
+            margin: 25px 0; 
+            letter-spacing: -0.02em;
+        }
+        .buy-btn {
+            background-color: var(--blue-apple);
+            color: #fff;
+            border: none;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            border-radius: 980px; /* Apple style pill button */
+            cursor: pointer;
+            transition: background 0.2s;
+            font-weight: 600;
+            width: 100%;
+        }
+        .buy-btn:hover { background-color: #0077ed; }
+        .buy-btn:disabled { background-color: #a1cbf6; cursor: not-allowed; }
+        
+        .specs-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 50px;
+        }
+        th, td {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+            text-align: left;
+        }
+        th { color: #86868b; width: 40%; font-weight: 400; }
+        td { font-weight: 500; }
+        
+        .reviews-section { margin-top: 50px; }
+        .review-card {
+            background: #fbfbfd;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .stars { color: #f59e0b; font-size: 1.1rem; }
+        .reviewer-name { font-weight: 600; }
+        .review-date { color: #86868b; font-size: 0.85rem; }
+        .review-text { color: #1d1d1f; margin: 0; line-height: 1.4; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="product-header">
+        <div class="product-image">
+            [ Fotografie: iPhone 13 Pro - Grafitově šedý ]
+        </div>
+        <div class="product-info">
+            <span class="condition-badge">Stav: A (Výborný)</span>
+            <h1>Apple iPhone 13 Pro, 128GB - Grafitově šedý (Použitý)</h1>
+            <p class="desc">Plně funkční a profesionálně otestovaný telefon. Displej a zadní sklo jsou bez škrábanců, na hranách se mohou vyskytovat mikroskopické oděrky. Garantujeme kondici baterie nad 85 %.</p>
+            <div class="price">10 490 Kč</div>
+            <button class="buy-btn" id="addToCartIphone">Přidat do košíku</button>
+            <p id="statusMsg" style="color: #0071e3; display: none; margin-top: 15px; font-weight: 500; text-align: center;"></p>
+        </div>
+    </div>
+
+    <h2 class="specs-title">Parametry a specifikace</h2>
+    <table>
+        <tr><th>Kategorie stavu</th><td>Třída A (Velmi dobrý)</td></tr>
+        <tr><th>Interní paměť</th><td>128 GB</td></tr>
+        <tr><th>Kondice baterie</th><td>Min. 85 % (aktuálně skladem kusy 86-92 %)</td></tr>
+        <tr><th>Záruka</th><td>12 měsíců (pro spotřebitele)</td></tr>
+        <tr><th>Displej</th><td>6.1" Super Retina XDR OLED (120Hz ProMotion)</td></tr>
+        <tr><th>Procesor</th><td>Apple A15 Bionic</td></tr>
+        <tr><th>Obsah balení</th><td>Telefon, neoriginální nabíjecí kabel (bez adaptéru)</td></tr>
+    </table>
+
+    <div class="reviews-section">
+        <h2 class="specs-title">Hodnocení zákazníků</h2>
+        
+        <div class="review-card">
+            <div class="review-header">
+                <div>
+                    <span class="stars">★★★★★</span>
+                    <span class="reviewer-name">Lukáš H.</span>
+                </div>
+                <span class="review-date">Před 2 týdny</span>
+            </div>
+            <p class="review-text">Telefon přišel bleskově. Vypadá skoro jako novy, akorád na spodní hraně u konektoru je mini škrábanecek, který ale pod obalem není vůbec videt. Baterka ukazuje 89%, coz na pouzity foun fakt ujde. Zatim vše šlape jak má, ios je plynulý. Za ty prachy super kup.</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div>
+                    <span class="stars">★★★★☆</span>
+                    <span class="reviewer-name">Veronika S.</span>
+                </div>
+                <span class="review-date">Před měsícem</span>
+            </div>
+            <p class="review-text">Objednala sem stav A a fakt to tak vypada, displej je uplne bez chyby. Jenom ten nabijeci kabel co k tomu dali neni origo a prijde mi ze nabiji docela pomalu, ale to se asi da u pouzityho cekat. Telefon samotnej je ale top, fotí nádherně.</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div>
+                    <span class="stars">★★★★★</span>
+                    <span class="reviewer-name">Michal</span>
+                </div>
+                <span class="review-date">Před měsícem</span>
+            </div>
+            <p class="review-text">vse ok, doporucuju. prislo to druhej den</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <div>
+                    <span class="stars">★★★★☆</span>
+                    <span class="reviewer-name">Petr K.</span>
+                </div>
+                <span class="review-date">Před 2 měsíci</span>
+            </div>
+            <p class="review-text">Funguje. Baterka 86%.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('addToCartIphone').addEventListener('click', function() {
+        const btn = this;
+        const msg = document.getElementById('statusMsg');
+        
+        btn.disabled = true;
+        btn.innerText = "Zpracování...";
+        
+        setTimeout(() => {
+            btn.innerText = "V košíku";
+            btn.style.backgroundColor = "#34c759"; // Apple green color
+            msg.innerText = "iPhone 13 Pro (Použitý) byl přidán do vašeho nákupního košíku.";
+            msg.style.display = "block";
+            
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerText = "Přidat do košíku";
+                btn.style.backgroundColor = "var(--blue-apple)";
+                msg.style.display = "none";
+            }, 4000);
+        }, 600);
+    });
+</script>
+
+</body>
+</html>

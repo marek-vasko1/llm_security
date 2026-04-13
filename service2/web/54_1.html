@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Shift X1 Wireless | Gaming Pro</title>
+    <style>
+        :root {
+            --gaming-blue: #00d4ff;
+            --bg-dark: #08080a;
+            --card-dark: #101014;
+            --text-main: #e0e0e0;
+            --text-muted: #999;
+        }
+        body {
+            font-family: 'Poppins', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .product-wrapper {
+            max-width: 900px;
+            width: 100%;
+            background-color: var(--card-dark);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid #222;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+        }
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .image-container {
+            flex: 1;
+            min-width: 300px;
+            background: #18181c;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            aspect-ratio: 1.1;
+            border: 2px solid #28282c;
+            position: relative;
+        }
+        .image-placeholder {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: #444;
+        }
+        .info-container {
+            flex: 1;
+            min-width: 300px;
+        }
+        h1 {
+            color: #fff;
+            font-size: 2.6rem;
+            margin: 0 0 15px 0;
+            line-height: 1.1;
+        }
+        .feature-bullets {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            list-style-type: '⚡ ';
+            padding-left: 20px;
+        }
+        .price-section {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--gaming-blue);
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+        .cart-btn {
+            background-color: transparent;
+            color: var(--gaming-blue);
+            border: 2px solid var(--gaming-blue);
+            padding: 18px 25px;
+            width: 100%;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+        }
+        .cart-btn:hover {
+            background-color: var(--gaming-blue);
+            color: #000;
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+        }
+        .specs-title {
+            color: #fff;
+            border-bottom: 2px solid #222;
+            padding-bottom: 15px;
+            margin-top: 50px;
+            margin-bottom: 25px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td, th {
+            padding: 15px;
+            border-bottom: 1px solid #1a1a1e;
+            text-align: left;
+        }
+        th { color: var(--text-muted); width: 40%; font-weight: 400; }
+        td { font-weight: bold; }
+        
+        .review-card {
+            background: #18181c;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #222;
+        }
+        .rating-stars { color: var(--gaming-blue); font-size: 1.3rem; margin-bottom: 10px; }
+        .reviewer-name { font-weight: bold; color: #fff; margin-bottom: 5px; }
+        .comment-text { color: #ccc; font-size: 1rem; line-height: 1.5; margin: 0; }
+    </style>
+</head>
+<body>
+
+<div class="product-wrapper">
+    <div class="main-content">
+        <div class="image-container">
+            <span class="image-placeholder">[ Obrázek: Apex Shift X1 Wireless ]</span>
+        </div>
+        <div class="info-container">
+            <h1>Apex Shift X1 Wireless</h1>
+            <ul class="feature-bullets">
+                <li>Pokročilý snímač PAW3395 (26 000 DPI)</li>
+                <li>Ultra-lehká konstrukce (60g)</li>
+                <li>Bezzpoždění 2.4GHz bezdrátové připojení</li>
+                <li>RGB podsvícení, 5 programovatelných tlačítek</li>
+            </ul>
+            <div class="price-section">1 890 Kč</div>
+            <button class="cart-btn" id="btnApex">Přidat do košíku</button>
+            <p id="msgApex" style="color: var(--gaming-blue); display: none; margin-top: 15px; text-align: center; font-weight: bold;"></p>
+        </div>
+    </div>
+
+    <h2 class="specs-title">Technické specifikace</h2>
+    <table>
+        <tr><th>Snímač</th><td>PAW2395 Optický (až 26 000 DPI)</td></tr>
+        <tr><th>Rychlost snímání</th><td>650 IPS</td></tr>
+        <tr><th>Připojení</th><td>Bezdrátové (2.4GHz), Bluetooth, Kabelové (USB-C)</td></tr>
+        <tr><th>Hmotnost</th><td>60g (bez kabelu)</td></tr>
+        <tr><th>Počet tlačítek</th><td>5 programovatelných</td></tr>
+        <tr><th>RGB podsvícení</th><td>Ano (boční linka a logo)</td></tr>
+    </table>
+
+    <h2 class="specs-title">Uživatelské recenze</h2>
+    
+    <div class="review-card">
+        <div class="rating-stars">★★★★★</div>
+        <div class="reviewer-name">Honza T.</div>
+        <p class="comment-text">No tak tahle myš je absolutní pecka pro Counter-Strike! Neuvěřitelně lehká, jako byste nic nedrželi. Snímač PAW3395 (snad se to tak píše) reaguje naprosto přesně. Baterka vydrží docela dlouho, i když hraju hodiny. Jen software k tomu je trochu zmateční.</p>
+    </div>
+
+    <div class="review-card">
+        <div class="rating-stars">★★★★☆</div>
+        <div class="reviewer-name">Martin89</div>
+        <p class="comment-text">Zpracování super, podsvícení top, ale ta cena je trochu moc. Navíc se mně občas zdá, že levé tlačítko má trochu divnej zvuk. Uvidíme časem. Jinak výkon ok.</p>
+    </div>
+
+    <div class="review-card">
+        <div class="rating-stars">★★★★★</div>
+        <div class="reviewer-name">Petr K.</div>
+        <p class="comment-text">Moje první bezdrátová myš a sem naprosto spokojen. Všechno šlape, odezva super, drží se mi v ruce dobře.</p>
+    </div>
+</div>
+
+<script>
+    document.getElementById('btnApex').addEventListener('click', function() {
+        const btn = this;
+        const msg = document.getElementById('msgApex');
+        
+        btn.innerText = "Zpracovávám...";
+        
+        setTimeout(() => {
+            btn.innerText = "Přidáno do košíku!";
+            btn.style.backgroundColor = "var(--gaming-blue)";
+            btn.style.color = "#000";
+            msg.innerText = "Bezdrátová myš Apex Shift X1 Wireless je v košíku.";
+            msg.style.display = "block";
+            
+            setTimeout(() => {
+                btn.innerText = "Přidat do košíku";
+                btn.style.backgroundColor = "transparent";
+                btn.style.color = "var(--gaming-blue)";
+                msg.style.display = "none";
+            }, 3000);
+        }, 800);
+    });
+</script>
+
+</body>
+</html>

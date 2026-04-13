@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroFlare RGB DDR5 32GB | Extreme PC Gear</title>
+    <style>
+        :root {
+            --neon-pink: #ff007f;
+            --neon-blue: #00f3ff;
+            --bg-dark: #09090c;
+            --card-dark: #121218;
+            --text-main: #e0e0e0;
+            --text-muted: #888;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--card-dark);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            border: 1px solid #1f1f2e;
+            position: relative;
+            overflow: hidden;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+        }
+        .product-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .img-placeholder {
+            flex: 1;
+            min-width: 300px;
+            background: #050508;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-weight: bold;
+            font-size: 1.1rem;
+            aspect-ratio: 4/3;
+            border: 1px solid #1f1f2e;
+            box-shadow: inset 0 0 50px rgba(255, 0, 127, 0.05);
+        }
+        .info-section {
+            flex: 1;
+            min-width: 300px;
+        }
+        h1 {
+            color: #fff;
+            font-size: 2.4rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .desc {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+        }
+        .btn-cart {
+            background: transparent;
+            color: #fff;
+            border: 2px solid var(--neon-pink);
+            padding: 16px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-cart::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; bottom: 0; width: 0;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+            z-index: -1;
+            transition: width 0.3s ease;
+        }
+        .btn-cart:hover::before { width: 100%; }
+        .btn-cart:hover { border-color: transparent; }
+        
+        .heading-sub {
+            color: #fff;
+            border-bottom: 1px solid #1f1f2e;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .table-specs { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .table-specs th, .table-specs td { padding: 15px; border-bottom: 1px solid #1f1f2e; text-align: left; }
+        .table-specs th { color: var(--text-muted); width: 40%; font-weight: normal; }
+        .table-specs td { font-weight: bold; color: #fff; }
+        
+        .reviews-wrap { margin-top: 50px; }
+        .review-box {
+            background: #0d0d14;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--neon-blue);
+        }
+        .stars { color: var(--neon-pink); font-size: 1.2rem; margin-bottom: 8px; }
+        .author { font-weight: bold; color: #fff; }
+        .review-text { color: #aaa; margin-top: 8px; line-height: 1.5; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="product-section">
+        <div class="img-placeholder">
+            [ Image: 2x RGB RAM modules glowing in neon colors ]
+        </div>
+        <div class="info-section">
+            <h1>AeroFlare RGB DDR5 32GB</h1>
+            <p class="desc">Push your system to the absolute limit. This 32GB (2x16GB) kit delivers blistering 6400MHz speeds with low CL32 latency. Features premium aluminum heat spreaders and fully customizable, dynamic RGB lighting for your next-gen rig.</p>
+            <div class="price">$139.99</div>
+            <button class="btn-cart" id="btnRam1">Add to Cart</button>
+            <div id="msgRam1" style="color: var(--neon-blue); display: none; margin-top: 15px; text-align: center; font-weight: bold;"></div>
+        </div>
+    </div>
+
+    <h2 class="heading-sub">Technical Specifications</h2>
+    <table class="table-specs">
+        <tr><th>Capacity</th><td>32 GB (2 x 16 GB)</td></tr>
+        <tr><th>Memory Type</th><td>DDR5 DIMM</td></tr>
+        <tr><th>Speed</th><td>6400 MHz</td></tr>
+        <tr><th>Latency</th><td>CL32 (32-39-39-102)</td></tr>
+        <tr><th>Voltage</th><td>1.40 V</td></tr>
+        <tr><th>Profiles</th><td>Intel XMP 3.0 & AMD EXPO Ready</td></tr>
+        <tr><th>Lighting</th><td>RGB (Compatible with Aura Sync, Mystic Light, RGB Fusion)</td></tr>
+    </table>
+
+    <div class="reviews-wrap">
+        <h2 class="heading-sub">Customer Reviews</h2>
+        
+        <div class="review-box">
+            <div class="stars">★★★★☆</div>
+            <div class="author">Mike R.</div>
+            <div class="review-text">Got this for my new 7800x3d build. The EXPO profile worked flawlessly on the first boot, running stable at 6400mhz. Super fast memory and looks amazing. Dropping one star cause their RGB software is kinda clunky and sometimes conflicts with my corsair fans, so I just use my motherboard software instead.</div>
+        </div>
+
+        <div class="review-box">
+            <div class="stars">★★★★★</div>
+            <div class="author">Alex_Gamer99</div>
+            <div class="review-text">fast delivery, works out of the box. lights are very bright.</div>
+        </div>
+
+        <div class="review-box">
+            <div class="stars">★★★★★</div>
+            <div class="author">Sarah T.</div>
+            <div class="review-text">Massive aluminum heatsinks keep the temps really nice even under heavy gaming loads. CL32 at 6400MHz for this price is an absolute steal right now. Just make sure you check the clearance if you are using a big air cooler, they barely fit under my Noctua NH-D15.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('btnRam1').addEventListener('click', function() {
+        const btn = this;
+        const msg = document.getElementById('msgRam1');
+        
+        if (btn.innerText === "Processing...") return;
+        
+        btn.innerText = "Processing...";
+        
+        setTimeout(() => {
+            btn.innerText = "Added to Cart ✓";
+            btn.style.background = "var(--neon-blue)";
+            btn.style.color = "#000";
+            btn.style.borderColor = "var(--neon-blue)";
+            
+            msg.innerText = "AeroFlare RGB DDR5 has been added to your cart.";
+            msg.style.display = "block";
+            
+            setTimeout(() => {
+                btn.innerText = "Add to Cart";
+                btn.style.background = "transparent";
+                btn.style.color = "#fff";
+                btn.style.borderColor = "var(--neon-pink)";
+                msg.style.display = "none";
+            }, 3000);
+        }, 600);
+    });
+</script>
+
+</body>
+</html>
