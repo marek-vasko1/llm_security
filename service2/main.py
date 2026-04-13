@@ -14,7 +14,7 @@ from pathlib import Path
 
 import logging
 from openai import AsyncOpenAI
-
+from openai.types.chat.chat_completion_message_tool_call import ChatCompletionMessageToolCall, Function
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)
@@ -32,6 +32,66 @@ client_ai = AsyncOpenAI(
 
 MCP_SERVER_SCRIPT = "/app/mcp_server.py"
 PARAPHRASE_LLM="qwen3-coder"
+
+def fix_raw_tool_call(message):
+    """
+    Fix RAW MCP leaked tool calls (multi-tool safe).
+    Returns OpenAI-compatible assistant message dict.
+    """
+
+    content = getattr(message, "content", None)
+
+    if not content:
+        return message
+
+    if "to=functions." not in content or "<|message|>" not in content:
+        return message
+
+    logger.warning("Intercepted RAW MCP multi-tool format. Repairing...")
+
+    tool_calls = []
+
+    # split into blocks
+    blocks = content.split("<|call|>")
+
+    for block in blocks:
+        if "to=functions." not in block:
+            continue
+
+        # tool name
+        match = re.search(r"to=functions\.([a-zA-Z0-9_\-]+)", block)
+        if not match:
+            continue
+
+        tool_name = match.group(1)
+
+        # args
+        args_str = "{}"
+
+        try:
+            if "<|message|>" in block:
+                json_part = block.split("<|message|>")[1].strip()
+
+                if json_part:
+                    json.loads(json_part)  # validation only
+                    args_str = json_part
+
+        except Exception as e:
+            logger.debug(f"Invalid JSON in tool call for {tool_name}: {e}")
+            args_str = "{}"
+
+        tool_calls.append(
+            ChatCompletionMessageToolCall(
+                id=f"call_{uuid.uuid4().hex[:10]}",
+                type="function",
+                function=Function(name=tool_name, arguments=args_str)
+            )    
+        )
+        
+    if not tool_calls:
+        return message
+
+    return message.model_copy(update={"content":None, "tool_calls": tool_calls})
 
 async def paraphrase(prompt: str):
     """
@@ -209,7 +269,8 @@ class MCPClient:
             logger.debug(f"loop running {i}")
             message = response.choices[0].message
             
-             
+            message = fix_raw_tool_call(message)
+
             if not message.tool_calls:
                 break
             
